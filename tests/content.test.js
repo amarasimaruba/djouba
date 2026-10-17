@@ -9,8 +9,10 @@ function clone(x) { return JSON.parse(JSON.stringify(x)); }
 test('le linter ne signale rien sur le contenu livré', function () {
   assert.deepStrictEqual(K.lint(C), []);
 });
-test('6 objets, 4 à 8 parties chacun, 4 langues', function () {
-  assert.strictEqual(C.objects.length, 6);
+test('3 pièces, 12 objets, 4 à 8 parties chacun, 4 langues', function () {
+  assert.deepStrictEqual(C.rooms.map(function (r) { return r.id; }), ['general', 'cuisine', 'sdb']);
+  assert.strictEqual(C.objects.length, 12);
+  C.rooms.forEach(function (r) { assert.ok(C.objects.filter(function (o) { return o.room === r.id; }).length >= 3, r.id); });
   C.objects.forEach(function (o) { assert.ok(o.parts.length >= 4 && o.parts.length <= 8, o.id); });
   assert.deepStrictEqual(C.langs.map(function (l) { return l.id; }), ['fr', 'ht', 'en', 'es']);
 });
@@ -53,6 +55,31 @@ test('les définitions ne donnent pas le mot à trouver', function () {
       assert.ok(p.def.fr.toLowerCase().indexOf(w) === -1, o.id + '.' + p.id);
     });
   });
+});
+test('QCM : aucun intrus ne vient de la même pièce, ni ne porte un nom de la pièce', function () {
+  C.objects.forEach(function (o) {
+    K.LANG_IDS.forEach(function (l) {
+      var names = K.roomNames(C.objects, o.room, l);
+      for (var s = 1; s < 40; s++) {
+        K.buildCheckQuestion(C.objects, o.id, l, K.rng(s)).options.filter(function (x) { return !x.good; }).forEach(function (x) {
+          var from = C.objects.filter(function (q) { return q.id === x.from; })[0];
+          assert.notStrictEqual(from.room, o.room, o.id + ' : intrus de la même pièce');
+          assert.ok(!names[K.tr(x.name, l)], o.id + ' ' + l + ' : « ' + K.tr(x.name, l) + ' » existe dans la pièce');
+        });
+      }
+    });
+  });
+  // exemple concret : « le robinet » n'est jamais proposé comme intrus pour la cuisine
+  for (var s = 1; s < 60; s++) {
+    var q = K.buildCheckQuestion(C.objects, 'cuisine', 'fr', K.rng(s));
+    assert.ok(q.options.every(function (x) { return x.good || x.name.fr !== 'le robinet'; }));
+  }
+});
+test('mutation : pièce inconnue et couleur en double détectées', function () {
+  var m = clone(C); m.objects[7].room = 'garage';
+  assert.ok(K.lint(m).some(function (e) { return /Pièce inconnue/.test(e); }));
+  m = clone(C); m.objects[8].color = m.objects[0].color;
+  assert.ok(K.lint(m).some(function (e) { return /même couleur/.test(e); }));
 });
 test('mutation : traduction manquante détectée', function () {
   var m = clone(C); m.objects[0].parts[0].name.ht = '';

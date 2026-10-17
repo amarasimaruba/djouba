@@ -90,6 +90,10 @@ html.hc .defcard { background: #FFF; border: 3px solid #000; }
 .cbrow.good label { color: var(--ok); font-weight: 700; }
 .cbrow.bad label { color: var(--ko); text-decoration: line-through; }
 .misconception { background: #FFF4CE; color: #3D2E00; border-radius: 10px; padding: 4px 14px; }
+.roomtitle { font-size: 1.1rem; margin: 18px 0 0; padding: 6px 12px; border-radius: 10px; }
+.objhead .roomtag { margin: 0; font-size: .85rem; font-weight: 600; text-transform: uppercase; letter-spacing: .04em; }
+.roomrow th { background: #F1EDE4; }
+html.hc .roomrow th { background: #FFF; }
 .gallery { list-style: none; padding: 0; margin: 12px 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
 .card { width: 100%; display: flex; flex-direction: column; align-items: stretch; gap: 6px; padding: 8px; border: 3px solid; border-radius: 14px; background: var(--card); color: var(--fg); font: inherit; cursor: pointer; }
 .cardname { font-weight: 700; padding: 4px 8px; border-radius: 8px; }
@@ -97,12 +101,13 @@ html.hc .defcard { background: #FFF; border: 3px solid #000; }
 table { border-collapse: collapse; width: 100%; font-size: .92rem; }
 caption { text-align: left; font-weight: 700; padding: 6px 0; }
 th, td { border: 1px solid var(--line); padding: 4px 6px; text-align: left; }
-.mapframe { position: relative; height: 560px; margin-top: 12px; border: 2px solid var(--line); border-radius: 16px; background: var(--card); overflow: hidden; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; }
+.mapframe { position: relative; height: 620px; margin-top: 12px; border: 2px solid var(--line); border-radius: 16px; background: var(--card); overflow: hidden; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; }
 .maplines { position: absolute; left: 0; top: 0; width: 100%; pointer-events: none; }
 .maphint { position: absolute; left: 10px; right: 10px; bottom: 8px; margin: 0; font-size: .8rem; color: var(--muted); pointer-events: none; }
 .mapnode { position: absolute; min-height: 44px; min-width: 44px; max-width: 150px; padding: 6px 10px; border-radius: 22px; border: 2px solid rgba(0,0,0,.55); font: inherit; font-size: .92rem; line-height: 1.2; cursor: grab; touch-action: none; }
 .mapnode.center { font-weight: 800; max-width: 170px; }
-.mapnode.branch { font-weight: 700; }
+.mapnode.branch { font-weight: 800; }
+.mapnode.sub { font-weight: 700; }
 .mapnode.locked { font-weight: 800; }
 .mappanel { position: absolute; left: 10px; right: 10px; bottom: 8px; max-height: 160px; overflow-y: auto; z-index: 5; background: var(--card); color: var(--fg); border: 3px solid var(--fg); border-radius: 12px; padding: 8px 12px; box-shadow: 0 4px 14px rgba(0,0,0,.25); }
 .mappanel h3 { margin: 0 0 .2rem; font-size: 1rem; }
@@ -113,8 +118,8 @@ footer { margin-top: 24px; font-size: .85rem; color: var(--muted); }
   h1 { font-size: 1.25rem; }
   .nav .btn { flex: 1 1 40%; }
   .nav .field { order: -1; flex-basis: 100%; }
-  .mapframe { height: 640px; }
-  .mapnode { max-width: 120px; font-size: .85rem; }
+  .mapframe { height: 780px; }
+  .mapnode, .mapnode.center { max-width: 118px; font-size: .85rem; padding: 4px 8px; }
 }
 </style>
 </head>

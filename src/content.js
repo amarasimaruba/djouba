@@ -91,14 +91,23 @@ var CONTENT = (function () {
     backGallery: L('Retour à la galerie', 'Retounen nan galri a', 'Back to the gallery', 'Volver a la galería'),
     activityNext: L('Activité suivante', 'Aktivite apre a', 'Next activity', 'Actividad siguiente'),
     mapCenter: L('La maison et ses objets', 'Kay la ak objè li yo', 'The house and its objects', 'La casa y sus objetos'),
+    room: L('Pièce', 'Pyès', 'Room', 'Habitación'),
+    mapRoomInfo: L('{n} objets à découvrir. Touche la bulle pour les afficher ou les cacher.', '{n} objè pou dekouvri. Touche bul la pou montre oswa kache yo.', '{n} objects to discover. Tap the bubble to show or hide them.', '{n} objetos que descubrir. Toca la burbuja para mostrarlos u ocultarlos.'),
     mapBranchInfo: L('{n} parties à connaître. Touche la bulle pour les afficher ou les cacher.', '{n} pati pou konnen. Touche bul la pou montre oswa kache yo.', '{n} parts to learn. Tap the bubble to show or hide them.', '{n} partes que aprender. Toca la burbuja para mostrarlas u ocultarlas.'),
     activityCol: L('Activité', 'Aktivite', 'Activity', 'Actividad'),
     footer: L('Fonctionne sans Internet. Aucune donnée n\'est envoyée.', 'Mache san Entènèt. Okenn done pa voye.', 'Works offline. No data is sent.', 'Funciona sin Internet. No se envía ningún dato.')
   };
 
+  var rooms = [
+    { id: 'general', color: '#7B1F1F', name: L('La maison et ses meubles', 'Kay la ak mèb li yo', 'The house and its furniture', 'La casa y sus muebles') },
+    { id: 'cuisine', color: '#5D4100', name: L('La cuisine', 'Kizin nan', 'The kitchen', 'La cocina') },
+    { id: 'sdb', color: '#01579B', name: L('La salle de bain', 'Saldeben an', 'The bathroom', 'El cuarto de baño') }
+  ];
+
   var objects = [
     {
       id: 'maison',
+      room: 'general',
       color: '#B03A2E',
       name: L('la maison', 'kay la', 'the house', 'la casa'),
       intro: L('La maison vue de l\'extérieur.', 'Kay la wè depi deyò.', 'The house seen from outside.', 'La casa vista desde fuera.'),
@@ -130,6 +139,7 @@ var CONTENT = (function () {
     },
     {
       id: 'porte',
+      room: 'general',
       color: '#1F5F8B',
       name: L('la porte', 'pòt la', 'the door', 'la puerta'),
       intro: L('Une porte d\'entrée vue de face.', 'Yon pòt devan wè an fas.', 'A front door seen from the front.', 'Una puerta de entrada vista de frente.'),
@@ -164,6 +174,7 @@ var CONTENT = (function () {
     },
     {
       id: 'fenetre',
+      room: 'general',
       color: '#2E7D32',
       name: L('la fenêtre', 'fenèt la', 'the window', 'la ventana'),
       intro: L('Une fenêtre à deux battants avec ses volets.', 'Yon fenèt de batan ak volè li yo.', 'A two-pane window with its shutters.', 'Una ventana de dos hojas con sus contraventanas.'),
@@ -195,6 +206,7 @@ var CONTENT = (function () {
     },
     {
       id: 'lit',
+      room: 'general',
       color: '#6A3D9A',
       name: L('le lit', 'kabann nan', 'the bed', 'la cama'),
       intro: L('Un lit vu de côté.', 'Yon kabann wè sou kote.', 'A bed seen from the side.', 'Una cama vista de lado.'),
@@ -226,6 +238,7 @@ var CONTENT = (function () {
     },
     {
       id: 'chaise',
+      room: 'general',
       color: '#B85C00',
       name: L('la chaise', 'chèz la', 'the chair', 'la silla'),
       intro: L('Une chaise vue de face.', 'Yon chèz wè an fas.', 'A chair seen from the front.', 'Una silla vista de frente.'),
@@ -254,6 +267,7 @@ var CONTENT = (function () {
     },
     {
       id: 'lampe',
+      room: 'general',
       color: '#00695C',
       name: L('la lampe', 'lanp lan', 'the lamp', 'la lámpara'),
       intro: L('Une lampe de chevet, à côté du lit.', 'Yon lanp tèt kabann, bò kabann nan.', 'A bedside lamp, next to the bed.', 'Una lámpara de mesita, al lado de la cama.'),
@@ -282,12 +296,234 @@ var CONTENT = (function () {
           name: L('le socle', 'baz lanp lan', 'the base', 'la base'),
           def: L('La partie lourde du bas qui empêche la lampe de tomber.', 'Pati lou anba a ki anpeche lanp lan tonbe.', 'The heavy bottom part that stops the lamp falling over.', 'La parte pesada de abajo que evita que la lámpara se caiga.') }
       ]
+    },
+    /* ---------- La cuisine ---------- */
+    {
+      id: 'cuisine',
+      room: 'cuisine',
+      color: '#7A5C00',
+      name: L('la cuisine', 'kizin nan', 'the kitchen', 'la cocina'),
+      intro: L('La pièce où l\'on prépare les repas.', 'Pyès kote yo prepare manje.', 'The room where meals are made.', 'La habitación donde se preparan las comidas.'),
+      limit: L('Chaque cuisine est rangée autrement : ici, tout tient sur un seul mur.', 'Chak kizin ranje yon lòt jan : isit la, tout bagay sou yon sèl mi.', 'Every kitchen is arranged differently: here everything is on one wall.', 'Cada cocina se ordena de otra manera: aquí todo está en una sola pared.'),
+      misconception: L('Croire que la hotte sert à chauffer : elle aspire la fumée et les odeurs de cuisson.',
+        'Kwè aspiratè lafimen an sèvi pou chofe : li rale lafimen ak odè manje k ap kwit.',
+        'Believing the cooker hood heats things up: it sucks up smoke and cooking smells.',
+        'Creer que la campana sirve para calentar: aspira el humo y los olores de la comida.'),
+      deco: [
+        { fill: '#FFF3E0', shapes: [{ t: 'rect', x: 134, y: 25, w: 192, h: 280 }] },
+        { fill: '#BCAAA4', shapes: [{ t: 'rect', x: 134, y: 300, w: 192, h: 18 }] }
+      ],
+      parts: [
+        { id: 'frigo', fill: '#ECEFF1', shapes: [{ t: 'rect', x: 138, y: 60, w: 50, h: 240, rx: 4 }, { t: 'rect', x: 138, y: 120, w: 50, h: 3 }, { t: 'rect', x: 178, y: 128, w: 4, h: 40 }], a: [160, 220],
+          name: L('le réfrigérateur', 'frijidè a', 'the fridge', 'la nevera'),
+          def: L('La grande armoire froide qui garde les aliments au frais.', 'Gwo bwat frèt ki kenbe manje yo fre.', 'The big cold cupboard that keeps food cool.', 'El gran armario frío que conserva los alimentos.') },
+        { id: 'cuisiniere', fill: '#CFD8DC', shapes: [{ t: 'rect', x: 192, y: 180, w: 58, h: 120 }, { t: 'rect', x: 200, y: 215, w: 42, h: 40, rx: 4 }, { t: 'ellipse', cx: 207, cy: 182, rx: 9, ry: 3 }, { t: 'ellipse', cx: 235, cy: 182, rx: 9, ry: 3 }], a: [221, 280],
+          name: L('la cuisinière', 'recho a', 'the cooker', 'la estufa'),
+          def: L('L\'appareil avec des feux et un four pour faire cuire les aliments.', 'Aparèy ak dife ak yon fou pou kwit manje.', 'The machine with burners and an oven to cook food.', 'El aparato con fuegos y horno para cocinar los alimentos.') },
+        { id: 'hotte', fill: '#B0BEC5', shapes: [{ t: 'poly', pts: [[205, 40], [237, 40], [252, 100], [190, 100]] }], a: [221, 75],
+          name: L('la hotte', 'aspiratè lafimen an', 'the cooker hood', 'la campana'),
+          def: L('L\'appareil au-dessus des feux qui aspire la fumée.', 'Aparèy anwo dife yo ki rale lafimen.', 'The machine above the burners that sucks up smoke.', 'El aparato encima de los fuegos que aspira el humo.') },
+        { id: 'placard', fill: '#FFCC80', shapes: [{ t: 'rect', x: 256, y: 40, w: 66, h: 75 }, { t: 'rect', x: 252, y: 186, w: 72, h: 114 }], a: [289, 70],
+          name: L('le placard', 'amwa a', 'the cupboard', 'el armario'),
+          def: L('Le meuble fermé où l\'on range la vaisselle et les provisions.', 'Mèb fèmen kote yo ranje vesèl ak pwovizyon.', 'The closed unit where dishes and food are stored.', 'El mueble cerrado donde se guardan la vajilla y la comida.') },
+        { id: 'plan', fill: '#8D6E63', shapes: [{ t: 'rect', x: 250, y: 172, w: 74, h: 14 }], a: [258, 179],
+          name: L('le plan de travail', 'kontwa a', 'the worktop', 'la encimera'),
+          def: L('La surface plate où l\'on coupe et prépare les aliments.', 'Sifas plat kote yo koupe ak prepare manje.', 'The flat surface where you cut and prepare food.', 'La superficie plana donde se cortan y preparan los alimentos.') },
+        { id: 'evier', fill: '#90A4AE', shapes: [{ t: 'rect', x: 270, y: 172, w: 46, h: 10, rx: 2 }], a: [300, 177],
+          name: L('l\'évier', 'evye a', 'the sink', 'el fregadero'),
+          def: L('Le bac où l\'on lave la vaisselle.', 'Basen kote yo lave vesèl.', 'The basin where you wash the dishes.', 'La pila donde se lavan los platos.') },
+        { id: 'robinet', fill: '#78909C', shapes: [{ t: 'rect', x: 286, y: 146, w: 6, h: 26 }, { t: 'rect', x: 286, y: 146, w: 18, h: 5 }], a: [289, 162],
+          name: L('le robinet', 'wobinè a', 'the tap', 'el grifo'),
+          def: L('Ce qu\'on ouvre pour faire couler l\'eau.', 'Sa ou louvri pou dlo koule.', 'What you turn on to make water run.', 'Lo que se abre para que salga el agua.') }
+      ]
+    },
+    {
+      id: 'cuisiniere',
+      room: 'cuisine',
+      color: '#B0144F',
+      name: L('la cuisinière', 'recho a', 'the cooker', 'la estufa'),
+      intro: L('Une cuisinière vue de face, avec son four.', 'Yon recho wè an fas, ak fou li.', 'A cooker seen from the front, with its oven.', 'Una estufa vista de frente, con su horno.'),
+      limit: L('Certaines cuisinières ont des plaques électriques à la place des brûleurs à gaz.', 'Gen recho ki gen plak elektrik olye brilè gaz.', 'Some cookers have electric plates instead of gas burners.', 'Algunas estufas tienen placas eléctricas en lugar de quemadores de gas.'),
+      misconception: L('Croire que les boutons et les brûleurs, c\'est la même chose : on tourne les boutons pour allumer les brûleurs, où l\'on pose la casserole.',
+        'Kwè bouton yo ak brilè yo se menm bagay : ou vire bouton yo pou limen brilè yo, kote ou mete chodyè a.',
+        'Believing the knobs and the burners are the same: you turn the knobs to light the burners, where the pan goes.',
+        'Creer que los mandos y los quemadores son lo mismo: se giran los mandos para encender los quemadores, donde se pone la olla.'),
+      parts: [
+        { id: 'tableau', fill: '#ECEFF1', shapes: [{ t: 'rect', x: 160, y: 90, w: 140, h: 220 }], a: [230, 112],
+          name: L('le tableau de commande', 'tablo kòmand lan', 'the control panel', 'el panel de control'),
+          def: L('La bande où sont rangés les boutons.', 'Bann kote bouton yo ranje.', 'The strip where the knobs are.', 'La franja donde están los mandos.') },
+        { id: 'table', fill: '#90A4AE', shapes: [{ t: 'rect', x: 155, y: 70, w: 150, h: 20 }], a: [230, 82],
+          name: L('la table de cuisson', 'tèt recho a', 'the hob', 'la placa'),
+          def: L('Le dessus plat de la cuisinière où l\'on pose les casseroles.', 'Anwo plat recho a kote ou mete chodyè yo.', 'The flat top of the cooker where pans go.', 'La parte de arriba donde se ponen las ollas.') },
+        { id: 'bruleurs', fill: '#263238', shapes: [{ t: 'ellipse', cx: 190, cy: 72, rx: 18, ry: 5 }, { t: 'ellipse', cx: 270, cy: 72, rx: 18, ry: 5 }], a: [190, 72],
+          name: L('les brûleurs', 'brilè yo', 'the burners', 'los quemadores'),
+          def: L('Les ronds où sort la flamme pour chauffer la casserole.', 'Ti wonn kote flanm nan soti pou chofe chodyè a.', 'The rings where the flame comes out to heat the pan.', 'Los aros por donde sale la llama para calentar la olla.') },
+        { id: 'boutons', fill: '#455A64', shapes: [{ t: 'circle', cx: 185, cy: 112, r: 8 }, { t: 'circle', cx: 210, cy: 112, r: 8 }, { t: 'circle', cx: 250, cy: 112, r: 8 }, { t: 'circle', cx: 275, cy: 112, r: 8 }], a: [185, 112],
+          name: L('les boutons', 'bouton yo', 'the knobs', 'los mandos'),
+          def: L('Les petites roues qu\'on tourne pour allumer et régler le feu.', 'Ti wou ou vire pou limen ak regle dife a.', 'The little wheels you turn to light and set the heat.', 'Las ruedecitas que se giran para encender y regular el fuego.') },
+        { id: 'porte', fill: '#B0BEC5', shapes: [{ t: 'rect', x: 170, y: 135, w: 120, h: 165, rx: 4 }], a: [180, 280],
+          name: L('la porte du four', 'pòt fou a', 'the oven door', 'la puerta del horno'),
+          def: L('Ce qui s\'ouvre vers le bas pour mettre un plat dans le four.', 'Sa ki louvri desann pou mete yon plat nan fou a.', 'What opens downwards to put a dish in the oven.', 'Lo que se abre hacia abajo para meter una fuente al horno.') },
+        { id: 'hublot', fill: '#263238', shapes: [{ t: 'rect', x: 190, y: 170, w: 80, h: 90, rx: 6 }], a: [230, 215],
+          name: L('le hublot', 'vit fou a', 'the oven window', 'el cristal'),
+          def: L('La vitre qui permet de voir le gâteau cuire sans ouvrir.', 'Vit ki pèmèt ou wè gato a ap kwit san louvri.', 'The glass that lets you watch the cake bake without opening.', 'El vidrio que deja ver cómo se hace el pastel sin abrir.') },
+        { id: 'poignee', fill: '#546E7A', shapes: [{ t: 'rect', x: 185, y: 145, w: 90, h: 8, rx: 4 }], a: [250, 149],
+          name: L('la poignée', 'manch fou a', 'the handle', 'el tirador'),
+          def: L('La barre qu\'on tire pour ouvrir le four.', 'Ba ou rale pou louvri fou a.', 'The bar you pull to open the oven.', 'La barra de la que se tira para abrir el horno.') }
+      ]
+    },
+    {
+      id: 'frigo',
+      room: 'cuisine',
+      color: '#3949AB',
+      name: L('le réfrigérateur', 'frijidè a', 'the fridge', 'la nevera'),
+      intro: L('Un réfrigérateur ouvert, pour voir l\'intérieur.', 'Yon frijidè louvri, pou wè anndan l.', 'An open fridge, to see inside.', 'Una nevera abierta, para ver el interior.'),
+      limit: L('Dans beaucoup de réfrigérateurs, le congélateur est en bas, avec sa propre porte.', 'Nan anpil frijidè, frizè a anba, ak pwòp pòt pa l.', 'In many fridges the freezer is at the bottom, with its own door.', 'En muchas neveras el congelador está abajo, con su propia puerta.'),
+      misconception: L('Croire que le congélateur et le réfrigérateur, c\'est la même chose : le congélateur est beaucoup plus froid, l\'eau y devient de la glace.',
+        'Kwè frizè a ak frijidè a se menm bagay : frizè a pi frèt anpil, dlo vin glas ladan l.',
+        'Believing the freezer and the fridge are the same: the freezer is much colder, water turns to ice in it.',
+        'Creer que el congelador y la nevera son lo mismo: el congelador es mucho más frío, el agua se vuelve hielo.'),
+      deco: [
+        { fill: '#ECEFF1', shapes: [{ t: 'rect', x: 150, y: 30, w: 130, h: 285, rx: 6 }] },
+        { fill: '#FAFAFA', shapes: [{ t: 'rect', x: 160, y: 40, w: 110, h: 265 }] }
+      ],
+      parts: [
+        { id: 'congelateur', fill: '#B3E5FC', shapes: [{ t: 'rect', x: 160, y: 40, w: 110, h: 60 }], a: [200, 70],
+          name: L('le congélateur', 'frizè a', 'the freezer', 'el congelador'),
+          def: L('Le compartiment très froid où l\'eau devient de la glace.', 'Konpatiman trè frèt kote dlo vin glas.', 'The very cold part where water turns to ice.', 'El compartimento muy frío donde el agua se vuelve hielo.') },
+        { id: 'thermostat', fill: '#607D8B', shapes: [{ t: 'circle', cx: 250, cy: 118, r: 8 }], a: [250, 118],
+          name: L('le thermostat', 'tèmostat la', 'the thermostat', 'el termostato'),
+          def: L('Le bouton qui règle le froid.', 'Bouton ki regle fredi a.', 'The dial that sets how cold it is.', 'La rueda que regula el frío.') },
+        { id: 'clayettes', fill: '#90A4AE', shapes: [{ t: 'rect', x: 160, y: 150, w: 110, h: 5 }, { t: 'rect', x: 160, y: 205, w: 110, h: 5 }], a: [200, 152],
+          name: L('les clayettes', 'etajè yo', 'the shelves', 'las baldas'),
+          def: L('Les plaques où l\'on pose les aliments, à l\'intérieur.', 'Plak anndan kote yo poze manje yo.', 'The flat racks inside where food is put.', 'Las placas del interior donde se ponen los alimentos.') },
+        { id: 'bac', fill: '#C8E6C9', shapes: [{ t: 'rect', x: 166, y: 250, w: 98, h: 50, rx: 4 }], a: [200, 275],
+          name: L('le bac à légumes', 'bak legim nan', 'the vegetable drawer', 'el cajón de verduras'),
+          def: L('Le tiroir du bas pour les fruits et les carottes.', 'Tiwa anba a pou fwi ak kawòt.', 'The bottom box for fruit and carrots.', 'La caja de abajo para la fruta y las zanahorias.') },
+        { id: 'porte', fill: '#E0E0E0', shapes: [{ t: 'poly', pts: [[282, 30], [326, 48], [326, 298], [282, 315]] }], a: [316, 80],
+          name: L('la porte', 'pòt frijidè a', 'the door', 'la puerta'),
+          def: L('Ce qui s\'ouvre et se ferme pour garder le froid dedans.', 'Sa ki louvri ak fèmen pou kenbe fredi a anndan.', 'What opens and shuts to keep the cold inside.', 'Lo que se abre y se cierra para guardar el frío dentro.') },
+        { id: 'balconnets', fill: '#90A4AE', shapes: [{ t: 'rect', x: 288, y: 110, w: 32, h: 9 }, { t: 'rect', x: 288, y: 190, w: 32, h: 9 }], a: [304, 114],
+          name: L('les balconnets', 'ti etajè pòt yo', 'the door shelves', 'los estantes de la puerta'),
+          def: L('Les petites étagères accrochées à la porte, pour les bouteilles.', 'Ti etajè ki kwoke nan pòt la, pou boutèy yo.', 'The little racks on the door, for bottles.', 'Las repisas pequeñas de la puerta, para las botellas.') }
+      ]
+    },
+    /* ---------- La salle de bain ---------- */
+    {
+      id: 'sdb',
+      room: 'sdb',
+      color: '#00639E',
+      name: L('la salle de bain', 'saldeben an', 'the bathroom', 'el cuarto de baño'),
+      intro: L('La pièce où l\'on se lave.', 'Pyès kote nou lave kò nou.', 'The room where you wash.', 'La habitación donde uno se lava.'),
+      limit: L('Beaucoup de salles de bain ont une douche à la place d\'une baignoire.', 'Anpil saldeben gen yon douch olye yon benywa.', 'Many bathrooms have a shower instead of a bath.', 'Muchos cuartos de baño tienen ducha en lugar de bañera.'),
+      misconception: L('Croire que le lavabo et l\'évier, c\'est la même chose : le lavabo est dans la salle de bain pour se laver ; l\'évier est dans la cuisine pour la vaisselle.',
+        'Kwè lavabo a ak evye a se menm bagay : lavabo a nan saldeben an pou lave kò ; evye a nan kizin nan pou lave vesèl.',
+        'Believing the washbasin and the sink are the same: the washbasin is in the bathroom for washing yourself; the sink is in the kitchen for dishes.',
+        'Creer que el lavabo y el fregadero son lo mismo: el lavabo está en el baño para lavarse; el fregadero está en la cocina para los platos.'),
+      deco: [
+        { fill: '#E1F5FE', shapes: [{ t: 'rect', x: 134, y: 25, w: 192, h: 280 }] },
+        { fill: '#B0BEC5', shapes: [{ t: 'rect', x: 134, y: 305, w: 192, h: 15 }] }
+      ],
+      parts: [
+        { id: 'carrelage', fill: '#B2EBF2', stroke: '#00838F', shapes: [
+          { t: 'rect', x: 136, y: 150, w: 31, h: 28 }, { t: 'rect', x: 167, y: 150, w: 31, h: 28 }, { t: 'rect', x: 198, y: 150, w: 30, h: 28 },
+          { t: 'rect', x: 136, y: 178, w: 31, h: 28 }, { t: 'rect', x: 167, y: 178, w: 31, h: 28 }, { t: 'rect', x: 198, y: 178, w: 30, h: 28 },
+          { t: 'rect', x: 136, y: 206, w: 31, h: 28 }, { t: 'rect', x: 167, y: 206, w: 31, h: 28 }, { t: 'rect', x: 198, y: 206, w: 30, h: 28 }], a: [182, 192],
+          name: L('le carrelage', 'kawo yo', 'the tiles', 'los azulejos'),
+          def: L('Les petits carreaux collés au mur, faciles à nettoyer.', 'Ti moso ki kole sou mi an, fasil pou netwaye.', 'The small squares stuck on the wall, easy to clean.', 'Los cuadraditos pegados a la pared, fáciles de limpiar.') },
+        { id: 'baignoire', fill: '#FFFFFF', shapes: [{ t: 'rect', x: 136, y: 232, w: 92, h: 50, rx: 10 }, { t: 'rect', x: 146, y: 282, w: 10, h: 12 }, { t: 'rect', x: 208, y: 282, w: 10, h: 12 }], a: [182, 260],
+          name: L('la baignoire', 'benywa a', 'the bath', 'la bañera'),
+          def: L('La grande cuve où l\'on prend un bain allongé.', 'Gwo basen kote ou benyen kouche.', 'The big tub you lie down in to wash.', 'La tina grande donde uno se baña tumbado.') },
+        { id: 'pommeau', fill: '#90A4AE', shapes: [{ t: 'rect', x: 140, y: 95, w: 4, h: 55 }, { t: 'circle', cx: 154, cy: 98, r: 10 }], a: [155, 98],
+          name: L('le pommeau de douche', 'pòm douch la', 'the shower head', 'la alcachofa'),
+          def: L('La pomme percée de petits trous d\'où sort l\'eau de la douche.', 'Pòm ki gen ti twou kote dlo douch la soti.', 'The round part with tiny holes the shower water comes out of.', 'La pieza con agujeritos por donde sale el agua de la ducha.') },
+        { id: 'miroir', fill: '#B3E5FC', shapes: [{ t: 'rect', x: 262, y: 55, w: 50, h: 80, rx: 25 }], a: [287, 95],
+          name: L('le miroir', 'glas la', 'the mirror', 'el espejo'),
+          def: L('La glace où l\'on se voit pour se coiffer.', 'Sa ou gade pou wè figi ou lè w ap penyen.', 'The glass you look in to see yourself.', 'El cristal donde uno se ve para peinarse.') },
+        { id: 'serviette', fill: '#FFB74D', shapes: [{ t: 'rect', x: 236, y: 120, w: 18, h: 70 }, { t: 'rect', x: 232, y: 116, w: 26, h: 4 }], a: [245, 160],
+          name: L('la serviette', 'sèvyèt la', 'the towel', 'la toalla'),
+          def: L('Le tissu épais pour se sécher après s\'être lavé.', 'Twal epè pou cheche kò ou apre ou fin lave.', 'The thick cloth to dry yourself after washing.', 'La tela gruesa para secarse después de lavarse.') },
+        { id: 'lavabo', fill: '#FFFFFF', shapes: [{ t: 'poly', pts: [[260, 175], [316, 175], [308, 200], [268, 200]] }, { t: 'rect', x: 281, y: 200, w: 14, h: 100 }], a: [288, 250],
+          name: L('le lavabo', 'lavabo a', 'the washbasin', 'el lavabo'),
+          def: L('Le petit bassin où l\'on se lave les mains et les dents.', 'Ti basen kote ou lave men ak bwose dan.', 'The small bowl where you wash your hands and brush your teeth.', 'La pila pequeña donde uno se lava las manos y los dientes.') },
+        { id: 'robinet', fill: '#78909C', shapes: [{ t: 'rect', x: 284, y: 160, w: 8, h: 15 }, { t: 'rect', x: 284, y: 160, w: 16, h: 4 }], a: [288, 169],
+          name: L('le robinet', 'wobinè a', 'the tap', 'el grifo'),
+          def: L('Ce qu\'on ouvre pour faire couler l\'eau.', 'Sa ou louvri pou dlo koule.', 'What you turn on to make water run.', 'Lo que se abre para que salga el agua.') },
+        { id: 'tapis', fill: '#81C784', shapes: [{ t: 'rect', x: 150, y: 306, w: 70, h: 10, rx: 3 }], a: [185, 311],
+          name: L('le tapis de bain', 'tapi a', 'the bath mat', 'la alfombrilla'),
+          def: L('Le petit tapis où l\'on pose les pieds mouillés en sortant du bain.', 'Ti tapi kote ou mete pye mouye ou lè w soti nan benyen.', 'The little rug for your wet feet when you get out.', 'La alfombra pequeña para los pies mojados al salir.') }
+      ]
+    },
+    {
+      id: 'lavabo',
+      room: 'sdb',
+      color: '#5D4037',
+      name: L('le lavabo', 'lavabo a', 'the washbasin', 'el lavabo'),
+      intro: L('Un lavabo sur colonne, vu de face.', 'Yon lavabo sou yon pye, wè an fas.', 'A pedestal washbasin seen from the front.', 'Un lavabo de pie visto de frente.'),
+      limit: L('Certains lavabos sont posés sur un meuble, sans colonne.', 'Gen lavabo ki poze sou yon mèb, san pye.', 'Some washbasins sit on a cabinet, with no pedestal.', 'Algunos lavabos van sobre un mueble, sin pedestal.'),
+      misconception: L('Croire que l\'eau sort de la manette : on bouge la manette, mais l\'eau sort par le bec.',
+        'Kwè dlo a soti nan manch lan : ou bouje manch lan, men dlo a soti nan bouch wobinè a.',
+        'Believing the water comes out of the lever: you move the lever, but the water comes out of the spout.',
+        'Creer que el agua sale de la maneta: se mueve la maneta, pero el agua sale por el caño.'),
+      parts: [
+        { id: 'colonne', fill: '#F5F5F5', shapes: [{ t: 'rect', x: 213, y: 190, w: 34, h: 120 }], a: [230, 260],
+          name: L('la colonne', 'pye lavabo a', 'the pedestal', 'el pedestal'),
+          def: L('Le pied qui soutient le lavabo et cache les tuyaux.', 'Pye ki kenbe lavabo a epi ki kache tiyo yo.', 'The stand that holds the basin up and hides the pipes.', 'El pie que sostiene el lavabo y esconde las tuberías.') },
+        { id: 'vasque', fill: '#FFFFFF', shapes: [{ t: 'poly', pts: [[155, 140], [305, 140], [285, 198], [175, 198]] }], a: [200, 170],
+          name: L('la vasque', 'kivèt lavabo a', 'the bowl', 'la pila'),
+          def: L('Le creux où l\'eau coule quand on se lave les mains.', 'Twou kote dlo a koule lè w ap lave men.', 'The hollow where the water runs when you wash your hands.', 'El hueco donde cae el agua al lavarse las manos.') },
+        { id: 'savon', fill: '#B0BEC5', shapes: [{ t: 'rect', x: 270, y: 128, w: 30, h: 12, rx: 3 }, { t: 'ellipse', cx: 285, cy: 126, rx: 10, ry: 4 }], a: [292, 134],
+          name: L('le porte-savon', 'pòt savon an', 'the soap dish', 'la jabonera'),
+          def: L('Le petit plateau où l\'on pose le savon.', 'Ti plato kote yo mete savon an.', 'The little tray where the soap sits.', 'La bandejita donde se deja el jabón.') },
+        { id: 'robinet', fill: '#90A4AE', shapes: [{ t: 'rect', x: 222, y: 104, w: 16, h: 36 }], a: [230, 128],
+          name: L('le robinet', 'wobinè a', 'the tap', 'el grifo'),
+          def: L('Ce qu\'on ouvre pour faire couler l\'eau.', 'Sa ou louvri pou dlo koule.', 'What you turn on to make water run.', 'Lo que se abre para que salga el agua.') },
+        { id: 'bec', fill: '#90A4AE', shapes: [{ t: 'rect', x: 238, y: 106, w: 24, h: 8, rx: 3 }], a: [254, 110],
+          name: L('le bec', 'bouch wobinè a', 'the spout', 'el caño'),
+          def: L('Le petit tuyau d\'où l\'eau sort.', 'Ti tiyo kote dlo a soti.', 'The little pipe the water comes out of.', 'El tubito por donde sale el agua.') },
+        { id: 'manette', fill: '#607D8B', shapes: [{ t: 'rect', x: 214, y: 94, w: 32, h: 10, rx: 4 }], a: [226, 99],
+          name: L('la manette', 'manch wobinè a', 'the lever', 'la maneta'),
+          def: L('La poignée qu\'on lève pour ouvrir l\'eau, à gauche pour le chaud.', 'Ti manch ou leve pou louvri dlo a, agòch pou dlo cho.', 'The handle you lift to turn the water on, left for hot.', 'La palanca que se sube para abrir el agua, a la izquierda para la caliente.') }
+      ]
+    },
+    {
+      id: 'toilettes',
+      room: 'sdb',
+      color: '#455A64',
+      name: L('les toilettes', 'twalèt la', 'the toilet', 'el inodoro'),
+      intro: L('Les toilettes vues de côté.', 'Twalèt la wè sou kote.', 'The toilet seen from the side.', 'El inodoro visto de lado.'),
+      limit: L('Certains réservoirs sont cachés dans le mur ; on ne voit alors que le bouton.', 'Gen rezèvwa ki kache nan mi an ; lè sa a, ou wè bouton an sèlman.', 'Some cisterns are hidden in the wall; then you only see the button.', 'Algunas cisternas están dentro de la pared; entonces solo se ve el pulsador.'),
+      misconception: L('Croire que l\'abattant et la lunette, c\'est la même chose : on s\'assoit sur la lunette ; l\'abattant est le couvercle qui se rabat dessus.',
+        'Kwè kouvèti twalèt la ak chita twalèt la se menm bagay : ou chita sou chita a ; kouvèti a se sa ki fèmen sou li.',
+        'Believing the lid and the seat are the same: you sit on the seat; the lid is the cover that folds down over it.',
+        'Creer que la tapa y el asiento son lo mismo: uno se sienta en el asiento; la tapa es lo que se baja encima.'),
+      parts: [
+        { id: 'reservoir', fill: '#FAFAFA', shapes: [{ t: 'rect', x: 140, y: 50, w: 45, h: 110, rx: 4 }, { t: 'rect', x: 160, y: 160, w: 14, h: 40 }], a: [162, 100],
+          name: L('le réservoir', 'rezèvwa a', 'the cistern', 'la cisterna'),
+          def: L('La caisse qui garde l\'eau pour la chasse.', 'Bwat ki kenbe dlo pou rale a.', 'The tank that holds the water for flushing.', 'La caja que guarda el agua para descargar.') },
+        { id: 'bouton', fill: '#90A4AE', shapes: [{ t: 'rect', x: 152, y: 42, w: 20, h: 8, rx: 2 }], a: [162, 46],
+          name: L('le bouton de chasse d\'eau', 'bouton chas la', 'the flush button', 'el pulsador'),
+          def: L('Ce qu\'on appuie pour vider l\'eau et nettoyer la cuvette.', 'Sa ou peze pou dlo a desann epi netwaye bòl la.', 'What you press to send the water down and clean the bowl.', 'Lo que se aprieta para que baje el agua y limpie la taza.') },
+        { id: 'cuvette', fill: '#FFFFFF', shapes: [{ t: 'poly', pts: [[176, 200], [300, 200], [292, 232], [252, 250], [244, 300], [196, 300], [196, 242], [180, 232]] }], a: [220, 265],
+          name: L('la cuvette', 'bòl twalèt la', 'the bowl', 'la taza'),
+          def: L('Le grand bol en porcelaine qui reçoit l\'eau de la chasse.', 'Gwo bòl pòslèn ki resevwa dlo rale a.', 'The big china basin that gets the flush water.', 'El recipiente grande de porcelana que recibe el agua.') },
+        { id: 'lunette', fill: '#E0E0E0', shapes: [{ t: 'rect', x: 176, y: 192, w: 128, h: 8, rx: 3 }], a: [290, 196],
+          name: L('la lunette', 'chita twalèt la', 'the seat', 'el asiento'),
+          def: L('L\'anneau sur lequel on s\'assoit.', 'Wonn kote ou chita a.', 'The ring you sit on.', 'El aro sobre el que uno se sienta.') },
+        { id: 'abattant', fill: '#BDBDBD', shapes: [{ t: 'rect', x: 176, y: 182, w: 128, h: 10, rx: 3 }], a: [250, 187],
+          name: L('l\'abattant', 'kouvèti twalèt la', 'the lid', 'la tapa'),
+          def: L('Le couvercle qu\'on baisse quand on a fini.', 'Sa ou bese lè ou fini.', 'The cover you put down when you have finished.', 'Lo que se baja cuando uno ha terminado.') },
+        { id: 'papier', fill: '#FFFFFF', shapes: [{ t: 'rect', x: 290, y: 100, w: 30, h: 4 }, { t: 'circle', cx: 305, cy: 120, r: 14 }], a: [305, 122],
+          name: L('le papier toilette', 'papye twalèt la', 'the toilet paper', 'el papel higiénico'),
+          def: L('Le rouleau de papier doux pour s\'essuyer.', 'Woulo papye dous pou siye.', 'The roll of soft paper for wiping.', 'El rollo de papel suave para limpiarse.') }
+      ]
     }
   ];
 
   return {
     langs: langs,
     ui: ui,
+    rooms: rooms,
     objects: objects,
     viewBox: [460, 340],
     activities: ['discover', 'show', 'arrow', 'check']

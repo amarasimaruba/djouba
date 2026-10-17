@@ -11,8 +11,9 @@ var MINDMAP = (function () {
     return '#' + m.map(function (v) { return (v < 16 ? '0' : '') + v.toString(16); }).join('').toUpperCase();
   }
 
-  /* data : { center, branches[{id,label,color,textColor,info,leaves[{id,label,color,textColor,title,info,locked}]}],
-   *          expanded, positions, closeLabel, hint, openInfo, onOpen(info), onToggle(id) } */
+  /* data : { center, tree[{id,label,color,textColor,info,title?,locked?,children?[…]}],
+   *          path (ids dépliés, du niveau 1 vers le bas), positions, closeLabel, hint, openInfo,
+   *          onOpen(info), onToggle(newPath, nodeId) } */
   function render(frame, data) {
     frame.textContent = '';
     var w = frame.clientWidth || 640;
@@ -64,29 +65,88 @@ var MINDMAP = (function () {
     }
 
     var center = addNode({ id: 'center', kind: 'center', label: data.center.label, color: '#1A1A1A', textColor: '#FFFFFF', title: data.center.label, info: data.center.info });
-    var n = data.branches.length, minWH = Math.min(w, h);
+    var minWH = Math.min(w, h), path = data.path || [];
     center.x = w / 2; center.y = h / 2;
-    data.branches.forEach(function (br, i) {
-      var ang = -Math.PI / 2 + i * 2 * Math.PI / n;
-      var bn = addNode({ id: br.id, kind: 'branch', label: br.label, color: br.color, textColor: br.textColor, title: br.label, info: br.info, branch: br.id, expanded: data.expanded === br.id });
-      bn.x = w / 2 + Math.cos(ang) * w * 0.33;
-      bn.y = h / 2 + Math.sin(ang) * h * 0.33;
-      links.push([center, bn, br.color]);
-      if (data.expanded === br.id) {
-        var k = br.leaves.length, spread = Math.PI * 1.3;
-        br.leaves.forEach(function (lf, j) {
-          var a = ang - spread / 2 + (k === 1 ? spread / 2 : j * spread / (k - 1));
-          var ln = addNode({ id: br.id + '.' + lf.id, kind: 'leaf' + (lf.locked ? ' locked' : ''), label: lf.label, color: lf.color, textColor: lf.textColor, title: lf.title, info: lf.info });
-          ln.x = bn.x + Math.cos(a) * minWH * 0.24;
-          ln.y = bn.y + Math.sin(a) * minWH * 0.24;
-          links.push([bn, ln, br.color]);
-        });
-      }
-    });
+    var KINDS = ['branch', 'sub', 'leaf'];
+    /* Arbre radial : chaque bulle visible sans enfants affichés reçoit la même part du cercle,
+     * un parent se place au milieu de ses enfants, et chaque niveau sur une ellipse plus grande.
+     * Un seul chemin est déplié à la fois (pièce → objet). */
+    function grow(list, parent, depth) {
+      list.forEach(function (c) {
+        var nodePath = parent.path.concat(c.id);
+        var open = !!c.children && path[depth] === c.id && parent.path.every(function (p, j) { return path[j] === p; });
+        var nd = addNode({ id: nodePath.join('/'), kind: KINDS[Math.min(depth, 2)] + (c.locked ? ' locked' : ''), label: c.label, color: c.color, textColor: c.textColor,
+          title: c.title || c.label, info: c.info, depth: depth, hasChildren: !!(c.children && c.children.length), expanded: c.children ? open : undefined });
+        nd.path = nodePath; nd.depth = depth + 1; nd.kids = [];
+        parent.kids.push(nd);
+        links.push([parent, nd, depth < 2 ? c.color : parent.spec.color]);
+        if (open) grow(c.children, nd, depth + 1);
+      });
+    }
+    center.path = []; center.kids = []; center.depth = 0;
+    grow(data.tree, center, 0);
+    /* une bulle fermée (pièce ou objet) compte plus qu'une partie : l'éventail des parties reste groupé */
+    function leaves(nd) { return nd.kids.length ? nd.kids.reduce(function (s, k) { return s + leaves(k); }, 0) : (nd.spec.hasChildren ? 2.5 : 1); }
+    function maxDepth(nd) { return nd.kids.reduce(function (m, k) { return Math.max(m, maxDepth(k)); }, nd.depth); }
+    var L = leaves(center), D = maxDepth(center);
+    var rx = w / 2 - 62, ry = h / 2 - 28;
+    function ring(d) { return D === 1 ? 0.62 : 0.34 + 0.66 * (d - 1) / (D - 1); }
+    /* Répartition le long de l'ellipse à longueur d'arc égale (et non à angle égal) :
+     * sur un cadre étroit, les bulles ne s'entassent pas en haut et en bas. */
+    var STEPS = 360, cum = [0];
+    for (var i = 1; i <= STEPS; i++) {
+      var t0 = -Math.PI / 2 + 2 * Math.PI * (i - 1) / STEPS, t1 = -Math.PI / 2 + 2 * Math.PI * i / STEPS;
+      cum.push(cum[i - 1] + Math.hypot(rx * (Math.cos(t1) - Math.cos(t0)), ry * (Math.sin(t1) - Math.sin(t0))));
+    }
+    function tAt(frac) {
+      frac = ((frac % 1) + 1) % 1;
+      var target = frac * cum[STEPS], j = 1;
+      while (j < STEPS && cum[j] < target) j++;
+      var part = (target - cum[j - 1]) / ((cum[j] - cum[j - 1]) || 1);
+      return -Math.PI / 2 + 2 * Math.PI * (j - 1 + part) / STEPS;
+    }
+    function assign(nd, f0, f1) {
+      var tot = leaves(nd), f = f0;
+      nd.kids.forEach(function (k) {
+        var span = (f1 - f0) * leaves(k) / tot;
+        k.mid = f + span / 2;
+        assign(k, f, f + span);
+        f += span;
+      });
+    }
+    var first = center.kids.length ? leaves(center.kids[0]) : 1;
+    assign(center, -first / L / 2, 1 - first / L / 2);
+    // cadre étroit : la pièce dépliée est tournée vers la droite, là où l'ellipse est la plus longue
+    var offset = 0, PULL = 0.62;
+    var openRoom = center.kids.filter(function (k) { return k.kids.length; })[0];
+    if (openRoom && w < h) offset = 0.25 - openRoom.mid;
+    // les bulles sans enfants affichés vont sur l'ellipse extérieure…
+    (function place(nd) {
+      nd.kids.forEach(function (k) {
+        if (!k.kids.length) {
+          var t = tAt(k.mid + offset), f = ring(D);
+          k.x = w / 2 + Math.cos(t) * rx * f;
+          k.y = h / 2 + Math.sin(t) * ry * f;
+        }
+        place(k);
+      });
+    })(center);
+    // …et une bulle dépliée se place entre son parent et le centre de ses enfants (de bas en haut).
+    (function pull(nd, parent) {
+      nd.kids.forEach(function (k) { if (k.kids.length) pull(k, nd); });
+      if (!parent || !nd.kids.length) return;
+      var mx = 0, my = 0;
+      nd.kids.forEach(function (k) { mx += k.x; my += k.y; });
+      mx /= nd.kids.length; my /= nd.kids.length;
+      var px = parent === center ? w / 2 : parent.x, py = parent === center ? h / 2 : parent.y;
+      nd.x = px + (mx - px) * PULL; nd.y = py + (my - py) * PULL;
+    })(center, null);
 
     nodes.forEach(function (nd) {
       nd.w = nd.el.offsetWidth || 90;
       nd.h = nd.el.offsetHeight || 44;
+      // taille figée : une bulle placée près du bord droit ne doit pas se replier sur deux lignes
+      if (nd.el.offsetWidth) { nd.el.style.width = Math.ceil(nd.w) + 'px'; nd.el.style.height = Math.ceil(nd.h) + 'px'; }
       if (pos[nd.id]) { nd.x = pos[nd.id][0] * w; nd.y = pos[nd.id][1] * h; }
     });
     relax(nodes, w, h);
@@ -124,7 +184,11 @@ var MINDMAP = (function () {
       panel.hidden = false;
       hint.hidden = true;
       if (data.onOpen) data.onOpen(info);
-      if (nd.spec.branch && data.onToggle) data.onToggle(nd.spec.branch);
+      if (nd.spec.hasChildren && data.onToggle) {
+        var d = nd.spec.depth;
+        var next = path[d] === nd.path[d] && nd.path.every(function (p, j) { return path[j] === p; }) ? nd.path.slice(0, d) : nd.path.slice();
+        data.onToggle(next, nd.id);
+      }
     }
 
     nodes.forEach(function (nd) {
@@ -166,8 +230,9 @@ var MINDMAP = (function () {
   }
 
   /* Écarte les bulles qui se chevauchent (les bulles déjà placées par l'élève ne bougent pas). */
+  function atWall(nd, w) { return nd.x <= nd.w / 2 + 5 || nd.x >= w - nd.w / 2 - 5; }
   function relax(nodes, w, h) {
-    for (var it = 0; it < 60; it++) {
+    for (var it = 0; it < 300; it++) {
       var movedAny = false;
       for (var i = 0; i < nodes.length; i++) {
         for (var j = i + 1; j < nodes.length; j++) {
@@ -177,8 +242,10 @@ var MINDMAP = (function () {
           if (ox > 0 && oy > 0) {
             movedAny = true;
             var horiz = ox / (a.w + b.w) < oy / (a.h + b.h);
+            // contre un bord gauche ou droit, on écarte verticalement (sinon les bulles oscillent)
+            if (horiz && (atWall(a, w) || atWall(b, w))) horiz = false;
             var sx = a.x <= b.x ? -1 : 1, sy = a.y <= b.y ? -1 : 1;
-            var share = a.fixed || a.id === 'center' ? 0 : (b.fixed || b.id === 'center' ? 1 : 0.5);
+            var share = a.fixed ? 0 : (b.fixed ? 1 : 0.5);
             if (horiz) { a.x += sx * ox * share; b.x -= sx * ox * (1 - share); }
             else { a.y += sy * oy * share; b.y -= sy * oy * (1 - share); }
           }

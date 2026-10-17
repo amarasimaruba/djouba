@@ -134,15 +134,29 @@ async function test(name, fn) { await fn(); passed++; console.log('  ✓ ' + nam
     assert.ok(!$('.autonotice'));
   });
 
-  await test('vue guidée : objet suivant', async function () {
+  await test('vue guidée : objet suivant, menu groupé par pièce', async function () {
     click($('#nextobj'));
     assert.strictEqual($('#objtitle').textContent, 'la porte');
     assert.strictEqual($('#objsel').value, 'porte');
+    assert.deepStrictEqual($$('#objsel optgroup').map(function (g) { return g.label; }), ['La maison et ses meubles', 'La cuisine', 'La salle de bain']);
+    assert.strictEqual($$('#objsel option').length, 12);
+    change('#objsel', 'lampe'); click($('#nextobj'));
+    assert.strictEqual($('#objtitle').textContent, 'la cuisine', 'on passe de la lampe à la cuisine');
+    change('#objsel', 'toilettes');
+    assert.strictEqual($('#objtitle').textContent, 'les toilettes');
+    assert.ok($('#nextobj').disabled);
   });
 
   await test('vue libre : galerie de 6 objets', async function () {
     change('#viewsel', 'free');
-    assert.strictEqual($$('.gallery .card').length, 6);
+    assert.strictEqual($$('.gallery .card').length, 12);
+    assert.strictEqual($$('.roomsec h2').length, 3);
+    click($('#card-frigo'));
+    assert.strictEqual($('#objtitle').textContent, 'le réfrigérateur');
+    assert.strictEqual($('.roomtag').textContent, 'La cuisine');
+    assert.strictEqual($$('.plate .deco').length, 2, 'décor dessiné mais pas étiqueté');
+    assert.strictEqual($$('.plate .label').length, 6);
+    click($('#back'));
     click($('#card-lit'));
     assert.strictEqual($('#objtitle').textContent, 'le lit');
     click($('#back'));
@@ -150,11 +164,15 @@ async function test(name, fn) { await fn(); passed++; console.log('  ✓ ' + nam
   });
   await axe('galerie');
 
-  await test('carte mentale : branches colorées, feuilles verrouillées puis dépliées, panneau Fermer', async function () {
+  await test('carte mentale : pièces → objets → parties, verrous, panneau Fermer', async function () {
     change('#viewsel', 'map');
     await wait(30);
-    assert.strictEqual($$('.mapnode.branch').length, 6);
-    click($('[data-node="lampe"]')); await wait(30);
+    assert.strictEqual($$('.mapnode.branch').length, 3, '3 pièces');
+    assert.strictEqual($$('.mapnode.sub').length, 0);
+    click($('[data-node="sdb"]')); await wait(30);
+    assert.strictEqual($$('.mapnode.sub').length, 3, '3 objets dans la salle de bain');
+    assert.strictEqual($('[data-node="sdb"]').getAttribute('aria-expanded'), 'true');
+    click($('[data-node="sdb/lavabo"]')); await wait(30);
     var leaves = $$('.mapnode.leaf');
     assert.strictEqual(leaves.length, 6);
     assert.ok(leaves.every(function (l) { return l.textContent === '?'; }), 'objet jamais ouvert : mots cachés');
@@ -162,11 +180,14 @@ async function test(name, fn) { await fn(); passed++; console.log('  ✓ ' + nam
     assert.ok(!panel.hidden);
     click(panel.querySelector('button'));
     assert.ok(panel.hidden);
-    click($('[data-node="lampe"]')); await wait(30); // replier
-    click($('[data-node="maison"]')); await wait(30);
+    click($('[data-node="sdb"]')); await wait(30); // replier la pièce
+    assert.strictEqual($$('.mapnode.sub').length, 0);
+    click($('[data-node="general"]')); await wait(30);
+    click($('[data-node="general/maison"]')); await wait(30);
     assert.ok($$('.mapnode.leaf').some(function (l) { return l.textContent === 'le toit'; }));
-    var leaf = $('[data-node="maison.toit"]');
-    assert.notStrictEqual(leaf.style.background, $('[data-node="maison"]').style.background);
+    var leaf = $('[data-node="general/maison/toit"]');
+    assert.notStrictEqual(leaf.style.background, $('[data-node="general/maison"]').style.background);
+    assert.notStrictEqual($('[data-node="general/maison"]').style.background, $('[data-node="general"]').style.background);
     click(leaf);
     assert.ok(/protège de la pluie/.test($('.mappanel').textContent));
     var before = leaf.style.left;

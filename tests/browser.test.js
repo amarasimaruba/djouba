@@ -68,7 +68,7 @@ async function axe(page, where) {
         if (lang === 'fr') await page.locator('.stage').screenshot({ path: path.join(shots, cfg.name + '-' + objs[i] + '.png') });
       }
     }
-    ok(cfg.name + ' : 6 objets × 4 langues, étiquettes sans chevauchement ni coupure, pas de débordement');
+    ok(cfg.name + ' : ' + objs.length + ' objets × 4 langues, étiquettes sans chevauchement ni coupure, pas de débordement');
     await page.selectOption('#langsel', 'fr');
     await page.selectOption('#objsel', 'porte');
     await axe(page, cfg.name + ' découvrir');
@@ -107,7 +107,9 @@ async function axe(page, where) {
     // Carte mentale
     await page.selectOption('#viewsel', 'map');
     await page.waitForSelector('.mapnode.branch');
-    await page.click('[data-node="porte"]');
+    await page.click('[data-node="cuisine"]');
+    await page.waitForSelector('.mapnode.sub');
+    await page.click('[data-node="cuisine/cuisiniere"]');
     await page.waitForSelector('.mapnode.leaf');
     var nodes = await page.$$eval('.mapnode', function (ns) { return ns.map(function (n) { var r = n.getBoundingClientRect(); return { x: r.x, y: r.y, width: r.width, height: r.height, t: n.textContent }; }); });
     var frame = await page.$eval('#mapframe', function (f) { var r = f.getBoundingClientRect(); return { x: r.x, y: r.y, width: r.width, height: r.height }; });
@@ -168,7 +170,7 @@ async function axe(page, where) {
     var dl2 = page.waitForEvent('download');
     await page.click('#expcsv');
     var csv = fs.readFileSync(await (await dl2).path(), 'utf8');
-    assert.ok(/^﻿pseudo;objet;activite/.test(csv));
+    assert.ok(/^\uFEFFpseudo;piece;objet;activite/.test(csv));
     ok(cfg.name + ' : export ZIP → restauration, export CSV');
 
     assert.deepStrictEqual(requests, [], 'requêtes réseau : ' + requests.join(', '));

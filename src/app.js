@@ -5,7 +5,7 @@
   var NS = 'http://www.w3.org/2000/svg';
   var S = K.defaultState();
   var store = K.memoryStore();
-  var ui = { obj: C.objects[0].id, act: 'discover', freeOpen: false, selected: null, mapExpanded: null, mapPos: {}, mapInfo: null, mapFocus: null, notice: '' };
+  var ui = { obj: C.objects[0].id, act: 'discover', freeOpen: false, selected: null, mapPath: [], mapPos: {}, mapInfo: null, mapFocus: null, notice: '' };
   var session = null;
   var svgCount = 0;
   var root, live;
@@ -14,6 +14,8 @@
   function t(key, vars) { return K.fmt(K.tr(C.ui[key], S.lang), vars); }
   function n(entry) { return K.tr(entry, S.lang); }
   function obj(id) { return C.objects.filter(function (o) { return o.id === id; })[0]; }
+  function roomObjects(roomId) { return C.objects.filter(function (o) { return o.room === roomId; }); }
+  function room(id) { return C.rooms.filter(function (r) { return r.id === id; })[0]; }
   function el(tag, attrs, kids) {
     var e = document.createElement(tag);
     attrs = attrs || {};
@@ -42,7 +44,10 @@
   }
   function select(id, label, options, value, onchange) {
     var s = el('select', { id: id, onchange: function (e) { onchange(e.target.value); } },
-      options.map(function (o) { return el('option', { value: o[0], text: o[1], selected: o[0] === value }); }));
+      options.map(function (o) {
+        if (o.group) return el('optgroup', { label: o.group }, o.options.map(function (q) { return el('option', { value: q[0], text: q[1], selected: q[0] === value }); }));
+        return el('option', { value: o[0], text: o[1], selected: o[0] === value });
+      }));
     return el('div', { class: 'field' }, [el('label', { for: id, text: label }), s]);
   }
   function append(parent, child) { if (child) parent.appendChild(child); }
@@ -75,16 +80,24 @@
     });
     svg.appendChild(sv('defs', {}, [sv('marker', { id: mk, viewBox: '0 0 10 10', refX: 9, refY: 5, markerWidth: 7, markerHeight: 7, orient: 'auto-start-reverse' },
       [sv('path', { d: 'M0,0 L10,5 L0,10 z', class: 'arrowhead' })])]));
+    function shapeNode(s, a) {
+      if (s.t === 'rect') return sv('rect', Object.assign(a, { x: s.x, y: s.y, width: s.w, height: s.h, rx: s.rx || 0 }));
+      if (s.t === 'circle') return sv('circle', Object.assign(a, { cx: s.cx, cy: s.cy, r: s.r }));
+      if (s.t === 'ellipse') return sv('ellipse', Object.assign(a, { cx: s.cx, cy: s.cy, rx: s.rx, ry: s.ry }));
+      if (s.t === 'poly') return sv('polygon', Object.assign(a, { points: s.pts.join(' ') }));
+      return sv('polyline', Object.assign(a, { points: s.pts.join(' '), fill: 'none', 'stroke-linecap': 'round' }));
+    }
+    // décor (mur, sol, intérieur) : dessiné dessous, ni cliquable ni étiqueté
+    (o.deco || []).forEach(function (d) {
+      var g = sv('g', { class: 'deco', 'aria-hidden': 'true' });
+      d.shapes.forEach(function (s) { g.appendChild(shapeNode(s, { fill: d.fill, stroke: d.stroke || '#9E9E9E', 'stroke-width': 1 })); });
+      svg.appendChild(g);
+    });
     o.parts.forEach(function (p, i) {
       var g = sv('g', { class: 'part' + (opt.highlight === p.id ? ' hl' : ''), 'data-part': p.id });
       p.shapes.forEach(function (s) {
         var a = { fill: p.fill || 'none', stroke: p.stroke || '#3E2723', 'stroke-width': p.sw || 1.5, 'stroke-linejoin': 'round' };
-        var node;
-        if (s.t === 'rect') { node = sv('rect', Object.assign(a, { x: s.x, y: s.y, width: s.w, height: s.h, rx: s.rx || 0 })); }
-        else if (s.t === 'circle') { node = sv('circle', Object.assign(a, { cx: s.cx, cy: s.cy, r: s.r })); }
-        else if (s.t === 'ellipse') { node = sv('ellipse', Object.assign(a, { cx: s.cx, cy: s.cy, rx: s.rx, ry: s.ry })); }
-        else if (s.t === 'poly') { node = sv('polygon', Object.assign(a, { points: s.pts.join(' ') })); }
-        else { node = sv('polyline', Object.assign(a, { points: s.pts.join(' '), fill: 'none', 'stroke-linecap': 'round' })); }
+        var node = shapeNode(s, a);
         g.appendChild(node);
       });
       if (opt.onPart) {
@@ -109,7 +122,11 @@
       var g = sv('g', { class: 'label' + (opt.highlight === lab.id ? ' hl' : '') + (opt.mystery === lab.id ? ' mystery' : ''), 'data-part': lab.id });
       g.appendChild(sv('line', { x1: x1, y1: lab.ly - 5, x2: lab.ax, y2: lab.ay, class: 'leader', 'marker-end': 'url(#' + mk + ')' }));
       g.appendChild(sv('circle', { cx: lab.ax, cy: lab.ay, r: 2.5, class: 'dot' }));
-      g.appendChild(sv('text', { x: lab.lx, y: lab.ly, 'text-anchor': lab.side === 'left' ? 'end' : 'start', 'font-size': opt.mystery === lab.id ? 22 : labelSize(text), text: text }));
+      var fs = opt.mystery === lab.id ? 22 : labelSize(text);
+      var label = sv('text', { x: lab.lx, y: lab.ly, 'text-anchor': lab.side === 'left' ? 'end' : 'start', 'font-size': fs, text: text });
+      // très long mot : on resserre les lettres pour qu'il tienne dans la marge (116 unités)
+      if (text.length * fs * 0.56 > 116) { label.setAttribute('textLength', 116); label.setAttribute('lengthAdjust', 'spacingAndGlyphs'); }
+      g.appendChild(label);
       if (opt.onLabel) g.addEventListener('click', function () { opt.onLabel(lab.id); });
       svg.appendChild(g);
     });
@@ -287,6 +304,7 @@
     var o = obj(ui.obj), fg = K.textOn(o.color);
     var stage = el('section', { class: 'stage', 'aria-labelledby': 'objtitle', style: { '--obj': o.color } });
     stage.appendChild(el('div', { class: 'objhead', style: { background: o.color, color: fg } }, [
+      el('p', { class: 'roomtag', text: n(room(o.room).name) }),
       el('h2', { id: 'objtitle', text: n(o.name) }),
       el('p', { text: n(o.intro) })
     ]));
@@ -315,7 +333,9 @@
     var i = C.objects.map(function (o) { return o.id; }).indexOf(ui.obj);
     var nav = el('div', { class: 'row nav' }, [
       el('button', { type: 'button', class: 'btn', id: 'prevobj', text: '← ' + t('prev'), disabled: i === 0, onclick: function () { goObj(C.objects[i - 1].id); } }),
-      select('objsel', t('object'), C.objects.map(function (o, k) { return [o.id, (k + 1) + '. ' + n(o.name)]; }), ui.obj, goObj),
+      select('objsel', t('object'), C.rooms.map(function (r) {
+        return { group: n(r.name), options: roomObjects(r.id).map(function (o) { return [o.id, (C.objects.indexOf(o) + 1) + '. ' + n(o.name)]; }) };
+      }), ui.obj, goObj),
       el('button', { type: 'button', class: 'btn', id: 'nextobj', text: t('next') + ' →', disabled: i === C.objects.length - 1, onclick: function () { goObj(C.objects[i + 1].id); } })
     ]);
     return el('div', {}, [nav, renderStage()]);
@@ -326,7 +346,15 @@
     if (ui.freeOpen) {
       return el('div', {}, [el('button', { type: 'button', class: 'btn', id: 'back', text: '← ' + t('backGallery'), onclick: function () { ui.freeOpen = false; render(); } }), renderStage()]);
     }
-    return el('ul', { class: 'gallery' }, C.objects.map(function (o) {
+    return el('div', {}, C.rooms.map(function (r) {
+      return el('section', { class: 'roomsec', 'aria-labelledby': 'room-' + r.id }, [
+        el('h2', { id: 'room-' + r.id, class: 'roomtitle', style: { background: r.color, color: K.textOn(r.color) }, text: n(r.name) }),
+        galleryList(roomObjects(r.id))
+      ]);
+    }));
+  }
+  function galleryList(list) {
+    return el('ul', { class: 'gallery' }, list.map(function (o) {
       return el('li', {}, [el('button', { type: 'button', class: 'card', id: 'card-' + o.id, style: { borderColor: o.color }, onclick: function () { ui.obj = o.id; ui.freeOpen = true; startSession('discover'); render(); } }, [
         drawObject(o, { mini: true }),
         el('span', { class: 'cardname', style: { background: o.color, color: K.textOn(o.color) }, text: n(o.name) }),
@@ -343,23 +371,30 @@
         hint: t('mapHint'),
         closeLabel: t('close'),
         positions: ui.mapPos,
-        expanded: ui.mapExpanded,
+        path: ui.mapPath,
         openInfo: ui.mapInfo,
         onOpen: function (info) { ui.mapInfo = info; },
-        onToggle: function (id) {
-          ui.mapExpanded = ui.mapExpanded === id ? null : id;
-          ui.mapFocus = id;
+        onToggle: function (path, nodeId) {
+          ui.mapPath = path;
+          ui.mapFocus = nodeId;
           render();
         },
-        branches: C.objects.map(function (o) {
-          var unlocked = prog(o.id).seen;
-          var leafColor = M.mix(o.color, 0.72);
+        tree: C.rooms.map(function (r) {
+          var objs = roomObjects(r.id);
           return {
-            id: o.id, label: n(o.name), color: o.color, textColor: K.textOn(o.color),
-            info: n(o.intro) + ' ' + t('mapBranchInfo', { n: o.parts.length }),
-            leaves: o.parts.map(function (p) {
-              return { id: p.id, label: unlocked ? n(p.name) : '?', title: unlocked ? n(p.name) : '?', color: leafColor, textColor: K.textOn(leafColor),
-                info: unlocked ? n(p.def) : t('mapLocked'), locked: !unlocked };
+            id: r.id, label: n(r.name), color: r.color, textColor: K.textOn(r.color),
+            info: t('mapRoomInfo', { n: objs.length }),
+            children: objs.map(function (o) {
+              var unlocked = prog(o.id).seen;
+              var leafColor = M.mix(o.color, 0.72);
+              return {
+                id: o.id, label: n(o.name), color: o.color, textColor: K.textOn(o.color),
+                info: n(o.intro) + ' ' + t('mapBranchInfo', { n: o.parts.length }),
+                children: o.parts.map(function (p) {
+                  return { id: p.id, label: unlocked ? n(p.name) : '?', title: unlocked ? n(p.name) : '?', color: leafColor, textColor: K.textOn(leafColor),
+                    info: unlocked ? n(p.def) : t('mapLocked'), locked: !unlocked };
+                })
+              };
             })
           };
         })
@@ -416,13 +451,13 @@
     reader.readAsArrayBuffer(file);
   }
   function exportCsv() {
-    var rows = [['pseudo', 'objet', 'activite', 'vu', 'termine', 'score_premier_coup', 'total']];
+    var rows = [['pseudo', 'piece', 'objet', 'activite', 'vu', 'termine', 'score_premier_coup', 'total']];
     S.profiles.forEach(function (pr) {
       C.objects.forEach(function (o) {
         var p = (S.progress[pr.id] || {})[o.id] || {};
         ['show', 'arrow', 'check'].forEach(function (a) {
           var r = p[a] || {};
-          rows.push([pr.pseudo || t('guest'), o.name.fr, a, p.seen ? 1 : 0, r.done ? 1 : 0, r.score === undefined ? '' : r.score, r.total === undefined ? '' : r.total]);
+          rows.push([pr.pseudo || t('guest'), room(o.room).name.fr, o.name.fr, a, p.seen ? 1 : 0, r.done ? 1 : 0, r.score === undefined ? '' : r.score, r.total === undefined ? '' : r.total]);
         });
       });
     });
@@ -430,14 +465,19 @@
   }
   function renderProgress() {
     var head = el('tr', {}, [el('th', { scope: 'col', text: t('object') })].concat(C.activities.map(function (a) { return el('th', { scope: 'col', text: actLabel(a) }); })));
-    var rows = C.objects.map(function (o) {
+    var rows = [];
+    C.rooms.forEach(function (r) {
+      rows.push(el('tr', { class: 'roomrow' }, [el('th', { scope: 'colgroup', colspan: String(C.activities.length + 1), text: n(r.name) })]));
+      roomObjects(r.id).forEach(function (o) { rows.push(progressRow(o)); });
+    });
+    return el('div', { class: 'tablewrap' }, [el('table', {}, [el('caption', { text: t('progress') }), el('thead', {}, [head]), el('tbody', {}, rows)])]);
+  }
+  function progressRow(o) {
       var p = prog(o.id);
       return el('tr', {}, [el('th', { scope: 'row', text: n(o.name) })].concat(C.activities.map(function (a) {
         if (a === 'discover') return el('td', { text: p.seen ? '✓ ' + t('seen') : '–' });
         return el('td', { text: p[a] && p[a].done ? '✓ ' + p[a].score + '/' + p[a].total : '–' });
       })));
-    });
-    return el('div', { class: 'tablewrap' }, [el('table', {}, [el('caption', { text: t('progress') }), el('thead', {}, [head]), el('tbody', {}, rows)])]);
   }
 
   function renderHeader() {

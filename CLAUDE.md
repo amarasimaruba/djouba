@@ -13,11 +13,12 @@ Offline, single-file educational app: a French "visual dictionary" of the house 
 
 ## Architecture
 - `src/template.html` holds CSS and placeholders `{{CONFIG}} {{CORE}} {{CONTENT}} {{MAP}} {{APP}}`, inlined by `build.js`.
-- `src/content.js` (`CONTENT`): objects → parts with shapes (rect/circle/ellipse/poly/line in a 460×340 viewBox, drawn in list order, later = on top), arrow target `a`, names/definitions via `L(fr, ht, en, es)`, UI strings.
+- `src/content.js` (`CONTENT`): `rooms` (general, cuisine, sdb) and `objects` (each has a `room`, optional non-interactive `deco` shapes drawn underneath) → parts with shapes (rect/circle/ellipse/poly/line in a 460×340 viewBox, drawn in list order, later = on top), arrow target `a`, names/definitions via `L(fr, ht, en, es)`, UI strings.
 - `src/core.js` (`CORE`): i18n helpers, geometry (`partAt` = topmost part), label layout, validators, attempt engine (hint1 → hint2 → solution after 3 fails), linter, IndexedDB store with memory fallback, store-only ZIP, CSV.
-- `src/mindmap.js` (`MINDMAP`): draggable mind map, info panel inside the frame.
+- `src/mindmap.js` (`MINDMAP`): draggable 3-level mind map (rooms → objects → parts, one expanded path), radial layout by equal arc length + overlap relaxation, info panel inside the frame.
 - `src/app.js`: full re-render UI built with `textContent` only (never innerHTML).
 
 ## Conventions
+- QCM intruders come only from other rooms and never share a name with anything in the object's room (`CORE.roomNames`).
 - Every learner-facing string must exist in fr/ht/en/es; misconceptions start with "Croire que"; French part names start with an article.
 - Keep the two-hints-before-solution rule, dropdowns over free inputs, real checkboxes for multiple choice, ≥44px targets.

@@ -189,18 +189,29 @@ var CORE = (function () {
   function buildArrowQuestions(obj, rand) {
     return shuffle(obj.parts.map(function (p) { return p.id; }), rand);
   }
-  /* QCM : 4 bonnes parties maximum + 3 intrus pris dans d'autres objets,
-   * en évitant les intrus dont le nom existe aussi dans l'objet. */
+  /* QCM : 4 bonnes parties maximum + 3 intrus pris dans les AUTRES pièces.
+   * On écarte tout intrus dont le nom existe déjà dans la même pièce (objet ou partie) :
+   * par exemple « le robinet » ne peut pas être un intrus pour l'évier de la cuisine. */
+  function roomNames(objects, room, lang) {
+    var names = {};
+    objects.forEach(function (o) {
+      if (o.room !== room) return;
+      names[tr(o.name, lang)] = true;
+      o.parts.forEach(function (p) { names[tr(p.name, lang)] = true; });
+    });
+    return names;
+  }
   function buildCheckQuestion(objects, objId, lang, rand) {
     var obj = objects.filter(function (o) { return o.id === objId; })[0];
     var good = shuffle(obj.parts, rand).slice(0, Math.min(4, obj.parts.length));
-    var ownNames = obj.parts.map(function (p) { return tr(p.name, lang); });
+    var banned = roomNames(objects, obj.room, lang);
+    obj.parts.forEach(function (p) { banned[tr(p.name, lang)] = true; });
+    banned[tr(obj.name, lang)] = true;
     var pool = [];
     objects.forEach(function (o) {
-      if (o.id === objId) return;
+      if (o.id === objId || (obj.room !== undefined && o.room === obj.room)) return;
       o.parts.forEach(function (p) {
-        var n = tr(p.name, lang);
-        if (ownNames.indexOf(n) === -1 && n !== tr(obj.name, lang)) pool.push({ obj: o, part: p });
+        if (!banned[tr(p.name, lang)]) pool.push({ obj: o, part: p });
       });
     });
     var seen = {};
@@ -251,9 +262,26 @@ var CORE = (function () {
     });
     var objIds = {};
     var W = content.viewBox[0], H = content.viewBox[1];
+    var roomIds = {};
+    (content.rooms || []).forEach(function (r) {
+      if (roomIds[r.id]) errors.push('Identifiant de pièce en double : ' + r.id);
+      roomIds[r.id] = true;
+      need4(r.name, 'rooms.' + r.id + '.name');
+      if (contrastRatio(r.color, textOn(r.color)) < 4.5 || contrastRatio(r.color, '#FFFFFF') < 3) errors.push('Contraste insuffisant pour la pièce ' + r.id);
+      if (!content.objects.some(function (o) { return o.room === r.id; })) errors.push('Pièce sans objet : ' + r.id);
+    });
     content.objects.forEach(function (o) {
       if (objIds[o.id]) errors.push('Identifiant d\'objet en double : ' + o.id);
       objIds[o.id] = true;
+      if (content.objects.some(function (q) { return q !== o && q.color.toUpperCase() === o.color.toUpperCase(); })) errors.push('Deux objets ont la même couleur : ' + o.id);
+      if (content.rooms && !roomIds[o.room]) errors.push('Pièce inconnue pour ' + o.id + ' : ' + o.room);
+      (o.deco || []).forEach(function (d) {
+        if (!d.fill) errors.push('Décor sans couleur : ' + o.id);
+        d.shapes.forEach(function (sh) {
+          var b = bbox(sh);
+          if (b[0] < 130 || b[2] > W - 130 || b[1] < 0 || b[3] > H) errors.push('Décor hors de la zone centrale : ' + o.id);
+        });
+      });
       ['name', 'intro', 'limit', 'misconception'].forEach(function (f) { need4(o[f], o.id + '.' + f); });
       if (!/^Croire que /.test(o.misconception.fr)) errors.push('Idée reçue non cadrée par « Croire que… » : ' + o.id);
       if (contrastRatio(o.color, textOn(o.color)) < 4.5) errors.push('Contraste < 4,5:1 pour la couleur de ' + o.id);
@@ -438,7 +466,7 @@ var CORE = (function () {
     tr: tr, fmt: fmt, firstLetter: firstLetter, rng: rng, shuffle: shuffle,
     bbox: bbox, shapeContains: shapeContains, partAt: partAt, sideOf: sideOf, findPart: findPart, layoutLabels: layoutLabels,
     validate: validate, createAttempt: createAttempt, submitAttempt: submitAttempt, canShowSolution: canShowSolution,
-    buildShowQuestions: buildShowQuestions, buildArrowQuestions: buildArrowQuestions, buildCheckQuestion: buildCheckQuestion,
+    roomNames: roomNames, buildShowQuestions: buildShowQuestions, buildArrowQuestions: buildArrowQuestions, buildCheckQuestion: buildCheckQuestion,
     contrastRatio: contrastRatio, textOn: textOn, lint: lint,
     openStore: openStore, memoryStore: memoryStore,
     crc32: crc32, makeZip: makeZip, readZip: readZip, utf8: utf8, fromUtf8: fromUtf8,
