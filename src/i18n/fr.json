@@ -30,5 +30,17 @@
   "course.chapter": "Étape",
   "course.prev": "Précédent",
   "course.next": "Suivant",
-  "level.tous": "Tous niveaux"
+  "level.tous": "Tous niveaux",
+  "tab.exercice": "Exercice",
+  "ex.choose": "Votre réponse",
+  "ex.aide1": "Aide 1",
+  "ex.aide2": "Aide 2",
+  "ex.answer": "Voir la réponse",
+  "ex.restart": "Recommencer",
+  "ex.good": "Bonne réponse.",
+  "ex.bad": "Pas tout à fait.",
+  "ex.correct": "La bonne réponse est :",
+  "ex.need": "Choisissez d'abord une réponse.",
+  "ex.nocourse": "Choisissez d'abord un cours dans l'onglet Cours.",
+  "ex.noex": "Pas d'exercice pour cette étape."
 }

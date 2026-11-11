@@ -7,9 +7,10 @@ body { margin:0; background:var(--bg); color:var(--fg); font:18px/1.5 system-ui,
 .bar { display:flex; flex-wrap:wrap; gap:12px; align-items:center; justify-content:space-between; padding:12px 16px; border-bottom:1px solid var(--line); }
 h1 { margin:0; font-size:1.4rem; }
 .bar-controls, .row { display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin:12px 0; }
-.tabs { display:flex; gap:8px; padding:12px 16px 0; }
-.tab { flex:1; background:var(--panel); color:var(--fg); border:2px solid var(--line); border-bottom:4px solid var(--tab); border-radius:10px 10px 0 0; }
+.tabs { display:flex; flex-wrap:wrap; gap:8px; padding:12px 16px 0; }
+.tab { flex:1 1 40%; background:var(--panel); color:var(--fg); border:2px solid var(--line); border-bottom:4px solid var(--tab); border-radius:10px 10px 0 0; }
 .tab[data-tab="cours"]    { --tab:#e0a030; }
+.tab[data-tab="exercice"] { --tab:#e57373; }
 .tab[data-tab="voix"]     { --tab:#4fb3d9; }
 .tab[data-tab="reglages"] { --tab:#8bc34a; }
 .tab[aria-selected="true"] { background:var(--tab); color:#101010; font-weight:700; }

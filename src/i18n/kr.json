@@ -30,5 +30,17 @@
   "course.chapter": "Etap",
   "course.prev": "Anvan",
   "course.next": "Apré",
-  "level.tous": "Tout nivo"
+  "level.tous": "Tout nivo",
+  "tab.exercice": "Egzèsis",
+  "ex.choose": "Répons-ou",
+  "ex.aide1": "Èd 1",
+  "ex.aide2": "Èd 2",
+  "ex.answer": "Wè répons-la",
+  "ex.restart": "Rékomansé",
+  "ex.good": "Bon répons.",
+  "ex.bad": "Pa tou a fè.",
+  "ex.correct": "Bon répons-la sé :",
+  "ex.need": "Chwazi on répons dabò.",
+  "ex.nocourse": "Chwazi on kou dabò adan onglet Kou-a.",
+  "ex.noex": "Pa ni egzèsis pou etap-la."
 }

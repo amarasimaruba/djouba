@@ -3,6 +3,7 @@
   'use strict';
   var DATA = window.DJOUBA_DATA;
   var KEY = 'djouba.state.v1';
+  var ex = { key: '', aides: 0, revealed: false, choice: '', need: false };
   var state = { lang: 'fr', theme: 'nuit', tab: 'cours', level: '', course: '', chapter: '0', speed: '1', voice: '' };
 
   function load() {
@@ -92,7 +93,48 @@
     note.textContent = !found ? t('voice.none') : (found.approximate ? t('voice.approx') : '');
   }
 
-  function render() { renderStatic(); renderTabs(); renderCourses(); renderVoices(); save(); }
+  function currentExercise() {
+    var ch = currentChapters()[parseInt(state.chapter, 10)];
+    return ch && ch.exercise ? ch.exercise : null;
+  }
+
+  function renderExercise() {
+    var chapters = currentChapters();
+    fill($('sel-ex-chapter'), chapters.length ? chapters.map(function (c, i) {
+      return { value: String(i), label: (i + 1) + '. ' + I18N.localized(c.title, state.lang) };
+    }) : [{ value: '0', label: t('course.choose') }], state.chapter);
+    var key = state.course + ':' + state.chapter;
+    if (ex.key !== key) ex = { key: key, aides: 0, revealed: false, choice: '', need: false };
+    var q = $('ex-question'), fb = $('ex-feedback'), e = currentExercise();
+    var off = !state.course || !e;
+    $('sel-ex-answer').disabled = off || ex.revealed;
+    $('btn-restart').disabled = off;
+    if (off) {
+      q.textContent = !state.course ? t('ex.nocourse') : t('ex.noex');
+      fill($('sel-ex-answer'), [{ value: '', label: t('course.choose') }], '');
+      fb.textContent = '';
+      $('btn-aide1').disabled = $('btn-aide2').disabled = $('btn-reponse').disabled = true;
+      return;
+    }
+    q.textContent = I18N.localized(e.q, state.lang);
+    fill($('sel-ex-answer'), [{ value: '', label: t('course.choose') }].concat(e.options.map(function (o, i) {
+      return { value: String(i), label: I18N.localized(o, state.lang) };
+    })), ex.choice);
+    // Deux aides, dans l'ordre, avant la réponse.
+    $('btn-aide1').disabled = ex.aides >= 1 || ex.revealed;
+    $('btn-aide2').disabled = ex.aides !== 1 || ex.revealed;
+    $('btn-reponse').disabled = ex.aides < 2 || ex.revealed;
+    var lines = [];
+    for (var i = 0; i < ex.aides; i++) lines.push(t('ex.aide' + (i + 1)) + ' : ' + I18N.localized(e.aides[i], state.lang));
+    if (ex.need) lines.push(t('ex.need'));
+    if (ex.revealed) {
+      lines.push(String(e.answer) === ex.choice ? t('ex.good') : t('ex.bad'));
+      lines.push(t('ex.correct') + ' ' + I18N.localized(e.options[e.answer], state.lang));
+    }
+    fb.textContent = lines.join('\n\n');
+  }
+
+  function render() { renderStatic(); renderTabs(); renderCourses(); renderExercise(); renderVoices(); save(); }
 
   function chosenVoice() {
     var found = VOICE.pick(window.speechSynthesis.getVoices(), state.lang);
@@ -112,6 +154,16 @@
     onChange($('sel-theme'), function (e) { state.theme = e.target.value; render(); });
     onChange($('sel-level'), function (e) { state.level = e.target.value; state.course = ''; state.chapter = '0'; render(); });
     onChange($('sel-course'), function (e) { state.course = e.target.value; state.chapter = '0'; render(); });
+    onChange($('sel-ex-chapter'), function (e) { state.chapter = e.target.value; render(); });
+    onChange($('sel-ex-answer'), function (e) { ex.choice = e.target.value; ex.need = false; renderExercise(); });
+    onButton($('btn-aide1'), function () { ex.aides = Math.max(ex.aides, 1); renderExercise(); });
+    onButton($('btn-aide2'), function () { if (ex.aides === 1) ex.aides = 2; renderExercise(); });
+    onButton($('btn-reponse'), function () {
+      if (ex.aides < 2) return;
+      if (ex.choice === '') { ex.need = true; renderExercise(); return; }
+      ex.need = false; ex.revealed = true; renderExercise();
+    });
+    onButton($('btn-restart'), function () { ex = { key: ex.key, aides: 0, revealed: false, choice: '', need: false }; renderExercise(); });
     onChange($('sel-chapter'), function (e) { state.chapter = e.target.value; render(); });
     onButton($('btn-prev'), function () { state.chapter = String(Math.max(0, parseInt(state.chapter, 10) - 1)); render(); });
     onButton($('btn-next'), function () { state.chapter = String(parseInt(state.chapter, 10) + 1); render(); });

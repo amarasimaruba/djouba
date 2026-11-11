@@ -46,3 +46,19 @@ test('recherche par niveau et par identifiant', () => {
   assert.strictEqual(COURSES.find(index, 'igname').file, 'igname.json');
   assert.strictEqual(COURSES.find(index, 'absent'), null);
 });
+
+test('chaque étape du cours igname a un exercice : 3 réponses, une bonne, exactement 2 aides, 4 langues', () => {
+  const b = body(COURSES.find(index, 'igname'));
+  COURSES.chapters(b).forEach((ch, i) => {
+    const e = ch.exercise, n = 'étape ' + (i + 1);
+    assert.ok(e, n);
+    assert.strictEqual(e.options.length, 3, n);
+    assert.ok(Number.isInteger(e.answer) && e.answer >= 0 && e.answer < 3, n);
+    assert.strictEqual(e.aides.length, 2, n + ' : deux aides avant la réponse');
+    for (const l of I18N.LANGS) {
+      assert.ok(e.q[l] && e.q[l].trim(), n + ' question ' + l);
+      e.options.forEach((o, k) => assert.ok(o[l] && o[l].trim(), n + ' option ' + k + ' ' + l));
+      e.aides.forEach((a, k) => assert.ok(a[l] && a[l].trim(), n + ' aide ' + k + ' ' + l));
+    }
+  });
+});

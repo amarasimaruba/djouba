@@ -30,5 +30,17 @@
   "course.chapter": "Step",
   "course.prev": "Previous",
   "course.next": "Next",
-  "level.tous": "All levels"
+  "level.tous": "All levels",
+  "tab.exercice": "Exercise",
+  "ex.choose": "Your answer",
+  "ex.aide1": "Hint 1",
+  "ex.aide2": "Hint 2",
+  "ex.answer": "Show the answer",
+  "ex.restart": "Start again",
+  "ex.good": "Correct.",
+  "ex.bad": "Not quite.",
+  "ex.correct": "The right answer is:",
+  "ex.need": "Choose an answer first.",
+  "ex.nocourse": "Choose a course first in the Courses tab.",
+  "ex.noex": "No exercise for this step."
 }

@@ -30,5 +30,17 @@
   "course.chapter": "Etapa",
   "course.prev": "Anterior",
   "course.next": "Siguiente",
-  "level.tous": "Todos los niveles"
+  "level.tous": "Todos los niveles",
+  "tab.exercice": "Ejercicio",
+  "ex.choose": "Su respuesta",
+  "ex.aide1": "Pista 1",
+  "ex.aide2": "Pista 2",
+  "ex.answer": "Ver la respuesta",
+  "ex.restart": "Empezar de nuevo",
+  "ex.good": "Correcto.",
+  "ex.bad": "No del todo.",
+  "ex.correct": "La respuesta correcta es:",
+  "ex.need": "Elija primero una respuesta.",
+  "ex.nocourse": "Elija primero un curso en la pestaña Cursos.",
+  "ex.noex": "No hay ejercicio para esta etapa."
 }

@@ -24,6 +24,7 @@
 
 <nav class="tabs" role="tablist" id="tabs">
   <button type="button" role="tab" class="tab" data-tab="cours" id="tab-cours" aria-controls="panel-cours" data-i18n="tab.cours">Cours</button>
+  <button type="button" role="tab" class="tab" data-tab="exercice" id="tab-exercice" aria-controls="panel-exercice" data-i18n="tab.exercice">Exercice</button>
   <button type="button" role="tab" class="tab" data-tab="voix" id="tab-voix" aria-controls="panel-voix" data-i18n="tab.voix">Voix</button>
   <button type="button" role="tab" class="tab" data-tab="reglages" id="tab-reglages" aria-controls="panel-reglages" data-i18n="tab.reglages">Réglages</button>
 </nav>
@@ -47,6 +48,25 @@
       <button type="button" id="btn-next" data-i18n="course.next">Suivant</button>
     </div>
     <article id="course-text" class="reading" aria-live="polite"></article>
+  </section>
+
+  <section id="panel-exercice" class="panel" role="tabpanel" aria-labelledby="tab-exercice" hidden>
+    <div class="row">
+      <label for="sel-ex-chapter" data-i18n="course.chapter">Étape</label>
+      <select id="sel-ex-chapter"></select>
+    </div>
+    <p id="ex-question" class="reading"></p>
+    <div class="row">
+      <label for="sel-ex-answer" data-i18n="ex.choose">Votre réponse</label>
+      <select id="sel-ex-answer"></select>
+    </div>
+    <div class="row buttons">
+      <button type="button" id="btn-aide1" data-i18n="ex.aide1">Aide 1</button>
+      <button type="button" id="btn-aide2" data-i18n="ex.aide2">Aide 2</button>
+      <button type="button" id="btn-reponse" data-i18n="ex.answer">Voir la réponse</button>
+      <button type="button" id="btn-restart" data-i18n="ex.restart">Recommencer</button>
+    </div>
+    <p id="ex-feedback" class="reading" role="status" aria-live="polite"></p>
   </section>
 
   <section id="panel-voix" class="panel" role="tabpanel" aria-labelledby="tab-voix" hidden>
