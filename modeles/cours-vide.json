@@ -1,0 +1,68 @@
+{
+  "_notes": "MODÈLE VIDE. Copier avec npm run nouveau-cours. Remplir les 4 langues partout. Dupliquer l'étape autant de fois que nécessaire. Chaque étape a un exercice : 3 réponses, answer = numéro de la bonne (0, 1 ou 2), exactement 2 aides. Dernière étape conseillée : Pour aller plus loin (sources).",
+  "title": {
+    "fr": "",
+    "kr": "",
+    "en": "",
+    "es": ""
+  },
+  "chapters": [
+    {
+      "title": {
+        "fr": "",
+        "kr": "",
+        "en": "",
+        "es": ""
+      },
+      "text": {
+        "fr": "",
+        "kr": "",
+        "en": "",
+        "es": ""
+      },
+      "exercise": {
+        "q": {
+          "fr": "",
+          "kr": "",
+          "en": "",
+          "es": ""
+        },
+        "options": [
+          {
+            "fr": "",
+            "kr": "",
+            "en": "",
+            "es": ""
+          },
+          {
+            "fr": "",
+            "kr": "",
+            "en": "",
+            "es": ""
+          },
+          {
+            "fr": "",
+            "kr": "",
+            "en": "",
+            "es": ""
+          }
+        ],
+        "answer": 0,
+        "aides": [
+          {
+            "fr": "",
+            "kr": "",
+            "en": "",
+            "es": ""
+          },
+          {
+            "fr": "",
+            "kr": "",
+            "en": "",
+            "es": ""
+          }
+        ]
+      }
+    }
+  ]
+}
