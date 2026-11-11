@@ -1,0 +1,15 @@
+{
+  "levels": [
+    "maternelle",
+    "primaire",
+    "college",
+    "lycee"
+  ],
+  "courses": [
+    {
+      "id": "essai",
+      "level": "primaire",
+      "file": "essai.json"
+    }
+  ]
+}

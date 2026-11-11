@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="nuit">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Djouba</title>
+<style>
+{{CSS}}
+</style>
+</head>
+<body>
+<header class="bar">
+  <h1 data-i18n="app.title">Djouba</h1>
+  <div class="bar-controls">
+    <label for="sel-lang" data-i18n="set.lang">Langue</label>
+    <select id="sel-lang">
+      <option value="fr">Français</option>
+      <option value="kr">Kréyòl matnitjé</option>
+      <option value="en">English</option>
+      <option value="es">Español</option>
+    </select>
+  </div>
+</header>
+
+<nav class="tabs" role="tablist" id="tabs">
+  <button type="button" role="tab" class="tab" data-tab="cours" id="tab-cours" aria-controls="panel-cours" data-i18n="tab.cours">Cours</button>
+  <button type="button" role="tab" class="tab" data-tab="voix" id="tab-voix" aria-controls="panel-voix" data-i18n="tab.voix">Voix</button>
+  <button type="button" role="tab" class="tab" data-tab="reglages" id="tab-reglages" aria-controls="panel-reglages" data-i18n="tab.reglages">Réglages</button>
+</nav>
+
+<main>
+  <section id="panel-cours" class="panel" role="tabpanel" aria-labelledby="tab-cours">
+    <div class="row">
+      <label for="sel-level" data-i18n="course.level">Niveau</label>
+      <select id="sel-level"></select>
+    </div>
+    <div class="row">
+      <label for="sel-course" data-i18n="course.course">Cours</label>
+      <select id="sel-course"></select>
+    </div>
+    <article id="course-text" class="reading" aria-live="polite"></article>
+  </section>
+
+  <section id="panel-voix" class="panel" role="tabpanel" aria-labelledby="tab-voix" hidden>
+    <div class="row">
+      <label for="sel-voice" data-i18n="voice.voice">Voix</label>
+      <select id="sel-voice"></select>
+    </div>
+    <div class="row">
+      <label for="sel-speed" data-i18n="voice.speed">Vitesse</label>
+      <select id="sel-speed">
+        <option value="0.6">0,6×</option>
+        <option value="0.8">0,8×</option>
+        <option value="1">1×</option>
+        <option value="1.2">1,2×</option>
+      </select>
+    </div>
+    <div class="row buttons">
+      <button type="button" id="btn-read" data-i18n="voice.read">Lire</button>
+      <button type="button" id="btn-pause" data-i18n="voice.pause">Pause</button>
+      <button type="button" id="btn-resume" data-i18n="voice.resume">Continuer</button>
+      <button type="button" id="btn-stop" data-i18n="voice.stop">Arrêter</button>
+    </div>
+    <p id="voice-note" class="note" role="status"></p>
+  </section>
+
+  <section id="panel-reglages" class="panel" role="tabpanel" aria-labelledby="tab-reglages" hidden>
+    <div class="row">
+      <label for="sel-theme" data-i18n="set.theme">Couleurs</label>
+      <select id="sel-theme">
+        <option value="nuit" data-i18n="theme.nuit">Nuit</option>
+        <option value="ardoise" data-i18n="theme.ardoise">Ardoise</option>
+        <option value="foret" data-i18n="theme.foret">Forêt</option>
+      </select>
+    </div>
+  </section>
+</main>
+
+<script>
+window.DJOUBA_DATA = {{DATA}};
+</script>
+<script>
+{{JS}}
+</script>
+</body>
+</html>

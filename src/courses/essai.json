@@ -1,0 +1,14 @@
+{
+  "title": {
+    "fr": "Cours d'essai",
+    "kr": "Kou pou eseyé",
+    "en": "Trial course",
+    "es": "Curso de prueba"
+  },
+  "text": {
+    "fr": "Ceci est un cours d'essai. Il sert à vérifier que le texte s'affiche et que la voix le lit.",
+    "kr": "Sa se on kou pou eseyé. I la pou wè si tèks-la ka parèt é si vwa-la ka li-y.",
+    "en": "This is a trial course. It checks that the text shows and that the voice reads it.",
+    "es": "Este es un curso de prueba. Sirve para comprobar que el texto aparece y que la voz lo lee."
+  }
+}
