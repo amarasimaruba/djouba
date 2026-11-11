@@ -42,5 +42,9 @@
   "ex.correct": "Bon répons-la sé :",
   "ex.need": "Chwazi on répons dabò.",
   "ex.nocourse": "Chwazi on kou dabò adan onglet Kou-a.",
-  "ex.noex": "Pa ni egzèsis pou etap-la."
+  "ex.noex": "Pa ni egzèsis pou etap-la.",
+  "tab.glossaire": "Glosè",
+  "gloss.word": "Mo",
+  "gloss.empty": "Chwazi on mo adan menu-a pou wè sa i vlé di.",
+  "gloss.none": "Kou-a pa ni glosè."
 }

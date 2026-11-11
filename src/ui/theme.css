@@ -11,6 +11,7 @@ h1 { margin:0; font-size:1.4rem; }
 .tab { flex:1 1 40%; background:var(--panel); color:var(--fg); border:2px solid var(--line); border-bottom:4px solid var(--tab); border-radius:10px 10px 0 0; }
 .tab[data-tab="cours"]    { --tab:#e0a030; }
 .tab[data-tab="exercice"] { --tab:#e57373; }
+.tab[data-tab="glossaire"] { --tab:#ba68c8; }
 .tab[data-tab="voix"]     { --tab:#4fb3d9; }
 .tab[data-tab="reglages"] { --tab:#8bc34a; }
 .tab[aria-selected="true"] { background:var(--tab); color:#101010; font-weight:700; }

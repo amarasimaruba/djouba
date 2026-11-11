@@ -62,3 +62,18 @@ test('chaque étape du cours igname a un exercice : 3 réponses, une bonne, exac
     }
   });
 });
+
+test('le glossaire du cours igname est complet en quatre langues et ses mots sont dans le cours', () => {
+  const b = body(COURSES.find(index, 'igname'));
+  assert.ok(b.glossary.length >= 30);
+  const norm = (s) => s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+  const text = norm(JSON.stringify(b.chapters.map((c) => [c.title.fr, c.text.fr, c.exercise])));
+  for (const g of b.glossary) {
+    for (const l of I18N.LANGS) {
+      assert.ok(g.term[l] && g.term[l].trim(), 'terme ' + l);
+      assert.ok(g.def[l] && g.def[l].trim().length > 5, 'définition ' + g.term.fr + ' ' + l);
+    }
+    const stem = norm(g.term.fr).split(/[\s,]+/)[0].slice(0, 5);
+    assert.ok(text.includes(stem), 'mot absent du cours : ' + g.term.fr);
+  }
+});

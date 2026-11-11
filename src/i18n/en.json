@@ -42,5 +42,9 @@
   "ex.correct": "The right answer is:",
   "ex.need": "Choose an answer first.",
   "ex.nocourse": "Choose a course first in the Courses tab.",
-  "ex.noex": "No exercise for this step."
+  "ex.noex": "No exercise for this step.",
+  "tab.glossaire": "Glossary",
+  "gloss.word": "Word",
+  "gloss.empty": "Choose a word in the menu to see its definition.",
+  "gloss.none": "This course has no glossary."
 }

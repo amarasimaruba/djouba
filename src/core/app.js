@@ -4,7 +4,7 @@
   var DATA = window.DJOUBA_DATA;
   var KEY = 'djouba.state.v1';
   var ex = { key: '', aides: 0, revealed: false, choice: '', need: false };
-  var state = { lang: 'fr', theme: 'nuit', tab: 'cours', level: '', course: '', chapter: '0', speed: '1', voice: '' };
+  var state = { lang: 'fr', theme: 'nuit', tab: 'cours', level: '', course: '', chapter: '0', gloss: '', speed: '1', voice: '' };
 
   function load() {
     try {
@@ -134,7 +134,20 @@
     fb.textContent = lines.join('\n\n');
   }
 
-  function render() { renderStatic(); renderTabs(); renderCourses(); renderExercise(); renderVoices(); save(); }
+  function renderGlossary() {
+    var c = state.course ? DATA.courses.contents[state.course] : null;
+    var list = c && c.glossary ? c.glossary : [];
+    var chosen = list[parseInt(state.gloss, 10)];
+    if (!chosen) state.gloss = '';
+    var items = list.map(function (g, i) { return { value: String(i), label: I18N.localized(g.term, state.lang) }; });
+    items.sort(function (a, b) { return a.label.localeCompare(b.label, state.lang === 'kr' ? 'fr' : state.lang); });
+    fill($('sel-gloss'), [{ value: '', label: t('course.choose') }].concat(items), state.gloss);
+    $('sel-gloss').disabled = !list.length;
+    $('gloss-def').textContent = !c ? t('ex.nocourse') : !list.length ? t('gloss.none') : !chosen ? t('gloss.empty')
+      : I18N.localized(chosen.term, state.lang) + '\n\n' + I18N.localized(chosen.def, state.lang);
+  }
+
+  function render() { renderStatic(); renderTabs(); renderCourses(); renderExercise(); renderGlossary(); renderVoices(); save(); }
 
   function chosenVoice() {
     var found = VOICE.pick(window.speechSynthesis.getVoices(), state.lang);
@@ -157,8 +170,9 @@
     });
     onChange($('sel-lang'), function (e) { state.lang = e.target.value; state.voice = ''; render(); });
     onChange($('sel-theme'), function (e) { state.theme = e.target.value; render(); });
-    onChange($('sel-level'), function (e) { state.level = e.target.value; state.course = ''; state.chapter = '0'; render(); });
-    onChange($('sel-course'), function (e) { state.course = e.target.value; state.chapter = '0'; render(); });
+    onChange($('sel-level'), function (e) { state.level = e.target.value; state.course = ''; state.chapter = '0'; state.gloss = ''; render(); });
+    onChange($('sel-course'), function (e) { state.course = e.target.value; state.chapter = '0'; state.gloss = ''; render(); });
+    onChange($('sel-gloss'), function (e) { state.gloss = e.target.value; render(); });
     onChange($('sel-ex-chapter'), function (e) { state.chapter = e.target.value; render(); });
     onChange($('sel-ex-answer'), function (e) { ex.choice = e.target.value; ex.need = false; renderExercise(); });
     onButton($('btn-aide1'), function () { ex.aides = Math.max(ex.aides, 1); renderExercise(); });

@@ -25,6 +25,7 @@
 <nav class="tabs" role="tablist" id="tabs">
   <button type="button" role="tab" class="tab" data-tab="cours" id="tab-cours" aria-controls="panel-cours" data-i18n="tab.cours">Cours</button>
   <button type="button" role="tab" class="tab" data-tab="exercice" id="tab-exercice" aria-controls="panel-exercice" data-i18n="tab.exercice">Exercice</button>
+  <button type="button" role="tab" class="tab" data-tab="glossaire" id="tab-glossaire" aria-controls="panel-glossaire" data-i18n="tab.glossaire">Glossaire</button>
   <button type="button" role="tab" class="tab" data-tab="voix" id="tab-voix" aria-controls="panel-voix" data-i18n="tab.voix">Voix</button>
   <button type="button" role="tab" class="tab" data-tab="reglages" id="tab-reglages" aria-controls="panel-reglages" data-i18n="tab.reglages">Réglages</button>
 </nav>
@@ -71,6 +72,14 @@
       <button type="button" id="btn-restart" data-i18n="ex.restart">Recommencer</button>
     </div>
     <p id="ex-feedback" class="reading" role="status" aria-live="polite"></p>
+  </section>
+
+  <section id="panel-glossaire" class="panel" role="tabpanel" aria-labelledby="tab-glossaire" hidden>
+    <div class="row">
+      <label for="sel-gloss" data-i18n="gloss.word">Mot</label>
+      <select id="sel-gloss"></select>
+    </div>
+    <p id="gloss-def" class="reading" aria-live="polite"></p>
   </section>
 
   <section id="panel-voix" class="panel" role="tabpanel" aria-labelledby="tab-voix" hidden>

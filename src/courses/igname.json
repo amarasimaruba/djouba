@@ -413,7 +413,7 @@
         "es": "Conservar"
       },
       "text": {
-        "fr": "Un tubercule se garde tant qu'il dort. Quand il se réveille, il germe, perd du poids et pourrit. Les blessures et les moisissures accélèrent les pertes.\nTriez d'abord : mettez à part les tubercules blessés et mangez-les en premier. Laissez sécher et cicatriser à l'ombre. Rangez le reste dans un lieu sec, ombragé et bien ventilé, sans l'empiler trop haut, pour que l'air circule. Contrôlez chaque semaine et retirez ceux qui pourrissent.\nLes pertes peuvent être lourdes quand le stockage est mal fait : 40 à 50 % après six mois en Afrique de l'Ouest. Pour garder plus longtemps, on peut faire des morceaux cuits puis séchés, ou de la farine. Les nématodes continuent de se multiplier dans les tubercules stockés : ne gardez pas pour les plants ceux qui sont touchés.\nRegard d'expert (spécialiste après-récolte) : un stock sain demande un tri régulier.",
+        "fr": "Un tubercule se garde tant qu'il est en dormance, c'est-à-dire au repos. Quand il se réveille, il germe, perd du poids et pourrit. Les blessures et les moisissures accélèrent les pertes.\nTriez d'abord : mettez à part les tubercules blessés et mangez-les en premier. Laissez sécher et cicatriser à l'ombre. Rangez le reste dans un lieu sec, ombragé et bien ventilé, sans l'empiler trop haut, pour que l'air circule. Contrôlez chaque semaine et retirez ceux qui pourrissent.\nLes pertes peuvent être lourdes quand le stockage est mal fait : 40 à 50 % après six mois en Afrique de l'Ouest. Pour garder plus longtemps, on peut faire des morceaux cuits puis séchés, ou de la farine. Les nématodes continuent de se multiplier dans les tubercules stockés : ne gardez pas pour les plants ceux qui sont touchés.\nRegard d'expert (spécialiste après-récolte) : un stock sain demande un tri régulier.",
         "kr": "On rasin ka kenbé tan i ka dòmi. Lè i ka réveyé, i ka jèrmé, i ka pèd pwa é i ka pouri. Blésir é mwizi ka vansé pèt-la.\nTrié dabò : mété a kòté rasin blésé-a é manjé yo premié. Kité yo sèché é fèmen anba lonbraj. Ranjé rès-la adan on plas sèk, lonbraj é ni van, san anpilé twòp wo, pou van-an pé pasé. Gadé yo chak simenn é wété sa ki ka pouri.\nPèt-la pé gwo lè ou pa ka kenbé bien : 40 a 50 pou san apré sis mwa an Afrik lwès. Pou kenbé pli lontan, ou pé fè mòso kwit épi sèché, oben fè farin. Nématòd-la ka kontinyé miltiplié adan rasin ki an stòk : pa kenbé sa ki enfekté pou plant.\nKonsèy an on espè (espè apré rékòlt) : on stòk ki sen ka mandé trié chak tan.",
         "en": "A tuber keeps as long as it is dormant. When it wakes up, it sprouts, loses weight and rots. Wounds and mold speed up the losses.\nSort first: set aside wounded tubers and eat them first. Let the rest dry and heal in the shade. Store them in a dry, shaded, well-ventilated place, not piled too high, so air can move. Check every week and remove any that rot.\nLosses can be heavy when storage is poor: 40 to 50 percent after six months in West Africa. To keep yam longer, make cooked and dried pieces, or flour. Nematodes keep multiplying in stored tubers, so do not keep affected ones for planting.\nExpert's view (post-harvest specialist): a healthy store needs regular sorting.",
         "es": "Un tubérculo se conserva mientras está en dormancia. Cuando despierta, brota, pierde peso y se pudre. Las heridas y el moho aceleran las pérdidas.\nClasifique primero: aparte los tubérculos heridos y cómalos antes. Deje secar y cicatrizar el resto a la sombra. Guárdelo en un lugar seco, sombreado y bien ventilado, sin apilarlo muy alto, para que circule el aire. Revise cada semana y retire los que se pudran.\nLas pérdidas pueden ser fuertes si el almacenamiento es malo: del 40 al 50 % tras seis meses en África occidental. Para conservar más tiempo se pueden hacer trozos cocidos y secados, o harina. Los nematodos siguen multiplicándose en los tubérculos almacenados: no guarde para plantar los que estén afectados.\nMirada experta (especialista poscosecha): una reserva sana pide clasificar con regularidad."
@@ -631,6 +631,498 @@
             "es": "Estas cosas cambian según el lugar y la temporada."
           }
         ]
+      }
+    }
+  ],
+  "glossary": [
+    {
+      "term": {
+        "fr": "Agroécologue",
+        "kr": "Agwoékològ",
+        "en": "Agroecologist",
+        "es": "Agroecólogo"
+      },
+      "def": {
+        "fr": "Spécialiste qui cultive en s'appuyant sur la nature : sol vivant, paillage, compost.",
+        "kr": "Moun ki ka chèché plante ak èd lanati : tè vivan, pay, konpòs.",
+        "en": "A specialist who farms by working with nature: living soil, mulch, compost.",
+        "es": "Especialista que cultiva apoyándose en la naturaleza: suelo vivo, acolchado, compost."
+      }
+    },
+    {
+      "term": {
+        "fr": "Alata",
+        "kr": "Alata",
+        "en": "Alata yam",
+        "es": "Ñame alata"
+      },
+      "def": {
+        "fr": "Espèce d'igname très cultivée aux Antilles, aussi appelée igname d'eau.",
+        "kr": "Kalité yanm yo ka plante anpil an Matinik, yo ka rélé yanm dlo tou.",
+        "en": "A yam species widely grown in the Caribbean, also called water yam.",
+        "es": "Especie de ñame muy cultivada en el Caribe, llamada también ñame de agua."
+      }
+    },
+    {
+      "term": {
+        "fr": "Alternance des cultures",
+        "kr": "Chanjé kilti",
+        "en": "Crop rotation",
+        "es": "Rotación de cultivos"
+      },
+      "def": {
+        "fr": "Planter une autre culture avant de replanter la même au même endroit.",
+        "kr": "Plante on lòt kilti avan ou replanté menm bagay-la anplas-la.",
+        "en": "Growing a different crop before planting the same one again in the same place.",
+        "es": "Plantar otro cultivo antes de volver a plantar el mismo en el mismo sitio."
+      }
+    },
+    {
+      "term": {
+        "fr": "Ameublir",
+        "kr": "Fè tè mòl",
+        "en": "Loosen",
+        "es": "Aflojar"
+      },
+      "def": {
+        "fr": "Rendre la terre moins dure en la travaillant, pour que les racines et l'eau passent.",
+        "kr": "Travay tè-la pou i pa di, pou rasin é dlo pé pasé.",
+        "en": "To make soil less hard by working it, so roots and water can pass.",
+        "es": "Trabajar la tierra para que sea menos dura y pasen las raíces y el agua."
+      }
+    },
+    {
+      "term": {
+        "fr": "Anthracnose",
+        "kr": "Antraknòz",
+        "en": "Anthracnose",
+        "es": "Antracnosis"
+      },
+      "def": {
+        "fr": "Maladie causée par un champignon qui fait des taches sur les feuilles.",
+        "kr": "Maladi on chanpiyon ka fè, i ka mété tach asi fèy-la.",
+        "en": "A disease caused by a fungus that makes spots on the leaves.",
+        "es": "Enfermedad causada por un hongo que mancha las hojas."
+      }
+    },
+    {
+      "term": {
+        "fr": "Bulletin de santé du végétal",
+        "kr": "Bilten santé plant",
+        "en": "Plant health bulletin",
+        "es": "Boletín de sanidad vegetal"
+      },
+      "def": {
+        "fr": "Bulletin qui dit quelles maladies et quels ravageurs sont présents dans les cultures de la région.",
+        "kr": "Bilten ki ka di ki maladi é ki ti bèt ki adan kilti péyi-a.",
+        "en": "A bulletin that says which diseases and pests are present in the crops of the region.",
+        "es": "Boletín que indica qué enfermedades y plagas hay en los cultivos de la región."
+      }
+    },
+    {
+      "term": {
+        "fr": "Butte",
+        "kr": "Bit",
+        "en": "Mound",
+        "es": "Camellón"
+      },
+      "def": {
+        "fr": "Tas de terre ameublie dans lequel on plante.",
+        "kr": "On pil tè mòl kote nou ka plante.",
+        "en": "A heap of loosened soil in which you plant.",
+        "es": "Montón de tierra suelta donde se planta."
+      }
+    },
+    {
+      "term": {
+        "fr": "Chambre d'agriculture",
+        "kr": "Chanm d'Agrikilti",
+        "en": "Chamber of Agriculture",
+        "es": "Cámara de Agricultura"
+      },
+      "def": {
+        "fr": "Organisme qui conseille les agriculteurs et fait des essais sur place.",
+        "kr": "Òganism ki ka konséyé plantè é ka fè esè adan péyi-a.",
+        "en": "A body that advises farmers and runs trials locally.",
+        "es": "Organismo que asesora a los agricultores y hace ensayos en la zona."
+      }
+    },
+    {
+      "term": {
+        "fr": "Chlordécone",
+        "kr": "Klòdékòn",
+        "en": "Chlordecone",
+        "es": "Clordecona"
+      },
+      "def": {
+        "fr": "Insecticide très toxique, utilisé autrefois dans les bananeraies des Antilles. Il reste dans certains sols et peut passer dans les racines et les tubercules.",
+        "kr": "Pwazon ki té sèvi adan bannanè an Matinik. I ka rété adan sèten tè é i pé antré adan rasin-la.",
+        "en": "A highly toxic insecticide once used on banana farms in the Antilles. It stays in some soils and can reach roots and tubers.",
+        "es": "Insecticida muy tóxico usado antes en las bananeras de las Antillas. Queda en algunos suelos y puede pasar a raíces y tubérculos."
+      }
+    },
+    {
+      "term": {
+        "fr": "CIRAD, INRAE",
+        "kr": "CIRAD, INRAE",
+        "en": "CIRAD, INRAE",
+        "es": "CIRAD, INRAE"
+      },
+      "def": {
+        "fr": "Instituts de recherche français. Le CIRAD travaille sur l'agriculture des pays chauds, l'INRAE sur l'agriculture, l'alimentation et l'environnement.",
+        "kr": "Enstitit rechèch fransé. CIRAD ka travay asi agrikilti péyi cho, INRAE asi agrikilti, manjé é lanvironnman.",
+        "en": "French research institutes. CIRAD works on farming in warm countries, INRAE on farming, food and the environment.",
+        "es": "Institutos de investigación franceses. El CIRAD trabaja en la agricultura de los países cálidos, el INRAE en la agricultura, la alimentación y el medio ambiente."
+      }
+    },
+    {
+      "term": {
+        "fr": "Cicatriser",
+        "kr": "Fèmen (blésir)",
+        "en": "Heal (a cut)",
+        "es": "Cicatrizar"
+      },
+      "def": {
+        "fr": "Se refermer après une coupure ou une blessure, ici en séchant.",
+        "kr": "Fèmen apré on koupé oben on blésir, isi lè i ka sèché.",
+        "en": "To close up after a cut or wound, here by drying.",
+        "es": "Cerrarse tras un corte o una herida, aquí al secarse."
+      }
+    },
+    {
+      "term": {
+        "fr": "Cochenille",
+        "kr": "Kochnil",
+        "en": "Scale insect",
+        "es": "Cochinilla"
+      },
+      "def": {
+        "fr": "Petit insecte qui se fixe sur les plantes et suce leur sève.",
+        "kr": "Ti ti bèt ki ka kolé asi plant é ka souké lasèv yo.",
+        "en": "A small insect that sticks to plants and sucks their sap.",
+        "es": "Insecto pequeño que se fija a las plantas y chupa su savia."
+      }
+    },
+    {
+      "term": {
+        "fr": "Compost",
+        "kr": "Konpòs",
+        "en": "Compost",
+        "es": "Compost"
+      },
+      "def": {
+        "fr": "Engrais naturel fait de déchets de plantes et de cuisine qui ont pourri avec le temps.",
+        "kr": "Angrè natirèl fèt ak rès plant é rès kwizin ki pouri.",
+        "en": "Natural fertilizer made from plant and kitchen waste that has rotted over time.",
+        "es": "Abono natural hecho con restos de plantas y de cocina que se han descompuesto."
+      }
+    },
+    {
+      "term": {
+        "fr": "Couche-couche",
+        "kr": "Kouch-kouch",
+        "en": "Cush-cush yam",
+        "es": "Ñame couche-couche"
+      },
+      "def": {
+        "fr": "Espèce d'igname plus petite que l'alata.",
+        "kr": "Kalité yanm pli piti ki alata.",
+        "en": "A yam species smaller than alata.",
+        "es": "Especie de ñame más pequeña que el alata."
+      }
+    },
+    {
+      "term": {
+        "fr": "Dormance",
+        "kr": "Dòmi-a",
+        "en": "Dormancy",
+        "es": "Dormancia"
+      },
+      "def": {
+        "fr": "Temps de repos du tubercule, pendant lequel il ne germe pas.",
+        "kr": "Tan repo rasin-la, pandan i pa ka jèrmé.",
+        "en": "The tuber's resting time, when it does not sprout.",
+        "es": "Tiempo de reposo del tubérculo, en el que no brota."
+      }
+    },
+    {
+      "term": {
+        "fr": "Drainer",
+        "kr": "Évakié dlo",
+        "en": "Drain",
+        "es": "Drenar"
+      },
+      "def": {
+        "fr": "Laisser l'eau de pluie s'écouler au lieu de rester dans la terre.",
+        "kr": "Kité dlo lapli kouri olié i rété adan tè-la.",
+        "en": "To let rainwater flow away instead of staying in the soil.",
+        "es": "Dejar que el agua de lluvia se escurra en vez de quedarse en el suelo."
+      }
+    },
+    {
+      "term": {
+        "fr": "FREDON",
+        "kr": "FREDON",
+        "en": "FREDON",
+        "es": "FREDON"
+      },
+      "def": {
+        "fr": "Organisme qui défend les cultures contre les maladies et les ravageurs.",
+        "kr": "Òganism ki ka défann kilti-a kont maladi é ti bèt.",
+        "en": "A body that protects crops against diseases and pests.",
+        "es": "Organismo que defiende los cultivos contra enfermedades y plagas."
+      }
+    },
+    {
+      "term": {
+        "fr": "Hectare",
+        "kr": "Ekta",
+        "en": "Hectare",
+        "es": "Hectárea"
+      },
+      "def": {
+        "fr": "Mesure de surface : 10 000 mètres carrés.",
+        "kr": "Mézi sifas : 10 000 mèt kawé.",
+        "en": "A unit of area: 10,000 square meters.",
+        "es": "Medida de superficie: 10 000 metros cuadrados."
+      }
+    },
+    {
+      "term": {
+        "fr": "Journ'iames",
+        "kr": "Journ'iames",
+        "en": "Journ'iames",
+        "es": "Journ'iames"
+      },
+      "def": {
+        "fr": "Rencontres où les chercheurs présentent leurs travaux sur l'igname.",
+        "kr": "Rankont kote chèrchè ka montré travay yo asi yanm.",
+        "en": "Meetings where researchers present their work on yam.",
+        "es": "Encuentros donde los investigadores presentan sus trabajos sobre el ñame."
+      }
+    },
+    {
+      "term": {
+        "fr": "Kcal",
+        "kr": "Kal",
+        "en": "Kcal",
+        "es": "Kcal"
+      },
+      "def": {
+        "fr": "Unité d'énergie des aliments (kilocalorie).",
+        "kr": "Inité enèji adan manjé (kilokalori).",
+        "en": "A unit of food energy (kilocalorie).",
+        "es": "Unidad de energía de los alimentos (kilocaloría)."
+      }
+    },
+    {
+      "term": {
+        "fr": "Liane",
+        "kr": "Liann",
+        "en": "Vine",
+        "es": "Liana"
+      },
+      "def": {
+        "fr": "Plante qui monte en s'enroulant autour d'un appui.",
+        "kr": "Plant ki ka monté an ka tounen alantou on sipò.",
+        "en": "A plant that climbs by winding around a support.",
+        "es": "Planta que trepa enrollándose en un soporte."
+      }
+    },
+    {
+      "term": {
+        "fr": "Lisière",
+        "kr": "Bòdi",
+        "en": "Field edge",
+        "es": "Borde"
+      },
+      "def": {
+        "fr": "Bord d'un champ ou d'un bois, là où la parcelle touche la végétation voisine.",
+        "kr": "Bò on jaden oben on bwa, kote jaden-an ka touché vejetasyon ki bò-la.",
+        "en": "The border of a field or wood, where the plot meets nearby vegetation.",
+        "es": "Límite de un campo o bosque, donde la parcela toca la vegetación vecina."
+      }
+    },
+    {
+      "term": {
+        "fr": "Matière organique",
+        "kr": "Matyè òganik",
+        "en": "Organic matter",
+        "es": "Materia orgánica"
+      },
+      "def": {
+        "fr": "Tout ce qui vient de plantes ou d'animaux et nourrit le sol : feuilles, compost, fumier.",
+        "kr": "Tou sa ki sòti adan plant oben bèt é ka nouri tè-la : fèy, konpòs, fimyé.",
+        "en": "Anything that comes from plants or animals and feeds the soil: leaves, compost, manure.",
+        "es": "Todo lo que viene de plantas o animales y alimenta el suelo: hojas, compost, estiércol."
+      }
+    },
+    {
+      "term": {
+        "fr": "Nématode",
+        "kr": "Nématòd",
+        "en": "Nematode",
+        "es": "Nematodo"
+      },
+      "def": {
+        "fr": "Minuscule ver du sol qui attaque les racines et les tubercules.",
+        "kr": "Ti vè anba tè ki ka atak rasin-la.",
+        "en": "A tiny soil worm that attacks roots and tubers.",
+        "es": "Gusano diminuto del suelo que ataca raíces y tubérculos."
+      }
+    },
+    {
+      "term": {
+        "fr": "Paillage",
+        "kr": "Pay",
+        "en": "Mulch",
+        "es": "Acolchado"
+      },
+      "def": {
+        "fr": "Couche de paille, d'herbe ou de papier posée sur la terre pour garder l'humidité et freiner les mauvaises herbes.",
+        "kr": "Kouch pay, zèb oben papyé yo mété asi tè-la pou gadé imidité-a é ralenti move zèb.",
+        "en": "A layer of straw, grass or paper laid on the soil to hold moisture and slow weeds.",
+        "es": "Capa de paja, hierba o papel puesta sobre la tierra para conservar la humedad y frenar las malas hierbas."
+      }
+    },
+    {
+      "term": {
+        "fr": "Parcelle",
+        "kr": "Parsèl",
+        "en": "Plot",
+        "es": "Parcela"
+      },
+      "def": {
+        "fr": "Morceau de terrain cultivé.",
+        "kr": "Mòso tè yo ka plante.",
+        "en": "A piece of cultivated land.",
+        "es": "Trozo de terreno cultivado."
+      }
+    },
+    {
+      "term": {
+        "fr": "Pédologue",
+        "kr": "Ekspè tè",
+        "en": "Soil scientist",
+        "es": "Edafólogo"
+      },
+      "def": {
+        "fr": "Spécialiste des sols.",
+        "kr": "Moun ki konnèt tè-la.",
+        "en": "A specialist in soils.",
+        "es": "Especialista en suelos."
+      }
+    },
+    {
+      "term": {
+        "fr": "Phytopathologiste",
+        "kr": "Doktè plant",
+        "en": "Plant pathologist",
+        "es": "Fitopatólogo"
+      },
+      "def": {
+        "fr": "Spécialiste des maladies des plantes.",
+        "kr": "Moun ki konnèt maladi plant.",
+        "en": "A specialist in plant diseases.",
+        "es": "Especialista en enfermedades de las plantas."
+      }
+    },
+    {
+      "term": {
+        "fr": "Semenceau",
+        "kr": "Simans",
+        "en": "Sett",
+        "es": "Fragmento de siembra"
+      },
+      "def": {
+        "fr": "Morceau de tubercule que l'on plante pour obtenir une nouvelle plante.",
+        "kr": "Mòso rasin nou ka plante pou ni on nouvo plant.",
+        "en": "A piece of tuber planted to grow a new plant.",
+        "es": "Trozo de tubérculo que se planta para obtener una planta nueva."
+      }
+    },
+    {
+      "term": {
+        "fr": "Tolérante (variété)",
+        "kr": "Kalité rézisté",
+        "en": "Tolerant variety",
+        "es": "Variedad tolerante"
+      },
+      "def": {
+        "fr": "Variété qui supporte une maladie et donne quand même une récolte.",
+        "kr": "Kalité ki ka sipòté on maladi é ka bay on rékòlt kanmenm.",
+        "en": "A variety that withstands a disease and still gives a harvest.",
+        "es": "Variedad que aguanta una enfermedad y aun así da cosecha."
+      }
+    },
+    {
+      "term": {
+        "fr": "Tubercule",
+        "kr": "Rasin",
+        "en": "Tuber",
+        "es": "Tubérculo"
+      },
+      "def": {
+        "fr": "Partie de la plante qui grossit sous la terre et garde des réserves. Ici, l'igname.",
+        "kr": "Pati plant ki ka grosi anba tè é ki ka gadé manjé pou plant-la. Isi, yanm-la.",
+        "en": "The part of a plant that swells underground and stores food. Here, the yam.",
+        "es": "Parte de la planta que engorda bajo tierra y guarda reservas. Aquí, el ñame."
+      }
+    },
+    {
+      "term": {
+        "fr": "Tuteur",
+        "kr": "Pyé-bwa",
+        "en": "Stake",
+        "es": "Tutor"
+      },
+      "def": {
+        "fr": "Bâton planté près d'un plant pour que la liane monte.",
+        "kr": "Bwa yo ka plante bò plant-la pou liann-la monté.",
+        "en": "A stick set near a plant so the vine can climb.",
+        "es": "Palo clavado junto a una planta para que la liana trepe."
+      }
+    },
+    {
+      "term": {
+        "fr": "Ventilé",
+        "kr": "Ni van",
+        "en": "Ventilated",
+        "es": "Ventilado"
+      },
+      "def": {
+        "fr": "Où l'air circule bien.",
+        "kr": "Kote van-an ka pasé bien.",
+        "en": "Where air moves freely.",
+        "es": "Donde el aire circula bien."
+      }
+    },
+    {
+      "term": {
+        "fr": "Ver blanc",
+        "kr": "Vè blan",
+        "en": "White grub",
+        "es": "Gusano blanco"
+      },
+      "def": {
+        "fr": "Larve d'un hanneton qui vit dans le sol et ronge les racines et les tubercules.",
+        "kr": "Lav on bèt ki ka viv anba tè é ka manjé rasin-la.",
+        "en": "The larva of a beetle that lives in the soil and gnaws roots and tubers.",
+        "es": "Larva de un escarabajo que vive en el suelo y roe raíces y tubérculos."
+      }
+    },
+    {
+      "term": {
+        "fr": "Virus",
+        "kr": "Viris",
+        "en": "Virus",
+        "es": "Virus"
+      },
+      "def": {
+        "fr": "Microbe très petit qui rend une plante malade, par exemple avec des feuilles déformées.",
+        "kr": "Mikwòb ti-ti ki ka rann plant malad, kon fèy défòmé.",
+        "en": "A very small germ that makes a plant sick, for example with twisted leaves.",
+        "es": "Microbio muy pequeño que enferma a una planta, por ejemplo con hojas deformadas."
       }
     }
   ]

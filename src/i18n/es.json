@@ -42,5 +42,9 @@
   "ex.correct": "La respuesta correcta es:",
   "ex.need": "Elija primero una respuesta.",
   "ex.nocourse": "Elija primero un curso en la pestaña Cursos.",
-  "ex.noex": "No hay ejercicio para esta etapa."
+  "ex.noex": "No hay ejercicio para esta etapa.",
+  "tab.glossaire": "Glosario",
+  "gloss.word": "Palabra",
+  "gloss.empty": "Elija una palabra en el menú para ver su definición.",
+  "gloss.none": "Este curso no tiene glosario."
 }

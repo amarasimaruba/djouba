@@ -18,6 +18,7 @@ test('le modèle vide suit le format des cours', () => {
   assert.strictEqual(e.aides.length, 2);
   e.aides.forEach((a) => assert.ok(four(a)));
   assert.ok(Number.isInteger(e.answer));
+  assert.ok(four(tpl.glossary[0].term) && four(tpl.glossary[0].def));
 });
 test('le modèle est vide : toutes les cases de texte sont vides', () => {
   const leaves = [];
@@ -25,7 +26,7 @@ test('le modèle est vide : toutes les cases de texte sont vides', () => {
     if (typeof v === 'string') leaves.push(v);
     else if (Array.isArray(v)) v.forEach(walk);
     else if (v && typeof v === 'object') Object.values(v).forEach(walk);
-  })([tpl.title, tpl.chapters]);
+  })([tpl.title, tpl.chapters, tpl.glossary]);
   assert.ok(leaves.length > 0);
   assert.ok(leaves.every((x) => x === ''));
 });
