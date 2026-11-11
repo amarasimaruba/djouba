@@ -13,18 +13,36 @@ test('chaque cours a un niveau connu et un fichier existant', () => {
     assert.ok(fs.existsSync(path.join(dir, c.file)), c.file);
   }
 });
-test('chaque cours a titre et texte dans les quatre langues', () => {
+const body = (c) => JSON.parse(fs.readFileSync(path.join(dir, c.file), 'utf8'));
+
+test('chaque cours et chaque étape ont titre et texte dans les quatre langues', () => {
   for (const c of index.courses) {
-    const body = JSON.parse(fs.readFileSync(path.join(dir, c.file), 'utf8'));
-    for (const l of I18N.LANGS) {
-      assert.ok(body.title[l], c.id + ' titre ' + l);
-      assert.ok(body.text[l], c.id + ' texte ' + l);
-    }
+    const b = body(c);
+    for (const l of I18N.LANGS) assert.ok(b.title[l], c.id + ' titre ' + l);
+    const list = COURSES.chapters(b);
+    assert.ok(list.length > 0, c.id);
+    list.forEach((ch, i) => {
+      for (const l of I18N.LANGS) {
+        assert.ok(ch.title[l] && ch.title[l].trim(), c.id + ' étape ' + (i + 1) + ' titre ' + l);
+        assert.ok(ch.text[l] && ch.text[l].trim().length > 40, c.id + ' étape ' + (i + 1) + ' texte ' + l);
+      }
+    });
   }
 });
+test('un cours ancien à texte unique devient une seule étape', () => {
+  const old = { title: { fr: 'A' }, text: { fr: 'B' } };
+  assert.strictEqual(COURSES.chapters(old).length, 1);
+  assert.strictEqual(COURSES.chapters(old)[0].text.fr, 'B');
+});
+test("règle d'écriture : aucun tiret long dans les cours", () => {
+  for (const c of index.courses) assert.ok(!/[\u2014\u2013]/.test(fs.readFileSync(path.join(dir, c.file), 'utf8')), c.id);
+});
+test('le cours igname a onze étapes', () => {
+  assert.strictEqual(COURSES.chapters(body(COURSES.find(index, 'igname'))).length, 11);
+});
 test('recherche par niveau et par identifiant', () => {
-  assert.strictEqual(COURSES.forLevel(index, 'primaire').length, 1);
+  assert.strictEqual(COURSES.forLevel(index, 'tous').length, 1);
   assert.strictEqual(COURSES.forLevel(index, 'lycee').length, 0);
-  assert.strictEqual(COURSES.find(index, 'essai').file, 'essai.json');
+  assert.strictEqual(COURSES.find(index, 'igname').file, 'igname.json');
   assert.strictEqual(COURSES.find(index, 'absent'), null);
 });

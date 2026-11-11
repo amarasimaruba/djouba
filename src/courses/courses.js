@@ -8,6 +8,11 @@ var COURSES = (function () {
     for (var i = 0; i < index.courses.length; i++) if (index.courses[i].id === id) return index.courses[i];
     return null;
   }
-  return { levels: levels, forLevel: forLevel, find: find };
+  // Un cours a des étapes (chapters). Un ancien cours à texte unique devient une seule étape.
+  function chapters(content) {
+    if (content.chapters && content.chapters.length) return content.chapters;
+    return [{ title: content.title, text: content.text }];
+  }
+  return { levels: levels, forLevel: forLevel, find: find, chapters: chapters };
 })();
 if (typeof module !== 'undefined') module.exports = COURSES;

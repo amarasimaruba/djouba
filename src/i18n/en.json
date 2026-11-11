@@ -26,5 +26,9 @@
   "voice.none": "No voice on this device.",
   "voice.approx": "A French voice is used. Pronunciation is approximate.",
   "voice.nocourse": "Choose a course first.",
-  "voice.unsupported": "This device cannot read aloud."
+  "voice.unsupported": "This device cannot read aloud.",
+  "course.chapter": "Step",
+  "course.prev": "Previous",
+  "course.next": "Next",
+  "level.tous": "All levels"
 }

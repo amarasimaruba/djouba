@@ -20,7 +20,7 @@ Il n'y a aucune dépendance : seul Node 22 ou plus récent est nécessaire.
 - `src/index.html` : modèle de page, avec les repères `{{CSS}}`, `{{DATA}}` et `{{JS}}`.
 - `src/ui/theme.css` : trois thèmes sombres (nuit, ardoise, forêt) et une couleur par onglet.
 - `src/i18n/` : `fr.json`, `kr.json`, `en.json`, `es.json` et `i18n.js`.
-- `src/courses/` : `index.json` (niveaux et cours), un fichier JSON par cours, `courses.js`.
+- `src/courses/` : `index.json` (niveaux et cours), un fichier JSON par cours (`igname.json` est le premier), `courses.js`.
 - `src/voice/voice.js` : choix de la voix et lecture.
 - `src/core/app.js` : état, onglets, rendu. C'est le seul fichier qui touche à la page.
 - `tools/build.js` : le build.
@@ -32,7 +32,7 @@ Le build lit les JSON et les place dans `window.DJOUBA_DATA`. Un fichier ouvert 
 
 - Langues : codes `fr`, `kr`, `en`, `es`. Le français est la langue de repli. Les quatre fichiers de langue ont les mêmes clés.
 - Aucun texte écrit en dur dans l'interface : utiliser `data-i18n` ou `t(clé)`. Les noms de langues du menu restent dans leur propre langue.
-- Un cours a un titre et un texte dans les quatre langues.
+- Un cours a un titre et une liste d'étapes (`chapters`). Chaque étape a un titre et un texte dans les quatre langues. Un cours à texte unique reste accepté et devient une seule étape.
 - Menus déroulants partout où c'est possible.
 - Aucun clic sur du texte ou sur une zone, aucun double clic : seulement de vrais `<button>`. Tous les clics passent par `onButton` dans `app.js`.
 - Couleurs : fond sombre, écriture claire, un thème au choix, une couleur par onglet. Pas de fond blanc.

@@ -26,5 +26,9 @@
   "voice.none": "No hay voz en este dispositivo.",
   "voice.approx": "Se usa una voz francesa. La pronunciación es aproximada.",
   "voice.nocourse": "Elige un curso primero.",
-  "voice.unsupported": "Este dispositivo no puede leer en voz alta."
+  "voice.unsupported": "Este dispositivo no puede leer en voz alta.",
+  "course.chapter": "Etapa",
+  "course.prev": "Anterior",
+  "course.next": "Siguiente",
+  "level.tous": "Todos los niveles"
 }

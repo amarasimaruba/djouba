@@ -26,5 +26,9 @@
   "voice.none": "Pa ni vwa asi aparèy-la.",
   "voice.approx": "Vwa fransé ka sèvi. Pwononsyasyon-la pa egzak.",
   "voice.nocourse": "Chwazi on kou dabò.",
-  "voice.unsupported": "Aparèy-la pa ka li an vwa wo."
+  "voice.unsupported": "Aparèy-la pa ka li an vwa wo.",
+  "course.chapter": "Etap",
+  "course.prev": "Anvan",
+  "course.next": "Apré",
+  "level.tous": "Tout nivo"
 }

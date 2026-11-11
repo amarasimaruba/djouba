@@ -1,0 +1,164 @@
+{
+  "title": {
+    "fr": "Tout sur l'igname : du plant à la récolte, la conservation, les usages",
+    "kr": "Tout asi yanm : dépi plant-la jiska rékòlt-la, kenbé-y, sèvi-y",
+    "en": "All about yam: from planting to harvest, storage and uses",
+    "es": "Todo sobre el ñame: de la plantación a la cosecha, conservación y usos"
+  },
+  "chapters": [
+    {
+      "title": {
+        "fr": "Connaître l'igname",
+        "kr": "Konnèt yanm-la",
+        "en": "Getting to know the yam",
+        "es": "Conocer el ñame"
+      },
+      "text": {
+        "fr": "L'igname est une liane qui fait un gros tubercule sous la terre. On cultive surtout trois espèces. L'igname alata, aussi appelée igname d'eau, est très cultivée aux Antilles. L'igname jaune et l'igname blanche donnent des tubercules fermes qui se gardent bien. Le couche-couche est plus petit.\nL'alata met environ 8 à 9 mois pour arriver à la récolte, selon la variété. Elle réagit à la durée du jour : le tubercule grossit surtout quand les jours raccourcissent.\nRegard d'expert (agronome) : choisissez l'espèce selon votre sol, votre saison et votre marché avant d'acheter les plants.",
+        "kr": "Yanm sé on liann ki ka fè on gwo rasin anba tè. Nou ka plante twa kalité. Yanm alata, yo ka di yanm dlo tou, sé li ki pli plante an Matinik. Yanm jòn é yanm blan ka fè rasin di ki ka kenbé lontan. Kouch-kouch sé pli piti-a.\nAlata ka pran 8 a 9 mwa pou rivé jiska rékòlt, selon kalité-a. I ka swiv longè jou-a : rasin-la ka grosi pli plis lè jou-a ka rakoursi.\nKonsèy an on espè (agwonòm) : chwazi kalité-a selon tè-w, sezon-an é mawché-w avan ou achté plant-la.",
+        "en": "The yam is a vine that grows a large tuber underground. Three species are mainly grown. Alata yam, also called water yam, is widely grown in the Caribbean. Yellow yam and white yam give firm tubers that keep well. Cush-cush yam is smaller.\nAlata takes about 8 to 9 months to reach harvest, depending on the variety. It reacts to day length: the tuber swells mostly as days get shorter.\nExpert's view (agronomist): choose the species for your soil, season and market before buying planting material.",
+        "es": "El ñame es una liana que forma un tubérculo grande bajo tierra. Se cultivan sobre todo tres especies. El ñame alata, llamado también ñame de agua, es muy cultivado en el Caribe. El ñame amarillo y el ñame blanco dan tubérculos firmes que se conservan bien. El ñame trífido (couche-couche) es más pequeño.\nEl alata tarda de 8 a 9 meses hasta la cosecha, según la variedad. Reacciona a la duración del día: el tubérculo engorda sobre todo cuando los días se acortan.\nMirada experta (agrónomo): elija la especie según su suelo, su temporada y su mercado antes de comprar el material de plantación."
+      }
+    },
+    {
+      "title": {
+        "fr": "Préparer la terre",
+        "kr": "Prépawé tè-la",
+        "en": "Preparing the land",
+        "es": "Preparar el terreno"
+      },
+      "text": {
+        "fr": "Choisissez une terre qui draine bien. L'igname pourrit dans l'eau qui stagne. Ameublissez le sol en profondeur et montez des buttes.\nFaites analyser le sol avant de planter. En Martinique, la chlordécone peut polluer les racines et les tubercules. La Chambre d'agriculture peut vous orienter.\nÉloignez la parcelle des herbes hautes et des lisières : les mauvaises herbes et certaines lisières augmentent le risque d'anthracnose. Alternez avec une autre culture avant de replanter de l'igname au même endroit.\nRegard d'expert (pédologue) : le sol décide de beaucoup de choses. L'analyse, le drainage et la matière organique comptent d'abord.",
+        "kr": "Chwazi on tè ki ka évakié dlo-la bien. Yanm ka pouri adan dlo ki ka rété. Kasé tè-la fon é fè bit.\nFè analizé tè-la avan ou plante. An Matinik, klòdékòn ka polié rasin-la. Chanm d'Agrikilti-a pé édé-w.\nPa plante bò zèb wo é bò bwa : move zèb-la é sèten bò bwa ka ogmenté danjé antraknòz-la. Plante on lòt kilti avan ou replanté yanm anplas-la.\nKonsèy an on espè (ekspè tè) : tè-la ka dèsidé anpil bagay. Analiz-la, dlo-la é matyè òganik-la konté dabò.",
+        "en": "Pick land that drains well. Yam rots in standing water. Loosen the soil deeply and build mounds.\nHave the soil tested before planting. In Martinique, chlordecone can pollute roots and tubers. The Chamber of Agriculture can guide you.\nKeep the plot away from tall weeds and field edges: weeds and some edges raise the risk of anthracnose. Grow another crop before planting yam again in the same place.\nExpert's view (soil scientist): the soil decides a lot. Testing, drainage and organic matter come first.",
+        "es": "Elija un terreno que drene bien. El ñame se pudre en agua estancada. Afloje el suelo en profundidad y haga camellones.\nHaga analizar el suelo antes de plantar. En Martinica, la clordecona puede contaminar las raíces y los tubérculos. La Cámara de Agricultura puede orientarle.\nAleje la parcela de las malas hierbas altas y de los bordes: las malas hierbas y algunos bordes aumentan el riesgo de antracnosis. Cultive otra planta antes de volver a plantar ñame en el mismo sitio.\nMirada experta (edafólogo): el suelo decide mucho. El análisis, el drenaje y la materia orgánica van primero."
+      }
+    },
+    {
+      "title": {
+        "fr": "Les plants",
+        "kr": "Plant-la",
+        "en": "Planting material",
+        "es": "Material de plantación"
+      },
+      "text": {
+        "fr": "L'igname alata ne se sème pas avec des graines. On plante des morceaux de tubercule, appelés semenceaux, ou de petits tubercules entiers. Pour un hectare, ces plants peuvent prendre 35 à 40 % de la récolte.\nChoisissez des tubercules sains, dans un champ sain, sans taches ni insectes. Un semenceau pèse en général de 100 à 150 g. Coupez avec un couteau propre et laissez la coupe sécher et cicatriser à l'ombre.\nCertaines variétés tolèrent mieux l'anthracnose, comme Boutou et Belep, testées en Martinique. Des plants sans virus, produits en laboratoire, existent aussi. Demandez à la Chambre d'agriculture où trouver des plants sains.\nRegard d'expert (phytopathologiste) : un champ sain commence par un plant sain.",
+        "kr": "Yanm alata pa ka simen ak grenn. Nou ka plante mòso rasin, yo ka rélé sa simans, oben ti rasin antyé. Pou on ekta, plant-la pé pran 35 a 40 pou san di rékòlt-la.\nChwazi rasin ki sen, adan on jaden ki sen, san tach ni ti bèt. On simans ka pezé 100 a 150 gram. Koupé ak on kouto pwòp, é kité kote ou koupé-a sèché é fèmen anba lonbraj.\nSèten kalité rézisté pli bien a antraknòz-la, kon Boutou é Belep, yo teste yo an Matinik. Ni plant san viris ki fèt an laboratwa tou. Mandé Chanm d'Agrikilti-a ola pou touvé plant sen.\nKonsèy an on espè (doktè plant) : on jaden sen ka kòmansé ak on plant sen.",
+        "en": "Alata yam is not grown from seeds. You plant pieces of tuber, called setts, or small whole tubers. For one hectare, planting material can take 35 to 40 percent of the harvest.\nChoose healthy tubers from a healthy field, with no spots and no insects. A sett usually weighs 100 to 150 g. Cut with a clean knife and let the cut dry and heal in the shade.\nSome varieties tolerate anthracnose better, such as Boutou and Belep, tested in Martinique. Virus-free plants made in a laboratory also exist. Ask the Chamber of Agriculture where to find healthy planting material.\nExpert's view (plant pathologist): a healthy field starts with a healthy plant.",
+        "es": "El ñame alata no se siembra con semillas. Se plantan trozos de tubérculo, llamados fragmentos de siembra, o tubérculos enteros pequeños. Para una hectárea, el material de plantación puede llevarse del 35 al 40 % de la cosecha.\nElija tubérculos sanos, de un campo sano, sin manchas ni insectos. Un fragmento pesa por lo general de 100 a 150 g. Corte con un cuchillo limpio y deje que el corte se seque y cicatrice a la sombra.\nAlgunas variedades toleran mejor la antracnosis, como Boutou y Belep, probadas en Martinica. También existen plantas sin virus producidas en laboratorio. Pregunte a la Cámara de Agricultura dónde encontrar material sano.\nMirada experta (fitopatólogo): un campo sano empieza con una planta sana."
+      }
+    },
+    {
+      "title": {
+        "fr": "Planter",
+        "kr": "Plante",
+        "en": "Planting",
+        "es": "Plantar"
+      },
+      "text": {
+        "fr": "Plantez entre avril et juillet. En Guadeloupe, juillet est la date limite : une plantation plus tardive n'est plus conseillée. Posez le semenceau dans la butte et recouvrez-le de terre.\nComptez environ six semaines pour que la plupart des plants lèvent, selon la variété. Remplacez ceux qui ne sont pas sortis.\nRegard d'expert (agronome) : respectez le calendrier. La durée du jour guide la plante.",
+        "kr": "Plante ant avril é jiyé. An Gwadloup, jiyé sé dènyé dat-la : plante pli ta pa konséyé ankò. Mété simans-la adan bit-la é kouvè-y ak tè.\nKonté a sis simenn pou pli plant-la sòti, selon kalité-a. Ranplasé sa ki pa sòti.\nKonsèy an on espè (agwonòm) : respèkté dat-la. Longè jou-a ka gidé plant-la.",
+        "en": "Plant between April and July. In Guadeloupe, July is the last date: planting later is no longer advised. Place the sett in the mound and cover it with soil.\nAllow about six weeks for most plants to come up, depending on the variety. Replace any that did not emerge.\nExpert's view (agronomist): respect the calendar. Day length guides the plant.",
+        "es": "Plante entre abril y julio. En Guadalupe, julio es la fecha límite: una siembra más tardía ya no se aconseja. Coloque el fragmento en el camellón y cúbralo de tierra.\nCuente unas seis semanas para que broten la mayoría de las plantas, según la variedad. Reponga las que no hayan salido.\nMirada experta (agrónomo): respete el calendario. La duración del día guía a la planta."
+      }
+    },
+    {
+      "title": {
+        "fr": "Soigner la culture",
+        "kr": "Pran swen jaden-an",
+        "en": "Caring for the crop",
+        "es": "Cuidar el cultivo"
+      },
+      "text": {
+        "fr": "Quand la liane sort, mettez un tuteur pour qu'elle grimpe. Désherbez souvent, ou couvrez la terre d'un paillage qui garde l'humidité et freine les mauvaises herbes. Le désherbage aide aussi contre l'anthracnose.\nApportez de l'engrais ou du compost en deux fois. Dans un essai de la Chambre d'agriculture, le premier apport est venu environ six semaines après la plantation, le second un mois plus tard. Arrosez si la sécheresse dure.\nRegard d'expert (agroécologue) : le paillage et le compost nourrissent le sol et font gagner du travail.",
+        "kr": "Lè liann-la sòti, mété on pyé-bwa pou i monté. Dézèbé souvan, oben kouvè tè-la ak pay ki ka gadé imidité-a é ka ralenti move zèb-la. Dézèbé ka édé kont antraknòz-la tou.\nMété angrè oben konpòs an dé fwa. Adan on esè Chanm d'Agrikilti-a, premié apò-a vini a sis simenn apré plantasyon, dézyèm-la on mwa apré. Awoze si sèkrès-la dirè.\nKonsèy an on espè (agwoékològ) : pay-la é konpòs-la ka nouri tè-la.",
+        "en": "When the vine comes up, set a stake so it can climb. Weed often, or cover the soil with mulch that holds moisture and slows weeds. Weeding also helps against anthracnose.\nApply fertilizer or compost in two rounds. In a Chamber of Agriculture trial, the first round came about six weeks after planting and the second one month later. Water if a dry spell lasts.\nExpert's view (agroecologist): mulch and compost feed the soil and save work.",
+        "es": "Cuando sale la liana, ponga un tutor para que trepe. Deshierbe a menudo o cubra el suelo con un acolchado que conserve la humedad y frene las malas hierbas. El deshierbe también ayuda contra la antracnosis.\nAplique abono o compost en dos veces. En un ensayo de la Cámara de Agricultura, el primer aporte llegó unas seis semanas después de plantar y el segundo un mes más tarde. Riegue si la sequía se alarga.\nMirada experta (agroecólogo): el acolchado y el compost alimentan el suelo y ahorran trabajo."
+      }
+    },
+    {
+      "title": {
+        "fr": "Maladies et ravageurs",
+        "kr": "Maladi é ti bèt",
+        "en": "Diseases and pests",
+        "es": "Enfermedades y plagas"
+      },
+      "text": {
+        "fr": "L'anthracnose est la maladie la plus grave de l'igname alata en Martinique. Un champignon tache les feuilles. La pluie et le vent le répandent. Il peut venir de plants infectés ou de débris de la culture précédente.\nLes nématodes du sol et les virus abîment aussi les cultures. Les cochenilles et les vers blancs peuvent attaquer les tubercules.\nPour prévenir : plants sains, variétés tolérantes, désherbage, retrait des débris, alternance des cultures. Si un traitement est nécessaire, suivez les conseils agréés et le bulletin de santé du végétal.\nRegard d'expert (phytopathologiste) : regardez les feuilles chaque semaine. Une tache vue tôt se gère mieux.",
+        "kr": "Antraknòz sé maladi pli grav pou yanm alata an Matinik. On chanpiyon ka fè tach asi fèy-la. Lapli-a é van-an ka gaye-y. I pé sòti adan plant ki enfekté oben adan rès kilti ki té la avan.\nNématòd tè-la é viris-la ka kasé kilti-a tou. Kochnil é vè blan pé atak rasin-la.\nPou évité sa : plant sen, kalité ki rézisté, dézèbé, wété rès-la, chanjé kilti. Si fok trété, swiv konsèy yo ka agréé é bilten santé plant-la.\nKonsèy an on espè (doktè plant) : gadé fèy-la chak simenn. On tach yo wè bonè ka jéré pli fasil.",
+        "en": "Anthracnose is the most serious disease of alata yam in Martinique. A fungus spots the leaves. Rain and wind spread it. It can come from infected planting material or from debris of the previous crop.\nSoil nematodes and viruses also damage the crop. Scale insects and white grubs can attack the tubers.\nTo prevent trouble: healthy planting material, tolerant varieties, weeding, removing debris, crop rotation. If a treatment is needed, follow approved advice and the plant health bulletin.\nExpert's view (plant pathologist): check the leaves every week. A spot seen early is easier to manage.",
+        "es": "La antracnosis es la enfermedad más grave del ñame alata en Martinica. Un hongo mancha las hojas. La lluvia y el viento lo propagan. Puede venir de material infectado o de restos del cultivo anterior.\nLos nematodos del suelo y los virus también dañan el cultivo. Las cochinillas y los gusanos blancos pueden atacar los tubérculos.\nPara prevenir: material sano, variedades tolerantes, deshierbe, retirar los restos y rotar cultivos. Si hace falta tratar, siga el consejo autorizado y el boletín de sanidad vegetal.\nMirada experta (fitopatólogo): mire las hojas cada semana. Una mancha vista a tiempo se controla mejor."
+      }
+    },
+    {
+      "title": {
+        "fr": "Récolter",
+        "kr": "Rékolté",
+        "en": "Harvesting",
+        "es": "Cosechar"
+      },
+      "text": {
+        "fr": "Récoltez quand les feuilles jaunissent et sèchent. C'est le signe que le tubercule est mûr. Dans les essais en Martinique, la plantation de mai a été récoltée jusqu'en février, soit environ 8 à 9 mois.\nChoisissez un temps sec. Dégagez la terre avec précaution et soulevez le tubercule sans le blesser. Une blessure laisse entrer les pourritures. Posez les tubercules à l'ombre, jamais en plein soleil.\nMettez de côté dès maintenant les plus beaux et les plus sains pour les plants.\nRegard d'expert (spécialiste après-récolte) : le soin pris à l'arrachage décide de la durée de conservation.",
+        "kr": "Rékolté lè fèy-la ka jonis é ka sèché. Sa vlé di rasin-la mi. Adan esè an Matinik, plantasyon mé-a té rékolté jiska févriyé, sé a pé pré 8 a 9 mwa.\nChwazi on tan sèk. Dégajé tè-la ak pwidans é soulvé rasin-la san blésé-y. On blésir ka kité pouriti antré. Mété rasin-la anba lonbraj, pa anba solèy.\nMété a kòté tout swit pli bèl-la é pli sen-an pou plant-la.\nKonsèy an on espè (espè apré rékòlt) : swen ou ka pran pandan rékòlt-la ka dèsidé konbyen tan rasin-la ké kenbé.",
+        "en": "Harvest when the leaves turn yellow and dry. This shows the tuber is ripe. In the Martinique trials, the May planting was harvested through February, about 8 to 9 months.\nPick dry weather. Clear the soil with care and lift the tuber without wounding it. A wound lets rot in. Put the tubers in the shade, never in full sun.\nSet aside the finest, healthiest tubers right now for planting material.\nExpert's view (post-harvest specialist): the care taken at digging decides how long the tubers will keep.",
+        "es": "Coseche cuando las hojas amarillean y se secan. Es la señal de que el tubérculo está maduro. En los ensayos de Martinica, la siembra de mayo se cosechó hasta febrero, unos 8 a 9 meses.\nElija tiempo seco. Retire la tierra con cuidado y levante el tubérculo sin herirlo. Una herida deja entrar las pudriciones. Ponga los tubérculos a la sombra, nunca a pleno sol.\nSepare desde ya los más bellos y sanos para el material de plantación.\nMirada experta (especialista poscosecha): el cuidado al arrancar decide cuánto se conservarán."
+      }
+    },
+    {
+      "title": {
+        "fr": "Conserver",
+        "kr": "Kenbé",
+        "en": "Storing",
+        "es": "Conservar"
+      },
+      "text": {
+        "fr": "Un tubercule se garde tant qu'il dort. Quand il se réveille, il germe, perd du poids et pourrit. Les blessures et les moisissures accélèrent les pertes.\nTriez d'abord : mettez à part les tubercules blessés et mangez-les en premier. Laissez sécher et cicatriser à l'ombre. Rangez le reste dans un lieu sec, ombragé et bien ventilé, sans l'empiler trop haut, pour que l'air circule. Contrôlez chaque semaine et retirez ceux qui pourrissent.\nLes pertes peuvent être lourdes quand le stockage est mal fait : 40 à 50 % après six mois en Afrique de l'Ouest. Pour garder plus longtemps, on peut faire des morceaux cuits puis séchés, ou de la farine. Les nématodes continuent de se multiplier dans les tubercules stockés : ne gardez pas pour les plants ceux qui sont touchés.\nRegard d'expert (spécialiste après-récolte) : un stock sain demande un tri régulier.",
+        "kr": "On rasin ka kenbé tan i ka dòmi. Lè i ka réveyé, i ka jèrmé, i ka pèd pwa é i ka pouri. Blésir é mwizi ka vansé pèt-la.\nTrié dabò : mété a kòté rasin blésé-a é manjé yo premié. Kité yo sèché é fèmen anba lonbraj. Ranjé rès-la adan on plas sèk, lonbraj é ni van, san anpilé twòp wo, pou van-an pé pasé. Gadé yo chak simenn é wété sa ki ka pouri.\nPèt-la pé gwo lè ou pa ka kenbé bien : 40 a 50 pou san apré sis mwa an Afrik lwès. Pou kenbé pli lontan, ou pé fè mòso kwit épi sèché, oben fè farin. Nématòd-la ka kontinyé miltiplié adan rasin ki an stòk : pa kenbé sa ki enfekté pou plant.\nKonsèy an on espè (espè apré rékòlt) : on stòk ki sen ka mandé trié chak tan.",
+        "en": "A tuber keeps as long as it is dormant. When it wakes up, it sprouts, loses weight and rots. Wounds and mold speed up the losses.\nSort first: set aside wounded tubers and eat them first. Let the rest dry and heal in the shade. Store them in a dry, shaded, well-ventilated place, not piled too high, so air can move. Check every week and remove any that rot.\nLosses can be heavy when storage is poor: 40 to 50 percent after six months in West Africa. To keep yam longer, make cooked and dried pieces, or flour. Nematodes keep multiplying in stored tubers, so do not keep affected ones for planting.\nExpert's view (post-harvest specialist): a healthy store needs regular sorting.",
+        "es": "Un tubérculo se conserva mientras está en dormancia. Cuando despierta, brota, pierde peso y se pudre. Las heridas y el moho aceleran las pérdidas.\nClasifique primero: aparte los tubérculos heridos y cómalos antes. Deje secar y cicatrizar el resto a la sombra. Guárdelo en un lugar seco, sombreado y bien ventilado, sin apilarlo muy alto, para que circule el aire. Revise cada semana y retire los que se pudran.\nLas pérdidas pueden ser fuertes si el almacenamiento es malo: del 40 al 50 % tras seis meses en África occidental. Para conservar más tiempo se pueden hacer trozos cocidos y secados, o harina. Los nematodos siguen multiplicándose en los tubérculos almacenados: no guarde para plantar los que estén afectados.\nMirada experta (especialista poscosecha): una reserva sana pide clasificar con regularidad."
+      }
+    },
+    {
+      "title": {
+        "fr": "Les utilisations",
+        "kr": "Sèvi yanm-la",
+        "en": "Uses",
+        "es": "Usos"
+      },
+      "text": {
+        "fr": "L'igname se mange toujours cuite. Elle remplace la pomme de terre : bouillie, à la vapeur, rôtie, en purée, en soupe ou frite. Elle apporte environ 110 à 120 kcal pour 100 g, ainsi que des vitamines B1, B6 et C.\nPour mieux garder les nutriments, cuisez le tubercule entier avec sa peau, puis épluchez-le. Les fritures et les beignets ajoutent beaucoup de gras.\nOn peut aussi sécher des morceaux cuits et les moudre en farine, pour conserver et pour varier les plats. Ne mangez jamais d'igname sauvage ou crue sans savoir de quelle espèce il s'agit : certaines demandent une préparation spéciale. Privilégiez les tubercules venant d'un sol analysé.\nRegard d'expert (nutritionniste et cuisinier) : variez les accompagnements et préférez les cuissons simples.",
+        "kr": "Yanm ka manjé tout tan kwit. I ka ranplasé pòmdetè : bouyi, a lavapè, woti, an piré, an soup oben fri. I ka ban-nou 110 a 120 kal pou 100 gram, é vitamin B1, B6 é C.\nPou kenbé pli plis nouritir, kwit rasin-la antyé ak po-a, épi èpliché-y. Fri é bényé ka ajouté anpil gras.\nOu pé sèché mòso kwit épi moulen yo an farin, pou kenbé é pou chanjé plat-la. Pa janmen manjé yanm sovaj oben kri san konnèt ki kalité sé. Sèten mandé on prépawasyon espésyal. Chwazi pli vit rasin ki sòti adan on tè yo analizé.\nKonsèy an on espè (nitrisyonis é kwizinyé) : chanjé akonpannman é chwazi kwisson senp.",
+        "en": "Yam is always eaten cooked. It replaces potato: boiled, steamed, roasted, mashed, in soup or fried. It gives about 110 to 120 kcal per 100 g, along with vitamins B1, B6 and C.\nTo keep more nutrients, cook the whole tuber in its skin, then peel it. Frying and fritters add a lot of fat.\nYou can also dry cooked pieces and grind them into flour, to store it and to vary meals. Never eat wild or raw yam without knowing the species: some need special preparation. Prefer tubers that come from tested soil.\nExpert's view (nutritionist and cook): vary the side dishes and favor simple cooking.",
+        "es": "El ñame se come siempre cocido. Sustituye a la patata: hervido, al vapor, asado, en puré, en sopa o frito. Aporta unas 110 a 120 kcal por 100 g, además de vitaminas B1, B6 y C.\nPara conservar más nutrientes, cueza el tubérculo entero con su piel y pélelo después. Las frituras y los buñuelos añaden mucha grasa.\nTambién se pueden secar trozos cocidos y molerlos en harina, para conservar y variar los platos. No coma nunca ñame silvestre o crudo sin saber de qué especie es: algunas piden una preparación especial. Prefiera tubérculos de un suelo analizado.\nMirada experta (nutricionista y cocinero): varíe los acompañamientos y prefiera cocciones sencillas."
+      }
+    },
+    {
+      "title": {
+        "fr": "Reprendre le cycle",
+        "kr": "Rékomansé",
+        "en": "Starting the cycle again",
+        "es": "Reiniciar el ciclo"
+      },
+      "text": {
+        "fr": "À la récolte, le cycle recommence. Gardez les plus beaux tubercules des plantes sans tache ni feuilles déformées, qui peuvent être le signe d'un virus. Conservez-les à part, au sec et à l'ombre, jusqu'à ce qu'ils germent.\nÀ l'approche de la plantation, coupez-les en morceaux avec un couteau propre, laissez cicatriser, puis plantez. Retirez de la parcelle les débris de feuilles et de lianes malades. Faites suivre l'igname d'une autre culture.\nEn résumé sur l'année : planter d'avril à juillet, soigner et surveiller jusqu'à la fin de l'année, récolter environ 8 à 9 mois après la plantation, puis trier, ranger et préparer les plants.\nRegard d'expert (agronome) : de bons plants gardés avec soin font la récolte de l'année suivante.",
+        "kr": "Lè rékòlt-la fèt, tou sa ka rékomansé. Kenbé pli bèl rasin ki sòti adan plant san tach ni fèy défòmé, sa pé montré ni viris. Mété yo a kòté, adan on plas sèk anba lonbraj, jiska yo jèrmé.\nTouprè plantasyon, koupé yo an mòso ak on kouto pwòp, kité yo sèché, épi plante. Wété adan jaden-an rès fèy é liann ki malad. Mété on lòt kilti apré yanm.\nAn rézimé, asi on lanné : plante ant avril é jiyé, pran swen é gadé jiska lafen lanné, rékolté 8 a 9 mwa apré, trié, ranjé é prépawé plant-la.\nKonsèy an on espè (agwonòm) : bon plant yo kenbé ak swen ka fè rékòlt lanné apré.",
+        "en": "At harvest, the cycle starts again. Keep the finest tubers from plants with no spots and no twisted leaves, which can be a sign of virus. Store them apart, dry and in the shade, until they sprout.\nAs planting time nears, cut them into pieces with a clean knife, let them heal, then plant. Remove diseased leaf and vine debris from the plot. Follow yam with another crop.\nIn short, across the year: plant from April to July, tend and watch until the end of the year, harvest about 8 to 9 months after planting, then sort, store and prepare the planting material.\nExpert's view (agronomist): good planting material, kept with care, makes next year's harvest.",
+        "es": "Con la cosecha, el ciclo vuelve a empezar. Guarde los tubérculos más bellos de plantas sin manchas ni hojas deformadas, que pueden ser señal de virus. Consérvelos aparte, en seco y a la sombra, hasta que broten.\nCuando se acerque la siembra, córtelos en trozos con un cuchillo limpio, deje que cicatricen y plante. Retire de la parcela los restos de hojas y lianas enfermas. Haga seguir al ñame otro cultivo.\nEn resumen, a lo largo del año: plantar de abril a julio, cuidar y vigilar hasta final de año, cosechar unos 8 a 9 meses después de plantar, luego clasificar, guardar y preparar el material de plantación.\nMirada experta (agrónomo): un buen material de plantación, bien guardado, hace la cosecha del año siguiente."
+      }
+    },
+    {
+      "title": {
+        "fr": "Pour aller plus loin",
+        "kr": "Pou alé pli lwen",
+        "en": "Going further",
+        "es": "Para saber más"
+      },
+      "text": {
+        "fr": "Ce cours est un résumé. Les doses, les produits et les dates exactes se confirment auprès des organismes locaux.\nChambre d'agriculture de la Martinique : conseils et essais de variétés d'igname. INRAE Antilles-Guyane et CIRAD en Guadeloupe : recherche sur l'igname et rencontres Journ'iames. FREDON Martinique : santé des végétaux. Manuel du planteur d'ignames, publié en 2003 avec les Chambres d'agriculture de Guadeloupe et de Martinique. Livre de Lucien Degras : L'igname, plante à tubercule tropicale.\nLes gestes transmis par les anciens complètent ce cours. Notez-les et comparez-les avec ces résultats.\nRegard d'expert (pédagogue) : relisez une étape, puis essayez-la dans un petit coin de jardin.",
+        "kr": "Kou-a sé on rézimé. Dòz-la, pwodui-a é dat egzak-la fok konfirmé ak òganism lokal-la.\nChanm d'Agrikilti Matinik : konsèy é esè kalité yanm. INRAE Antiy-Gwiyann é CIRAD an Gwadloup : rechèch asi yanm é rankont Journ'iames. FREDON Matinik : santé plant. Manyèl planté yanm, pibliyé an 2003 épi Chanm d'Agrikilti Gwadloup é Matinik. Liv Lucien Degras : L'igname, plante à tubercule tropicale.\nJès ansyen-an kité ba-nou ka konplété kou-a. Nòté yo é konparé yo ak rézilta sa.\nKonsèy an on espè (pédagòg) : li on etap ankò, épi eseyé-y adan on ti kwen jaden.",
+        "en": "This course is a summary. Doses, products and exact dates should be confirmed with local organizations.\nMartinique Chamber of Agriculture: advice and yam variety trials. INRAE Antilles-Guyane and CIRAD in Guadeloupe: yam research and the Journ'iames meetings. FREDON Martinique: plant health. Manuel du planteur d'ignames, published in 2003 with the Chambers of Agriculture of Guadeloupe and Martinique. Book by Lucien Degras: L'igname, plante à tubercule tropicale.\nThe ways passed down by elders complete this course. Write them down and compare them with these results.\nExpert's view (teacher): reread one step, then try it in a small corner of a garden.",
+        "es": "Este curso es un resumen. Las dosis, los productos y las fechas exactas deben confirmarse con los organismos locales.\nCámara de Agricultura de Martinica: consejos y ensayos de variedades de ñame. INRAE Antilles-Guyane y CIRAD en Guadalupe: investigación sobre el ñame y encuentros Journ'iames. FREDON Martinica: sanidad vegetal. Manuel du planteur d'ignames, publicado en 2003 con las Cámaras de Agricultura de Guadalupe y Martinica. Libro de Lucien Degras: L'igname, plante à tubercule tropicale.\nLos gestos transmitidos por los mayores completan este curso. Anótelos y compárelos con estos resultados.\nMirada experta (pedagogo): relea una etapa y luego pruébela en un rincón pequeño de un huerto."
+      }
+    }
+  ]
+}

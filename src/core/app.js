@@ -3,7 +3,7 @@
   'use strict';
   var DATA = window.DJOUBA_DATA;
   var KEY = 'djouba.state.v1';
-  var state = { lang: 'fr', theme: 'nuit', tab: 'cours', level: '', course: '', speed: '1', voice: '' };
+  var state = { lang: 'fr', theme: 'nuit', tab: 'cours', level: '', course: '', chapter: '0', speed: '1', voice: '' };
 
   function load() {
     try {
@@ -47,10 +47,16 @@
     });
   }
 
+  function currentChapters() {
+    var c = state.course ? DATA.courses.contents[state.course] : null;
+    return c ? COURSES.chapters(c) : [];
+  }
+
   function currentText() {
-    if (!state.course) return '';
-    var c = DATA.courses.contents[state.course];
-    return c ? I18N.localized(c.text, state.lang) : '';
+    var list = currentChapters();
+    var ch = list[parseInt(state.chapter, 10)];
+    if (!ch) return '';
+    return I18N.localized(ch.title, state.lang) + '\n\n' + I18N.localized(ch.text, state.lang);
   }
 
   function renderCourses() {
@@ -62,6 +68,13 @@
     fill($('sel-course'), [{ value: '', label: t('course.choose') }].concat(list.map(function (c) {
       return { value: c.id, label: I18N.localized(DATA.courses.contents[c.id].title, state.lang) };
     })), state.course);
+    var chapters = currentChapters();
+    if (parseInt(state.chapter, 10) >= chapters.length) state.chapter = '0';
+    fill($('sel-chapter'), chapters.length ? chapters.map(function (ch, i) {
+      return { value: String(i), label: (i + 1) + '. ' + I18N.localized(ch.title, state.lang) };
+    }) : [{ value: '0', label: t('course.choose') }], state.chapter);
+    $('btn-prev').disabled = !chapters.length || state.chapter === '0';
+    $('btn-next').disabled = !chapters.length || parseInt(state.chapter, 10) >= chapters.length - 1;
     $('course-text').textContent = currentText() || t('course.empty');
   }
 
@@ -97,8 +110,11 @@
     });
     onChange($('sel-lang'), function (e) { state.lang = e.target.value; state.voice = ''; render(); });
     onChange($('sel-theme'), function (e) { state.theme = e.target.value; render(); });
-    onChange($('sel-level'), function (e) { state.level = e.target.value; state.course = ''; render(); });
-    onChange($('sel-course'), function (e) { state.course = e.target.value; render(); });
+    onChange($('sel-level'), function (e) { state.level = e.target.value; state.course = ''; state.chapter = '0'; render(); });
+    onChange($('sel-course'), function (e) { state.course = e.target.value; state.chapter = '0'; render(); });
+    onChange($('sel-chapter'), function (e) { state.chapter = e.target.value; render(); });
+    onButton($('btn-prev'), function () { state.chapter = String(Math.max(0, parseInt(state.chapter, 10) - 1)); render(); });
+    onButton($('btn-next'), function () { state.chapter = String(parseInt(state.chapter, 10) + 1); render(); });
     onChange($('sel-speed'), function (e) { state.speed = e.target.value; save(); });
     onChange($('sel-voice'), function (e) { state.voice = e.target.value; save(); });
     onButton($('btn-read'), function () {

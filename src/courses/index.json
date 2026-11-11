@@ -1,5 +1,6 @@
 {
   "levels": [
+    "tous",
     "maternelle",
     "primaire",
     "college",
@@ -7,9 +8,9 @@
   ],
   "courses": [
     {
-      "id": "essai",
-      "level": "primaire",
-      "file": "essai.json"
+      "id": "igname",
+      "level": "tous",
+      "file": "igname.json"
     }
   ]
 }

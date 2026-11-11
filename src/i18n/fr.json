@@ -26,5 +26,9 @@
   "voice.none": "Aucune voix sur cet appareil.",
   "voice.approx": "Voix française utilisée. La prononciation est approximative.",
   "voice.nocourse": "Choisissez d'abord un cours.",
-  "voice.unsupported": "Cet appareil ne sait pas lire à voix haute."
+  "voice.unsupported": "Cet appareil ne sait pas lire à voix haute.",
+  "course.chapter": "Étape",
+  "course.prev": "Précédent",
+  "course.next": "Suivant",
+  "level.tous": "Tous niveaux"
 }
