@@ -30,3 +30,9 @@ test('aucun clic hors de boutons : un seul écouteur de clic, aucun onclick', ()
   assert.ok(!/onclick/i.test(html));
   assert.strictEqual(n, 1);
 });
+
+test("la page prévient quand JavaScript est bloqué et s'ouvre sur le premier cours", () => {
+  assert.match(html, /<noscript>[\s\S]*JavaScript/);
+  const app = fs.readFileSync(path.join(__dirname, '..', 'src', 'core', 'app.js'), 'utf8');
+  assert.match(app, /Première ouverture/);
+});

@@ -147,6 +147,11 @@
 
   function init() {
     load();
+    // Première ouverture : la page s'ouvre directement sur le premier cours.
+    if (!state.level && !state.course && DATA.courses.index.courses.length) {
+      var first = DATA.courses.index.courses[0];
+      state.level = first.level; state.course = first.id; state.chapter = '0';
+    }
     Array.prototype.forEach.call(document.querySelectorAll('.tab'), function (b) {
       onButton(b, function () { state.tab = b.getAttribute('data-tab'); render(); });
     });
