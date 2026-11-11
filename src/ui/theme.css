@@ -12,6 +12,7 @@ h1 { margin:0; font-size:1.4rem; }
 .tab[data-tab="cours"]    { --tab:#e0a030; }
 .tab[data-tab="exercice"] { --tab:#e57373; }
 .tab[data-tab="glossaire"] { --tab:#ba68c8; }
+.tab[data-tab="sources"] { --tab:#26a69a; }
 .tab[data-tab="voix"]     { --tab:#4fb3d9; }
 .tab[data-tab="reglages"] { --tab:#8bc34a; }
 .tab[aria-selected="true"] { background:var(--tab); color:#101010; font-weight:700; }
@@ -23,3 +24,4 @@ main { padding:0 16px 24px; }
 .reading { white-space:pre-wrap; margin-top:12px; }
 .buttons button { flex:1; min-width:110px; }
 .note { color:#ffd54a; min-height:1.5em; }
+select { max-width:100%; }

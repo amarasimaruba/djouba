@@ -26,6 +26,7 @@
   <button type="button" role="tab" class="tab" data-tab="cours" id="tab-cours" aria-controls="panel-cours" data-i18n="tab.cours">Cours</button>
   <button type="button" role="tab" class="tab" data-tab="exercice" id="tab-exercice" aria-controls="panel-exercice" data-i18n="tab.exercice">Exercice</button>
   <button type="button" role="tab" class="tab" data-tab="glossaire" id="tab-glossaire" aria-controls="panel-glossaire" data-i18n="tab.glossaire">Glossaire</button>
+  <button type="button" role="tab" class="tab" data-tab="sources" id="tab-sources" aria-controls="panel-sources" data-i18n="tab.sources">Sources</button>
   <button type="button" role="tab" class="tab" data-tab="voix" id="tab-voix" aria-controls="panel-voix" data-i18n="tab.voix">Voix</button>
   <button type="button" role="tab" class="tab" data-tab="reglages" id="tab-reglages" aria-controls="panel-reglages" data-i18n="tab.reglages">Réglages</button>
 </nav>
@@ -80,6 +81,31 @@
       <select id="sel-gloss"></select>
     </div>
     <p id="gloss-def" class="reading" aria-live="polite"></p>
+  </section>
+
+  <section id="panel-sources" class="panel" role="tabpanel" aria-labelledby="tab-sources" hidden>
+    <div class="row">
+      <label for="sel-src-kind" data-i18n="src.kind">Liste</label>
+      <select id="sel-src-kind"></select>
+    </div>
+    <div class="row">
+      <label for="sel-src-type" data-i18n="src.type">Type</label>
+      <select id="sel-src-type"></select>
+    </div>
+    <div class="row">
+      <label for="sel-src-var" data-i18n="src.var">Variété</label>
+      <select id="sel-src-var"></select>
+    </div>
+    <div class="row">
+      <label for="sel-src-item" data-i18n="src.item">Document</label>
+      <select id="sel-src-item"></select>
+    </div>
+    <p id="src-count" class="note" role="status"></p>
+    <p id="src-detail" class="reading" aria-live="polite"></p>
+    <div class="row buttons">
+      <button type="button" id="btn-open" data-i18n="src.open">Ouvrir le lien</button>
+    </div>
+    <p id="src-net" class="note"></p>
   </section>
 
   <section id="panel-voix" class="panel" role="tabpanel" aria-labelledby="tab-voix" hidden>

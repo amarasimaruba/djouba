@@ -4,7 +4,7 @@
   var DATA = window.DJOUBA_DATA;
   var KEY = 'djouba.state.v1';
   var ex = { key: '', aides: 0, revealed: false, choice: '', need: false };
-  var state = { lang: 'fr', theme: 'nuit', tab: 'cours', level: '', course: '', chapter: '0', gloss: '', speed: '1', voice: '' };
+  var state = { lang: 'fr', theme: 'nuit', tab: 'cours', level: '', course: '', chapter: '0', gloss: '', srckind: 'bib', srctype: '', srcvar: '', src: '', speed: '1', voice: '' };
 
   function load() {
     try {
@@ -79,6 +79,41 @@
     $('course-text').textContent = currentText() || t('course.empty');
   }
 
+  function currentSources() {
+    var c = state.course ? DATA.courses.contents[state.course] : null;
+    return c ? COURSES.sources(c) : [];
+  }
+
+  function renderSources() {
+    var all = currentSources();
+    var ofKind = COURSES.filterSources(all, { kind: state.srckind }).map(function (x) { return x.s; });
+    var types = COURSES.typesOf(ofKind), vars = COURSES.varietiesOf(ofKind);
+    if (types.indexOf(state.srctype) < 0) state.srctype = '';
+    if (vars.indexOf(state.srcvar) < 0) state.srcvar = '';
+    fill($('sel-src-kind'), ['bib', 'web'].map(function (k) { return { value: k, label: t('src.kind.' + k) }; }), state.srckind);
+    fill($('sel-src-type'), [{ value: '', label: t('src.type.all') }].concat(types.map(function (x) { return { value: x, label: t('src.type.' + x) }; })), state.srctype);
+    fill($('sel-src-var'), [{ value: '', label: t('src.var.all') }].concat(vars.map(function (x) { return { value: x, label: x }; })), state.srcvar);
+    var found = COURSES.filterSources(all, { kind: state.srckind, type: state.srctype, variety: state.srcvar });
+    var chosen = null;
+    found.forEach(function (x) { if (String(x.i) === state.src) chosen = x.s; });
+    if (!chosen) state.src = '';
+    fill($('sel-src-item'), [{ value: '', label: t('course.choose') }].concat(found.map(function (x) {
+      return { value: String(x.i), label: x.s.title + (x.s.year ? ' (' + x.s.year + ')' : '') };
+    })), state.src);
+    ['sel-src-kind', 'sel-src-type', 'sel-src-var', 'sel-src-item'].forEach(function (id) { $(id).disabled = !all.length; });
+    $('src-count').textContent = all.length ? t('src.found') + ' ' + found.length : '';
+    $('btn-open').disabled = !chosen || !chosen.url;
+    $('src-net').textContent = all.length ? t('src.net') : '';
+    if (!state.course) { $('src-detail').textContent = t('src.nocourse'); return; }
+    if (!all.length) { $('src-detail').textContent = t('src.none'); return; }
+    if (!chosen) { $('src-detail').textContent = t('src.empty'); return; }
+    var lines = [chosen.title, [chosen.by, chosen.year, t('src.type.' + chosen.type)].filter(Boolean).join(' · ')];
+    if (chosen.varieties && chosen.varieties.length) lines.push(t('src.varieties') + ' ' + chosen.varieties.join(', '));
+    lines.push(I18N.localized(chosen.note, state.lang));
+    lines.push(chosen.url ? t('src.address') + ' ' + COURSES.address(chosen) : t('src.nolink'));
+    $('src-detail').textContent = lines.join('\n\n');
+  }
+
   function renderVoices() {
     var note = $('voice-note');
     if (!VOICE.supported(window)) {
@@ -147,7 +182,7 @@
       : I18N.localized(chosen.term, state.lang) + '\n\n' + I18N.localized(chosen.def, state.lang);
   }
 
-  function render() { renderStatic(); renderTabs(); renderCourses(); renderExercise(); renderGlossary(); renderVoices(); save(); }
+  function render() { renderStatic(); renderTabs(); renderCourses(); renderExercise(); renderGlossary(); renderSources(); renderVoices(); save(); }
 
   function chosenVoice() {
     var found = VOICE.pick(window.speechSynthesis.getVoices(), state.lang);
@@ -170,8 +205,16 @@
     });
     onChange($('sel-lang'), function (e) { state.lang = e.target.value; state.voice = ''; render(); });
     onChange($('sel-theme'), function (e) { state.theme = e.target.value; render(); });
-    onChange($('sel-level'), function (e) { state.level = e.target.value; state.course = ''; state.chapter = '0'; state.gloss = ''; render(); });
-    onChange($('sel-course'), function (e) { state.course = e.target.value; state.chapter = '0'; state.gloss = ''; render(); });
+    onChange($('sel-level'), function (e) { state.level = e.target.value; state.course = ''; state.chapter = '0'; state.gloss = ''; state.src = ''; render(); });
+    onChange($('sel-course'), function (e) { state.course = e.target.value; state.chapter = '0'; state.gloss = ''; state.src = ''; render(); });
+    onChange($('sel-src-kind'), function (e) { state.srckind = e.target.value; state.srctype = ''; state.srcvar = ''; state.src = ''; render(); });
+    onChange($('sel-src-type'), function (e) { state.srctype = e.target.value; state.src = ''; render(); });
+    onChange($('sel-src-var'), function (e) { state.srcvar = e.target.value; state.src = ''; render(); });
+    onChange($('sel-src-item'), function (e) { state.src = e.target.value; render(); });
+    onButton($('btn-open'), function () {
+      var s = currentSources()[parseInt(state.src, 10)];
+      if (s && s.url) window.open(COURSES.address(s), '_blank', 'noopener');
+    });
     onChange($('sel-gloss'), function (e) { state.gloss = e.target.value; render(); });
     onChange($('sel-ex-chapter'), function (e) { state.chapter = e.target.value; render(); });
     onChange($('sel-ex-answer'), function (e) { ex.choice = e.target.value; ex.need = false; renderExercise(); });

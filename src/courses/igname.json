@@ -1125,5 +1125,504 @@
         "es": "Microbio muy pequeño que enferma a una planta, por ejemplo con hojas deformadas."
       }
     }
+  ],
+  "sources": [
+    {
+      "kind": "bib",
+      "type": "livre",
+      "title": "L'igname, plante à tubercule tropicale",
+      "by": "Degras L., Maisonneuve & Larose",
+      "note": {
+        "fr": "Livre de référence en français sur l'igname, 408 pages.",
+        "kr": "Liv ki ka sèvi référans an fransé asi yanm la, 408 paj.",
+        "en": "Reference book in French on the yam, 408 pages.",
+        "es": "Libro de referencia en francés sobre el ñame, 408 páginas."
+      }
+    },
+    {
+      "kind": "bib",
+      "type": "livre",
+      "title": "The Yam: A Tropical Root Crop",
+      "by": "Degras L., Londres et Wageningen",
+      "year": 1993,
+      "note": {
+        "fr": "Version en anglais du livre de référence de Lucien Degras.",
+        "kr": "Vèrsion an anglé a liv référans Lucien Degras.",
+        "en": "English-language reference book by the same author.",
+        "es": "Libro de referencia en inglés del mismo autor."
+      }
+    },
+    {
+      "kind": "bib",
+      "type": "livre",
+      "title": "Manuel du planteur d'ignames",
+      "by": "INRA, Chambres d'agriculture de Guadeloupe et de Martinique",
+      "year": 2003,
+      "note": {
+        "fr": "Manuel de culture écrit avec les Chambres d'agriculture. Il est cité par l'INRAE.",
+        "kr": "Manyèl pou kouti yanm, fè ansanm ek Chanm agrikilti. INRAE ka sité'y.",
+        "en": "Growing manual written with the Chambers of Agriculture. INRAE cites it.",
+        "es": "Manual de cultivo escrito con las Cámaras de Agricultura. El INRAE lo cita."
+      }
+    },
+    {
+      "kind": "bib",
+      "type": "rapport",
+      "title": "Fiches techniques sur les maladies et ravageurs de l'igname",
+      "by": "INRA et UPROFIG",
+      "year": 2005,
+      "note": {
+        "fr": "Fiches faites avec l'union des producteurs d'igname de Guadeloupe. Cité par l'INRAE.",
+        "kr": "Fich fè ek sendika pwodikté yanm Gwadloup. INRAE ka sité'y.",
+        "en": "Sheets made with the Guadeloupe yam growers' union. Cited by INRAE.",
+        "es": "Fichas hechas con la unión de productores de ñame de Guadalupe. Las cita el INRAE."
+      }
+    },
+    {
+      "kind": "bib",
+      "type": "rapport",
+      "title": "Synthèses des essais de nouvelles variétés d'igname",
+      "by": "Chambre d'agriculture de la Martinique",
+      "year": 2014,
+      "url": "martinique.chambre-agriculture.fr/fileadmin/user_upload/National/FAL_commun/publications/Martinique/Synthese_des_essais_de_nouvelles_varietes_d_igname_2014.pdf",
+      "varieties": [
+        "Boutou",
+        "Plimbite",
+        "Americanos",
+        "Malalagi",
+        "Nureangdan",
+        "Kinabayo",
+        "Kabusah"
+      ],
+      "note": {
+        "fr": "Quatre essais en Martinique : levée, anthracnose et rendement de variétés nouvelles.",
+        "kr": "Kat tès an Matinik : lévé, lantraknòz ek rannman varyété nèf.",
+        "en": "Four trials in Martinique: emergence, anthracnose and yield of new varieties.",
+        "es": "Cuatro ensayos en Martinica: emergencia, antracnosis y rendimiento de variedades nuevas."
+      }
+    },
+    {
+      "kind": "bib",
+      "type": "article",
+      "title": "Étude de deux variétés d'igname, Americanos et Boutou, en Martinique (2004-2005)",
+      "by": "Audinay A., Amory R., Ano G., Jacqua G., Torregrossa J., Caribbean Food Crops Society",
+      "year": 2005,
+      "url": "ageconsearch.umn.edu/record/264165/files/46.pdf",
+      "varieties": [
+        "Boutou",
+        "Americanos",
+        "Belep",
+        "Pacala"
+      ],
+      "note": {
+        "fr": "Boutou et Americanos comparées à Belep et Pacala. Boutou donne de bons résultats.",
+        "kr": "Boutou ek Americanos konparé ek Belep ek Pacala. Boutou ka rann bon rézilta.",
+        "en": "Boutou and Americanos compared with Belep and Pacala. Boutou gives good results.",
+        "es": "Boutou y Americanos comparadas con Belep y Pacala. Boutou da buenos resultados."
+      }
+    },
+    {
+      "kind": "bib",
+      "type": "article",
+      "title": "Physicochemical, nutritional and sensorial qualities of Boutou yam (Dioscorea alata) varieties",
+      "by": "Njoh Ellong E., Billard C., Pétro D., Adenet S., Rochefort K., JBAS",
+      "year": 2015,
+      "url": "hal.inrae.fr/hal-02636530v1/file/ACL_2015_NjohEllong_JBAS_1.pdf",
+      "varieties": [
+        "Boutou"
+      ],
+      "note": {
+        "fr": "Qualités physiques, chimiques, nutritives et gustatives de la variété Boutou.",
+        "kr": "Kalité fizik, chimik, nitritif ek gou a varyété Boutou.",
+        "en": "Physical, chemical, nutritional and taste qualities of the Boutou variety.",
+        "es": "Cualidades físicas, químicas, nutritivas y de sabor de la variedad Boutou."
+      }
+    },
+    {
+      "kind": "bib",
+      "type": "article",
+      "title": "Caractérisation des systèmes de production d'igname en Guadeloupe et choix des variétés par les agriculteurs",
+      "by": "Barlagne C., Blazy J.-M.",
+      "year": 2011,
+      "url": "hal.inrae.fr/hal-02811233/document",
+      "note": {
+        "fr": "Pourquoi les producteurs choisissent telle variété : le goût passe avant la conduite de la culture.",
+        "kr": "Poukisa pwodikté ka chwazi yon varyété : gou ka vini douvan fason kouti.",
+        "en": "Why growers choose a variety: taste comes before crop management.",
+        "es": "Por qué los productores eligen una variedad: el sabor pesa más que el manejo del cultivo."
+      }
+    },
+    {
+      "kind": "bib",
+      "type": "article",
+      "title": "Anthracnose de l'igname aux Antilles (article de 2008)",
+      "by": "Jacqua G. et collègues",
+      "year": 2008,
+      "url": "hal.inrae.fr/hal-02663926/file/43976_20110608031306786_1.pdf",
+      "varieties": [
+        "Tahiti",
+        "Plimbite"
+      ],
+      "note": {
+        "fr": "Étude de la maladie sur les variétés Tahiti, Sainte Catherine et Plimbite.",
+        "kr": "Etid maladi la asi varyété Tahiti, Sainte Catherine ek Plimbite.",
+        "en": "Study of the disease on the Tahiti, Sainte Catherine and Plimbite varieties.",
+        "es": "Estudio de la enfermedad en las variedades Tahiti, Sainte Catherine y Plimbite."
+      }
+    },
+    {
+      "kind": "bib",
+      "type": "rapport",
+      "title": "Journ'iames 2012 : recueil des communications",
+      "by": "INRA et Chambre d'agriculture de Guadeloupe",
+      "year": 2012,
+      "url": "hal.inrae.fr/hal-02806096v1/document",
+      "varieties": [
+        "Belep"
+      ],
+      "note": {
+        "fr": "Journée technique sur l'igname : maladies, nouvelles variétés, économie de la filière.",
+        "kr": "Jounen téknik asi yanm : maladi, varyété nèf, lékonomi a filyè a.",
+        "en": "Technical day on yam: diseases, new varieties, economics of the sector.",
+        "es": "Jornada técnica sobre el ñame: enfermedades, variedades nuevas, economía del sector."
+      }
+    },
+    {
+      "kind": "bib",
+      "type": "article",
+      "title": "Des nouvelles variétés pour répondre aux contraintes des agriculteurs",
+      "by": "INRA, Journ'iames 2012, pages 14 et 15",
+      "year": 2012,
+      "url": "hal.inrae.fr/hal-02745558v1/file/journ%27iames%202012_Petro_14-15_1.pdf",
+      "varieties": [
+        "Boutou"
+      ],
+      "note": {
+        "fr": "Courte présentation des hybrides créés en Guadeloupe, dont Boutou.",
+        "kr": "Ti prézantasyon a ibrid yo fè an Gwadloup, ek Boutou.",
+        "en": "Short presentation of the hybrids created in Guadeloupe, including Boutou.",
+        "es": "Breve presentación de los híbridos creados en Guadalupe, entre ellos Boutou."
+      }
+    },
+    {
+      "kind": "bib",
+      "type": "article",
+      "title": "Understanding the genetic diversity and population structure of yam (Dioscorea alata L.) using microsatellite markers",
+      "by": "Arnau G. et collègues, PLoS ONE",
+      "year": 2017,
+      "url": "hal.inrae.fr/hal-02624949/document",
+      "note": {
+        "fr": "384 variétés étudiées. Dix-sept groupes de variétés proches sont repérés.",
+        "kr": "384 varyété etidyé. Disèt gwoup varyété pròch jwenn.",
+        "en": "384 accessions studied. Seventeen groups of close varieties are found.",
+        "es": "Se estudian 384 accesiones. Se hallan diecisiete grupos de variedades cercanas."
+      }
+    },
+    {
+      "kind": "bib",
+      "type": "article",
+      "title": "Genome-wide genotyping elucidates the geographical diversification and dispersal of the polyploid and clonally propagated yam (Dioscorea alata L.)",
+      "by": "Sharif B. M. et collègues, Annals of Botany",
+      "year": 2020,
+      "url": "hal.inrae.fr/hal-03126703v1/file/2020_Sharif_Annals-of-Botany.pdf",
+      "note": {
+        "fr": "643 variétés venues de quatre continents. La diversité génétique est faible.",
+        "kr": "643 varyété ki sòti nan kat kontinan. Divèrsité jénétik la fèb.",
+        "en": "643 accessions from four continents. Genetic diversity is low.",
+        "es": "643 accesiones de cuatro continentes. La diversidad genética es baja."
+      }
+    },
+    {
+      "kind": "bib",
+      "type": "rapport",
+      "title": "Acquisition de connaissances approfondies sur la génétique de l'espèce Dioscorea alata",
+      "by": "Arnau G., mémoire d'habilitation, Cirad",
+      "url": "agritrop.cirad.fr/614027/1/Memoire%20HDR%20ARNAU%20Gemma.pdf",
+      "note": {
+        "fr": "Synthèse sur la sélection des variétés d'igname menée en Guadeloupe depuis 2001.",
+        "kr": "Rézimé asi chwa varyété yanm yo fè an Gwadloup dépi 2001.",
+        "en": "Summary of the yam variety breeding program run in Guadeloupe since 2001.",
+        "es": "Síntesis del programa de mejora de variedades de ñame en Guadalupe desde 2001."
+      }
+    },
+    {
+      "kind": "bib",
+      "type": "article",
+      "title": "Detecting the genetic variants associated with key culinary traits in Dioscorea alata",
+      "by": "Dossa K. et collègues, LWT",
+      "year": 2024,
+      "url": "hal.inrae.fr/hal-04621871/document",
+      "note": {
+        "fr": "Les gènes liés à la cuisson et au moulage de l'igname cuite.",
+        "kr": "Jèn ki lié ek kwit yanm lan ek fason i ka moulé.",
+        "en": "Genes linked to cooking quality and moldability of cooked yam.",
+        "es": "Genes ligados a la cocción y a la moldeabilidad del ñame cocido."
+      }
+    },
+    {
+      "kind": "bib",
+      "type": "article",
+      "title": "Extensibility of Guadeloupe collection of alata yam accessions reveal potential candidates for pounded yam production",
+      "by": "Ayetigbo O. et collègues, Tropentag",
+      "year": 2024,
+      "url": "publications.cirad.fr/une_notice.php?dk=610382",
+      "varieties": [
+        "Belep",
+        "Florido",
+        "Pyramide",
+        "Goana",
+        "TiViolet"
+      ],
+      "note": {
+        "fr": "48 variétés testées pour leur texture. TiViolet et Belep s'étirent le plus.",
+        "kr": "48 varyété téstyé pou tèkstir yo. TiViolet ek Belep ka étiré pli.",
+        "en": "48 varieties tested for texture. TiViolet and Belep stretch the most.",
+        "es": "48 variedades probadas por su textura. TiViolet y Belep son las más extensibles."
+      }
+    },
+    {
+      "kind": "bib",
+      "type": "article",
+      "title": "Selected Varieties of Dioscorea alata L., the Asian Greater Yam",
+      "by": "Martin F. W., Cabanillas E., Guadalupe R., Journal of Agriculture of the University of Puerto Rico",
+      "url": "revistas.upr.edu/index.php/jaupr/article/download/10604/8930/10189",
+      "note": {
+        "fr": "Plus de 300 variétés regardées. Beaucoup ne conviennent pas à la culture.",
+        "kr": "Plis ki 300 varyété gadé. Anpil pa bon pou kouti.",
+        "en": "More than 300 varieties inspected. Many are unsuitable for farming.",
+        "es": "Más de 300 variedades inspeccionadas. Muchas no sirven para el cultivo."
+      }
+    },
+    {
+      "kind": "bib",
+      "type": "article",
+      "title": "New, Superior Varieties of Dioscorea alata, the Asian Greater Yam",
+      "by": "Martin F. W., Delpin H., Journal of Agriculture of the University of Puerto Rico",
+      "url": "revistas.upr.edu/index.php/jaupr/article/download/10399/8726/9985",
+      "varieties": [
+        "Kinabayo",
+        "Kabusah",
+        "Kinampay",
+        "Toki"
+      ],
+      "note": {
+        "fr": "Dix variétés décrites, avec des dessins de tubercules (Kinabayo, Kabusah, Kinampay, Toki).",
+        "kr": "Dis varyété dékri, ek desen a tibèrkil (Kinabayo, Kabusah, Kinampay, Toki).",
+        "en": "Ten varieties described, with tuber drawings (Kinabayo, Kabusah, Kinampay, Toki).",
+        "es": "Diez variedades descritas, con dibujos de tubérculos (Kinabayo, Kabusah, Kinampay, Toki)."
+      }
+    },
+    {
+      "kind": "bib",
+      "type": "rapport",
+      "title": "Catalogue igname, décembre 2023",
+      "by": "Cirad et Chambre d'agriculture de la Guadeloupe",
+      "year": 2023,
+      "url": "umr-agap.cirad.fr/media/equipes/defi/catalogue-igname_dec2023",
+      "note": {
+        "fr": "Fiches de variétés avec l'espèce, l'obtenteur et le mainteneur.",
+        "kr": "Fich varyété ek lèspès, obtenè ek mentnè.",
+        "en": "Variety sheets with species, breeder and maintainer.",
+        "es": "Fichas de variedades con especie, obtentor y mantenedor."
+      }
+    },
+    {
+      "kind": "bib",
+      "type": "rapport",
+      "title": "Bulletin de santé du végétal Guadeloupe, cultures vivrières, bilan 2021",
+      "by": "Chambre d'agriculture, Cirad, INRAE, DAAF",
+      "year": 2022,
+      "url": "daaf.guadeloupe.agriculture.gouv.fr/IMG/pdf/BSV971_CulturesVivrieres-Bilan2021_cle817166.pdf",
+      "varieties": [
+        "Kabusah",
+        "Goana"
+      ],
+      "note": {
+        "fr": "Niveau d'anthracnose suivi sur 17 parcelles, selon la variété (Kabusah, Goana).",
+        "kr": "Nivo lantraknòz swiv asi 17 parsèl, selon varyété (Kabusah, Goana).",
+        "en": "Anthracnose level followed on 17 plots, by variety (Kabusah, Goana).",
+        "es": "Nivel de antracnosis seguido en 17 parcelas, por variedad (Kabusah, Goana)."
+      }
+    },
+    {
+      "kind": "bib",
+      "type": "rapport",
+      "title": "Yam Tech Pack 2017",
+      "by": "Ministère de l'agriculture de Sainte-Lucie",
+      "year": 2017,
+      "url": "moaslu.govt.lc/wp-content/uploads/2021/06/Yam-Tech-Pack-2017.pdf",
+      "varieties": [
+        "White Lisbon"
+      ],
+      "note": {
+        "fr": "Fiche technique en anglais, avec photos de White Lisbon et de l'igname portugaise.",
+        "kr": "Fich téknik an anglé, ek foto White Lisbon ek yanm pòtigé.",
+        "en": "English technical pack with photos of White Lisbon and Portuguese yam.",
+        "es": "Ficha técnica en inglés, con fotos de White Lisbon y del ñame portugués."
+      }
+    },
+    {
+      "kind": "bib",
+      "type": "rapport",
+      "title": "Igname : approche intégrée pour une culture de subsistance",
+      "by": "Université de Porto Rico, Mayagüez",
+      "year": 2025,
+      "url": "uprm.edu/sea/wp-content/uploads/sites/351/2025/12/Guia-Name-en-Frances-2025.pdf",
+      "varieties": [
+        "Florido",
+        "Diamantes",
+        "Binugas"
+      ],
+      "note": {
+        "fr": "Guide en français sur l'igname. Il cite les variétés les plus mangées à Porto Rico.",
+        "kr": "Gid an fransé asi yanm. I ka sité varyété yo ka manjé pli Pòtoriko.",
+        "en": "Guide in French on yam. It names the most eaten varieties in Puerto Rico.",
+        "es": "Guía en francés sobre el ñame. Cita las variedades más consumidas en Puerto Rico."
+      }
+    },
+    {
+      "kind": "web",
+      "type": "video",
+      "title": "Introduction de nouvelles variétés d'ignames en Haïti",
+      "by": "Arnau G., colloque, Martinique, bibliothèque numérique Manioc",
+      "year": 2013,
+      "url": "manioc.org/notice-download/8137",
+      "note": {
+        "fr": "Vidéo d'une communication sur des variétés d'igname blanche résistantes ou tolérantes à l'anthracnose.",
+        "kr": "Vidéo yon kominikasyon asi varyété yanm blan ki rézistan oswa tolérant a lantraknòz.",
+        "en": "Video of a talk on white yam varieties resistant or tolerant to anthracnose.",
+        "es": "Video de una ponencia sobre variedades de ñame blanco resistentes o tolerantes a la antracnosis."
+      }
+    },
+    {
+      "kind": "web",
+      "type": "video",
+      "title": "Varietal dynamics in Yam producers from Guadeloupe and impact of anthracnose disease",
+      "by": "Penet L., colloque, Le Gosier, bibliothèque numérique Manioc",
+      "year": 2016,
+      "url": "manioc.org/notice-download/13003",
+      "note": {
+        "fr": "Vidéo de colloque sur l'évolution des variétés chez les producteurs de Guadeloupe.",
+        "kr": "Vidéo kolòk asi chanjman a varyété yo adan pwodikté Gwadloup.",
+        "en": "Conference video on how varieties changed among Guadeloupe growers.",
+        "es": "Video de congreso sobre la evolución de las variedades entre los productores de Guadalupe."
+      }
+    },
+    {
+      "kind": "web",
+      "type": "video",
+      "title": "The AfricaYam Documentary",
+      "by": "IITA",
+      "year": 2022,
+      "url": "hdl.handle.net/10568/129104",
+      "note": {
+        "fr": "Film documentaire de l'IITA sur l'igname en Afrique, utile pour le contexte général.",
+        "kr": "Fim dokimantè IITA asi yanm an Afrik, itil pou kontèks jénéral.",
+        "en": "IITA documentary on yam in Africa, useful for general context.",
+        "es": "Documental del IITA sobre el ñame en África, útil para el contexto general."
+      }
+    },
+    {
+      "kind": "web",
+      "type": "image",
+      "title": "Dioscorea alata, photo prise à Vavaʻu (Tonga)",
+      "by": "Tauʻolunga, Wikimedia Commons via Encyclopedia of Life, licence CC BY-SA 3.0",
+      "year": 2007,
+      "url": "eol.org/media/29963696",
+      "note": {
+        "fr": "Photo libre de la plante qui grimpe sur une feuille de cocotier.",
+        "kr": "Foto lib a plant la ka grenpé asi yon fèy koko.",
+        "en": "Free photo of the plant climbing a coconut leaf.",
+        "es": "Foto libre de la planta trepando por una hoja de cocotero."
+      }
+    },
+    {
+      "kind": "web",
+      "type": "image",
+      "title": "Dioscorea alata, illustration",
+      "by": "ClipArt ETC, université de Floride du Sud",
+      "url": "etc.usf.edu/clipart/keyword/dioscorea-alata",
+      "note": {
+        "fr": "Dessin du feuillage et d'un petit tubercule.",
+        "kr": "Desen a fèyaj ek yon ti tibèrkil.",
+        "en": "Drawing of the foliage and a small tuber.",
+        "es": "Dibujo del follaje y de un pequeño tubérculo."
+      }
+    },
+    {
+      "kind": "web",
+      "type": "site",
+      "title": "Agriculture en Guadeloupe : des nouvelles variétés d'igname pour dynamiser la production locale",
+      "by": "Outremers 360",
+      "url": "outremers360.com/bassin-atlantique-appli/agriculture-en-guadeloupe-des-nouvelles-varietes-digname-pour-dynamiser-la-production-locale",
+      "varieties": [
+        "Pacala"
+      ],
+      "note": {
+        "fr": "Article sur les variétés du Cirad, comparées à Pacala. Il cite des propos de techniciens.",
+        "kr": "Atik asi varyété Cirad, konparé ek Pacala. I ka sité tèknisyen.",
+        "en": "Article on the Cirad varieties, compared with Pacala. It quotes technicians.",
+        "es": "Artículo sobre las variedades del Cirad, comparadas con Pacala. Cita a técnicos."
+      }
+    },
+    {
+      "kind": "web",
+      "type": "site",
+      "title": "Guadeloupe : restitution des études sur la production de l'igname",
+      "by": "Outremers 360",
+      "year": 2022,
+      "url": "outremers360.com/bassin-atlantique-appli/guadeloupe-restitution-des-etudes-sur-la-production-de-ligname-par-linrae-le-cirad-et-luniversite-des-antilles",
+      "note": {
+        "fr": "Article sur la seconde journée Journ'iames, avec l'INRAE, le Cirad et l'Université des Antilles.",
+        "kr": "Atik asi dézyèm jounen Journ'iames, ek INRAE, Cirad ek Inivèsité Zantiy.",
+        "en": "Article on the second Journ'iames day, with INRAE, Cirad and the University of the Antilles.",
+        "es": "Artículo sobre la segunda jornada Journ'iames, con INRAE, Cirad y la Universidad de las Antillas."
+      }
+    },
+    {
+      "kind": "web",
+      "type": "site",
+      "title": "Le yam (igname) en Martinique",
+      "by": "AZ Martinique",
+      "url": "azmartinique.com/en/all-to-know/fruits-vegetables/yam",
+      "varieties": [
+        "Plimbite",
+        "Belep",
+        "Pacala",
+        "Boutou"
+      ],
+      "note": {
+        "fr": "Page grand public en anglais. Elle liste des variétés cultivées en Martinique.",
+        "kr": "Paj pou tout moun an anglé. I ka listé varyété yo ka kouti Matinik.",
+        "en": "General page in English. It lists varieties grown in Martinique.",
+        "es": "Página general en inglés. Enumera variedades cultivadas en Martinica."
+      }
+    },
+    {
+      "kind": "web",
+      "type": "site",
+      "title": "Yam (vegetable)",
+      "by": "Wikipédia en anglais",
+      "url": "en.wikipedia.org/wiki/Yam_(vegetable)",
+      "note": {
+        "fr": "Vue d'ensemble des espèces d'igname et de leur culture dans le monde.",
+        "kr": "Gro lévi a lèspès yanm ek kouti yo adan lémonn.",
+        "en": "Overview of yam species and their cultivation worldwide.",
+        "es": "Visión general de las especies de ñame y su cultivo en el mundo."
+      }
+    },
+    {
+      "kind": "web",
+      "type": "site",
+      "title": "Notice AGRIS sur la sélection variétale de Dioscorea alata",
+      "by": "Cirad, base AGRIS de la FAO",
+      "url": "agris.fao.org/search/fr/records/64745c0e13d110e4e7acb1fd",
+      "note": {
+        "fr": "Notice sur la collection de 150 variétés de D. alata et sur le programme lancé en 2003.",
+        "kr": "Nòt asi koleksyon 150 varyété D. alata ek pwogram kòmansé an 2003.",
+        "en": "Record on the collection of 150 D. alata varieties and the program started in 2003.",
+        "es": "Ficha sobre la colección de 150 variedades de D. alata y el programa iniciado en 2003."
+      }
+    }
   ]
 }

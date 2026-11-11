@@ -42,9 +42,10 @@ Le build lit les JSON et les place dans `window.DJOUBA_DATA`. Un fichier ouvert 
 - Couleurs : fond sombre, écriture claire, un thème au choix, une couleur par onglet. Pas de fond blanc.
 - Voix : synthèse vocale du navigateur, voix locales d'abord. Le kréyòl n'a pas de voix système, on prend une voix française et on le dit à l'écran. Sans voix, l'application continue de marcher.
 - Glossaire : chaque cours a un `glossary` (liste de `term` et `def` dans les quatre langues) avec tous les mots qui ne sont pas du langage courant : termes techniques, sigles, métiers. L'onglet Glossaire les range par ordre alphabétique dans un menu déroulant. Chaque mot du glossaire doit apparaître dans le cours.
+- Sources : chaque cours a un champ `sources` (bibliographie : livre, article, rapport ; webographie : video, audio, image, site). Chaque source a `kind` (`bib` ou `web`), `type`, `title`, `by`, `note` dans les quatre langues, et facultativement `year`, `url` et `varieties`. Seuls des documents réellement trouvés sont inscrits. L'adresse s'écrit sans `https://` : le préfixe est ajouté à l'ouverture du lien (`COURSES.address`), car le fichier final ne contient aucune adresse externe. Un lien s'ouvre par un vrai bouton, et il demande une connexion.
 - Exercices : chaque étape d'un cours a un `exercise` (question, 3 réponses dans un menu déroulant, `answer` = numéro de la bonne réponse, exactement 2 `aides`). L'onglet Exercice ouvre l'aide 1, puis l'aide 2, puis seulement la réponse.
 - Les textes des livrables suivent la commande `/ecriture` : mots simples, pas de tirets longs.
 
 ## Tests
 
-Les tests vérifient : mêmes clés dans les quatre langues, cours valides, exercices avec exactement deux aides, glossaire complet, choix de voix, fichier final sans adresse externe, script valide, et clics réservés aux boutons, modèle de cours vide et à jour avec le format. Ajouter un test pour chaque nouvelle règle de cette liste.
+Les tests vérifient : mêmes clés dans les quatre langues, cours valides, exercices avec exactement deux aides, glossaire complet, sources complètes (type cohérent, note en quatre langues, adresse sans schéma, pas de doublon), choix de voix, fichier final sans adresse externe, script valide, et clics réservés aux boutons, modèle de cours vide et à jour avec le format. Ajouter un test pour chaque nouvelle règle de cette liste.

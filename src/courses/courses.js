@@ -13,6 +13,27 @@ var COURSES = (function () {
     if (content.chapters && content.chapters.length) return content.chapters;
     return [{ title: content.title, text: content.text }];
   }
-  return { levels: levels, forLevel: forLevel, find: find, chapters: chapters };
+  // Sources d'un cours : bibliographie (livres, articles, rapports) et webographie (vidéos, sons, images, sites).
+  function sources(content) { return content.sources || []; }
+  function filterSources(list, f) {
+    var out = [];
+    list.forEach(function (s, i) {
+      if (f.kind && s.kind !== f.kind) return;
+      if (f.type && s.type !== f.type) return;
+      if (f.variety && (s.varieties || []).indexOf(f.variety) < 0) return;
+      out.push({ i: i, s: s });
+    });
+    return out;
+  }
+  function uniq(list, pick) {
+    var seen = {};
+    list.forEach(function (s) { [].concat(pick(s) || []).forEach(function (v) { seen[v] = true; }); });
+    return Object.keys(seen).sort(function (a, b) { return a.localeCompare(b, 'fr'); });
+  }
+  function typesOf(list) { return uniq(list, function (s) { return s.type; }); }
+  function varietiesOf(list) { return uniq(list, function (s) { return s.varieties; }); }
+  // Les adresses sont rangées sans le début ; le préfixe est ajouté ici, à l'ouverture d'un lien seulement.
+  function address(s) { return s && s.url ? 'https:' + '/' + '/' + s.url : ''; }
+  return { levels: levels, forLevel: forLevel, find: find, chapters: chapters, sources: sources, filterSources: filterSources, typesOf: typesOf, varietiesOf: varietiesOf, address: address };
 })();
 if (typeof module !== 'undefined') module.exports = COURSES;

@@ -1,5 +1,5 @@
 {
-  "_notes": "MODÈLE VIDE. Copier avec npm run nouveau-cours. Remplir les 4 langues partout. Dupliquer l'étape autant de fois que nécessaire. Chaque étape a un exercice : 3 réponses, answer = numéro de la bonne (0, 1 ou 2), exactement 2 aides. Glossaire : tous les mots qui ne sont pas du langage courant (termes techniques, sigles, métiers), dans les 4 langues. Dernière étape conseillée : Pour aller plus loin (sources).",
+  "_notes": "MODÈLE VIDE. Copier avec npm run nouveau-cours. Remplir les 4 langues partout. Dupliquer l'étape autant de fois que nécessaire. Chaque étape a un exercice : 3 réponses, answer = numéro de la bonne (0, 1 ou 2), exactement 2 aides. Glossaire : tous les mots qui ne sont pas du langage courant (termes techniques, sigles, métiers), dans les 4 langues. Sources : bibliographie (livre, article, rapport) et webographie (video, audio, image, site) ; kind = bib ou web ; url sans le début https:// ; varieties = noms de variétés citées (facultatif) ; note courte dans les 4 langues. N'ajouter que des documents réellement trouvés et ouverts.",
   "title": {
     "fr": "",
     "kr": "",
@@ -74,6 +74,23 @@
         "es": ""
       },
       "def": {
+        "fr": "",
+        "kr": "",
+        "en": "",
+        "es": ""
+      }
+    }
+  ],
+  "sources": [
+    {
+      "kind": "",
+      "type": "",
+      "title": "",
+      "by": "",
+      "year": "",
+      "url": "",
+      "varieties": [],
+      "note": {
         "fr": "",
         "kr": "",
         "en": "",

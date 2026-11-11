@@ -12,7 +12,8 @@ Ensuite :
 4. Chaque exercice a 3 réponses et exactement 2 aides. Varie la place de la bonne réponse.
 5. Écris le glossaire : tous les mots du cours qui ne sont pas du langage courant (termes techniques, sigles, métiers, noms d'organismes), avec une définition courte dans les quatre langues.
 6. Applique `/ecriture` : mots simples, pas de tiret long, pas de « pas X mais Y ».
-7. Écris sans chiffre inventé : si une donnée n'a pas de source, reste vague et dis-le.
-8. Lance `npm test`, puis `npm run build`, et ouvre `dist/djouba.html` pour vérifier le menu d'étapes et l'onglet Exercice.
-9. Travaille sur une branche à part. Ne fusionne qu'après l'accord de l'utilisateur.
-10. Dis à l'utilisateur que le kréyòl est à faire relire par lui, et envoie-lui le fichier `dist/djouba.html`.
+7. Écris les sources du cours (`sources`) : bibliographie (livre, article, rapport) et webographie (video, audio, image, site). Garde seulement des documents réellement trouvés par la recherche, sans inventer de titre, d'auteur ni d'adresse. Écris l'adresse sans `https://`. Ajoute une note courte dans les quatre langues et les variétés citées si le sujet en a. Si aucun document audio ou vidéo n'existe, dis-le à l'utilisateur.
+8. Écris sans chiffre inventé : si une donnée n'a pas de source, reste vague et dis-le.
+9. Lance `npm test`, puis `npm run build`, et ouvre `dist/djouba.html` pour vérifier le menu d'étapes et l'onglet Exercice.
+10. Travaille sur une branche à part. Ne fusionne qu'après l'accord de l'utilisateur.
+11. Dis à l'utilisateur que le kréyòl est à faire relire par lui, et envoie-lui le fichier `dist/djouba.html`.
